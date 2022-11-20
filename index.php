@@ -13,7 +13,7 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-        <link href="assets/css/styles.css" rel="stylesheet" />
+        <link href="assets/css/styles.css" rel="stylesheet">
     </head>
     <body>
         <!-- Responsive navbar-->
@@ -61,31 +61,31 @@
                             <div class="input-group">
                                 <div class="form-floating mb-3 mx-5">
                                     <select class="form-select" name='lokasi' id='lokasi'>
-                                        <option value=''>>All</option>
+                                        <option value=''>All</option>
                                     </select>
                                     <label for="lokasi">Lokasi</label>
                                 </div>
                                 <div class="form-floating mb-3 mx-5">
                                     <select class="form-select" name='jabatan' id='jabatan'>
-                                        <option value=''>>All</option>
+                                        <option value=''>All</option>
                                     </select>
                                     <label for="jabatan">Jabatan</label>
                                 </div>
                                 <div class="form-floating mb-3 mx-5">
                                     <select class="form-select" name='jenis' id='jenis'>
-                                    <option value=''>>All</option>
+                                    <option value=''>All</option>
                                     </select>
                                     <label for="jenis">Jenis</label>
                                 </div>
                                 <div class="form-floating mb-3 mx-5">
                                     <select class="form-select" name='sort' id='sort'>
-                                    <option value=''>>All</option>
+                                    <option value=''>All</option>
                                     </select>
                                     <label for="sort">Sort</label>
                                 </div>
                                 <div class="form-floating mb-3 mx-5">
                                     <select class="form-select" name='asc' id='asc'>
-                                        <option value=''>>All</option>
+                                        <option value=''>All</option>
                                     </select>
                                     <label for="asc">Sort</label>
                                 </div>
@@ -114,6 +114,14 @@
                                             </thead>
                                             <tbody>
                                             <tbody>
+                                                <tr>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
                                                     <td>
                                                         <form action='' method='post'>
                                                             <input type='hidden' name='apply' value=''>
