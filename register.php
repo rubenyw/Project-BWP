@@ -50,34 +50,26 @@
                 <form class="col-4 bg-white border py-5 px-5" action="" method="post">
                     <h2>Register</h2>
                     <div class="form-floating mb-3 mt-5">
-                        <input type="text" class="form-control bg-light" id="floatingInput" name="username" placeholder=" ">
-                        <label for="floatingInput" class="fw-bold">Username</label>
-                    </div>
-                    <div class="form-floating mb-3">
-                        <input type="text" class="form-control bg-light" id="floatingFull" name="fullname" placeholder=" ">
+                        <input type="text" class="form-control bg-light form" id="floatingFull" name="fullname" placeholder=" ">
                         <label for="floatingFull" class="fw-bold">Full Name</label>
                     </div>
                     <div class="form-floating mb-3">
-                        <input type="tel" class="form-control bg-light" id="floatingTel" name="telephone" placeholder=" ">
+                        <input type="tel" class="form-control bg-light form" id="floatingTel" name="telephone" placeholder=" ">
                         <label for="floatingTel" class="fw-bold">No. Telp</label>
                     </div>
                     <div class="input-group mb-3">
-                        <select class="form-select bg-light fw-bold" style="height: 55px;" name="gender" id="floatingGender">
+                        <select class="form-select bg-light fw-bold form" style="height: 55px;" name="gender" id="floatingGender">
                             <option class="fw-bold" value="" hidden>Gender</option>
                             <option class="fw-bold" value="male">Male</option>
                             <option class="fw-bold" value="female">Female</option>
                         </select>
                     </div>
                     <div class="form-floating mb-3">
-                        <input type="text" class="form-control bg-light" id="floatingHobi" name="hobi" placeholder=" ">
-                        <label for="floatingHobi" class="fw-bold">Hobi</label>
-                    </div>
-                    <div class="form-floating mb-3">
-                        <input type="password" class="form-control bg-light" id="floatingPassword" name="password" placeholder=" ">
+                        <input type="password" class="form-control bg-light form" id="floatingPassword" name="password" placeholder=" ">
                         <label for="floatingPassword" class="fw-bold">Password</label>
                     </div>
                     <div class="form-floating mb-5">
-                        <input type="password" class="form-control bg-light" id="floatingConfirm" name="confirmp" placeholder=" ">
+                        <input type="password" class="form-control bg-light form" id="floatingConfirm" name="confirmp" placeholder=" ">
                         <label for="floatingConfirm" class="fw-bold">Confirm Password</label>
                     </div>
                     <div class="d-grid gap-2">
@@ -115,8 +107,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
     <script>
         window.onload = (event) => {
-            formControl = document.querySelectorAll(".form-control");
-            formSelect = document.getElementById("floatingGender");
+            formControl = document.querySelectorAll(".form");
             for (let i = 0; i < formControl.length; i++) {
                 formControl[i].onblur = function(){
                     if(formControl[i].value.length == 0){
@@ -126,15 +117,6 @@
                         formControl[i].classList.remove("is-invalid");
                         formControl[i].classList.add("is-valid");
                     }
-                }
-            }
-            formSelect.onblur = function(){
-                if(formSelect.value.length == 0){
-                    formSelect.classList.add("is-invalid");
-                    formSelect.classList.remove("is-valid");
-                }else{
-                    formSelect.classList.remove("is-invalid");
-                    formSelect.classList.add("is-valid");
                 }
             }
         };
