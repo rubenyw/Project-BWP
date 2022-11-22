@@ -51,7 +51,7 @@
                 </a>
                 <ul class="nav justify-content-end fw-bold">
                     <li class="nav-item">
-                        <a class="nav-link text-dark" href="index.php">Login</a>
+                        <a class="nav-link text-dark" href="login.php">Login</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-dark" aria-current="page" href="">Register</a>
