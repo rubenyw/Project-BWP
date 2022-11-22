@@ -1,23 +1,33 @@
 <?php
     require('action.php');
+    
+    if(isset($_POST['login'])){
+        header('Location: login.php');
+    }
+    if(isset($_POST['register'])){
+        header('Location: register.php');
+    }
+    if(isset($_POST['logout'])){
+        // unset('userLogin', $_SESSION);
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>Website</title>
         <!-- Bootstrap icons-->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet" />
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
         <link href="assets/css/general.css" rel="stylesheet">
     </head>
     <body>
         <!-- Responsive navbar-->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <nav class="navbar navbar-expand-lg p-3 position-sticky top-0 w-100 shadow navbar-dark bg-dark">
             <div class="container">
                 <a class="navbar-brand" href="">Job Finder</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
@@ -27,9 +37,28 @@
                         <li class="nav-item"><a class="nav-link" href="user_request.php">Request</a></li>
                         <li class="nav-item"><a class="nav-link" href="user_profile.php"></a></li>
                     </ul>
-                    <form class="d-flex" role="search">
-                        <a class="btn btn-outline-light btn-sm px-4 mx-4" href="login.php">Sign In</a>
-                        <a class="btn btn-outline-danger btn-sm px-4" href="register.php">Sign up</a>
+                    <form class="d-flex" role="search" action="" method="post">
+                        <?php
+                        if(!isset($_SESSION['userLogin'])){
+                        ?>
+                        <button class="btn btn-dark btn-sm mx-4 px-5" name="login">
+                            <i class="bi bi-person-circle me-auto"></i> LOGIN
+                        </button>
+                        <button class="btn btn-outline-light btn-sm px-5" name="register">
+                            Sign up
+                        </button>
+                        <?php
+                        }else{
+                        ?>
+                        <button class="btn btn-dark btn-sm mx-4 px-5" name="profile">
+                            <i class="bi bi-person-circle me-auto"></i> <?=$_SESSION['userLogin']['username']?>
+                        </button>
+                        <button class="btn btn-outline-light btn-sm px-5" name="logout">
+                            Logout
+                        </button>
+                        <?php
+                        }
+                        ?>
                     </form>
                 </div>
             </div>
