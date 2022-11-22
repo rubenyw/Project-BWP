@@ -40,28 +40,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Bootstrap demo</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-    <link href="assets/css/general.css" rel="stylesheet">
+    <link href="assets/css/form.css" rel="stylesheet">
 </head>
 <body>
-    <div class="container-fluid bg-light">
-        <nav class="navbar bg-white">
-            <div class="container">
-                <a class="navbar-brand" href="#">
-                    <img src="assets/img/Logo.png" width="150">
-                </a>
-                <ul class="nav justify-content-end fw-bold">
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" href="login.php">Login</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" aria-current="page" href="">Register</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-        <div class="container-fluid bg-light" style="height: 800px;">
-            <div class="row h-100 justify-content-center align-items-center">
-                <form class="col-4 bg-white border py-5 px-5" action='' method='post'>
+    <div class="container-fluid">
+        
+        <div class="container-fluid">
+        <div class="row justify-content-center align-items-center" style='height: 900px;'>
+                <form class="col-4 bg-white border py-5 px-5" action="" method="post">
                     <h2>Register</h2>
                     <div class="form-floating mb-3 mt-5">
                         <input type="text" class="form-control bg-light" id="floatingInput" name="username" placeholder=" ">
@@ -95,14 +81,14 @@
                         <label for="floatingConfirm" class="fw-bold">Confirm Password</label>
                     </div>
                     <div class="d-grid gap-2">
-                        <button class="btn btn-danger   " type="submit" name='btn-register'>Register</button>
+                        <button class="btn btn-primary btn-login text-uppercase fw-bold" type="submit" name='btn-register'>Register</button>
                     </div>
                     <div class="row">
                         <div class="col text-center">
                             Have an Account? <a href="login.php">Login</a>
                         </div>
                     </div>
-                    <div class="success text-center">
+                    <div class="text-success fw-bold text-center">
                         <?php
                         if (isset($success)) {
                             if (strlen($success) > 0) {
@@ -111,7 +97,7 @@
                         }
                         ?>
                     </div>
-                    <div class="error text-center">
+                    <div class="text-danger fw-bold text-center">
                         <?php
                         if (isset($error)) {
                             if (strlen($error) > 0) {
