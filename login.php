@@ -6,18 +6,18 @@
         if ($username == "" || $password == "") {
             $error = "Ada isian kosong";
         }else {
-            $query = mysqli_query($con, "SELECT * FROM users WHERE username = '$username'");
+            $query = mysqli_query($con, "SELECT * FROM users WHERE us_username = '$username'");
             if (mysqli_num_rows($query)> 0) {
                 $result = mysqli_fetch_array($query, MYSQLI_ASSOC);
-                if ($result['password'] != $password){
+                if ($result['us_password'] != $password){
                     $error = 'Password Salah!';
                 }else { 
                     $_SESSION["userLogin"] = [
-                        'username' => $result['username'],
-                        'id' => $result['id'],
-                        'fullname' => $result['fullname'],
-                        'gender' => $result['gender'],
-                        'hobi' => $result['hobi']
+                        'username' => $result['us_username'],
+                        'id' => $result['us_id'],
+                        'email' => $result['us_email'],
+                        'gender' => $result['us_gender'],
+                        'password' => $result['us_password']
                     ];
                     header("Location: index.php");
                 }
@@ -39,7 +39,12 @@
     
 </head>
 <body>
-    <div class="container-fluid">
+    <div class="container-fluid bg-light">
+        <nav class="navbar bg-transparent">
+            <div class="container-fluid">
+                <a class="" href="index.php"><button class='btn btn-outline-danger'>Home</button></a>
+            </div>
+        </nav>
         <div class="container-fluid bg-transparent" style="height: 800px;">
             <div class="row h-100 justify-content-center align-items-center">
                 <form class="col-4 bg-white border py-5 px-5" action="" method="post">

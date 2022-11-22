@@ -1,8 +1,6 @@
 <?php
     require('action.php');
     
-    // Test Akun kalau ada misalnya
-    $_SESSION['userLogin']['username'] = 'Rubenyw';
 
     // Buat masuk ke page login
     if(isset($_POST['login'])){
@@ -47,7 +45,7 @@
                     </ul>
                     <form class="d-flex" role="search" action="" method="post">
                         <?php
-                        if(!isset($_SESSION['userLogin'])){
+                            if(!isset($_SESSION['userLogin'])){
                         ?>
                         <!-- Kalau belum login yang muncul ini -->
                         <div class="d-grid gap-2 d-md-block">
@@ -59,7 +57,7 @@
                             </button>
                         </div>
                         <?php
-                        }else{
+                            }else{
                         ?>
                         <!-- Kalau sudah Login yang muncul ini -->
                         <div class="d-grid gap-2 d-md-block">

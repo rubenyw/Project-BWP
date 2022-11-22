@@ -42,8 +42,12 @@
     <link href="assets/css/form.css" rel="stylesheet">
 </head>
 <body>
-    <div class="container-fluid">
-        
+    <div class="container-fluid bg-light">
+        <nav class="navbar bg-transparent">
+            <div class="container-fluid">
+                <a class="" href="index.php"><button class='btn btn-outline-danger'>Home</button></a>
+            </div>
+        </nav>
         <div class="container-fluid">
         <div class="row justify-content-center align-items-center" style='height: 900px;'>
                 <form class="col-4 bg-white border py-5 px-5" action="" method="post">
