@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 22, 2022 at 01:06 PM
+-- Generation Time: Nov 22, 2022 at 01:36 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.4
 
@@ -182,29 +182,27 @@ INSERT INTO `series` (`se_id`, `se_name`) VALUES
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (
   `us_id` varchar(5) NOT NULL,
-  `us_name` varchar(255) NOT NULL,
-  `us_username` varchar(100) NOT NULL,
-  `us_password` varchar(255) NOT NULL,
-  `us_dateofbirth` date NOT NULL,
-  `us_status` int(10) NOT NULL,
-  `us_priv` int(10) NOT NULL COMMENT '0 = Customer\n1 = Employee'
+  `us_username` varchar(255) NOT NULL,
+  `us_email` varchar(255) NOT NULL,
+  `us_gender` tinyint(1) NOT NULL,
+  `us_password` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`us_id`, `us_name`, `us_username`, `us_password`, `us_dateofbirth`, `us_status`, `us_priv`) VALUES
-('US001', 'Cherilyn Eugenia', 'cheryle', 'cheryle', '2002-05-12', 1, 1),
-('US002', 'Mikhael Chris', 'mikhaelc09', 'mikhaelc09', '2001-03-09', 1, 1),
-('US003', 'Widean Nagari', 'wideann', 'wideann', '2001-04-02', 1, 1),
-('US004', 'Alexander Kevin', 'cbengineer', 'cbengineer', '2001-12-11', 1, 0),
-('US005', 'David Cahyadi', 'dtrone', 'dtrone', '2001-12-22', 1, 0),
-('US006', 'Jason Gerald', 'jasong2000', 'jasong2000', '2000-11-03', 1, 0),
-('US007', 'Charles Ciputra', 'chrls', 'chrls', '2001-01-25', 1, 0),
-('US008', 'Christian Chen', 'chrstchen', 'chrstchen', '2001-02-24', 1, 0),
-('US009', 'Jason Jonathan', 'jje', 'jje', '2002-03-30', 1, 0),
-('US010', 'Michael Kevin', 'tahucrispy', 'tahucrispy', '2001-04-25', 1, 0);
+INSERT INTO `users` (`us_id`, `us_username`, `us_email`, `us_gender`, `us_password`) VALUES
+('US001', 'arsa', 'arsa@gmail.com', 1, '123'),
+('US002', 'yesnt', 'ruben@gmail.com', 1, '123'),
+('US003', 'badut', 'vincent@gmail.com', 0, '123'),
+('US004', 'Yurtin', 'yurtan@gmail.com', 1, '123'),
+('US005', 'vithunchan', 'vithun@gmail.com', 0, '123'),
+('US006', 'Ken', 'ken@gmail.com', 1, '123'),
+('US007', 'gajelas', 'nich@gmail.com', 0, '123'),
+('US008', 'quarter', 'rz@gmail.com', 1, '123'),
+('US009', 'kampus4life', 'kampus4life@gmail.com', 1, '123'),
+('US010', 'transgender', 'tim@gmail.com', 0, '123');
 
 --
 -- Indexes for dumped tables
