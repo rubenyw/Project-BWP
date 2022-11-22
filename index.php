@@ -35,7 +35,7 @@
         <!-- Responsive navbar-->
         <nav class="navbar navbar-expand-lg p-3 position-sticky top-0 w-100 shadow navbar-dark bg-dark">
             <div class="container">
-                <a class="navbar-brand" href="">Job Finder</a>
+                <a class="navbar-brand" href="">Tokosidia</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 me-3 mb-lg-0">
@@ -86,12 +86,12 @@
                 <div class="row gx-5 justify-content-center">
                     <div class="col-lg-6">
                         <div class="text-center my-5">
-                            <h1 class="display-5 fw-bolder text-white mb-2">Website Lowongan Pekerjaan Terpercaya</h1>
-                            <p class="lead text-white-50 mb-4">Pengangguran Banyak Acara? Jangan Risau, kini Job Finder hadir untuk membantu anda yang pengangguran</p>
-                            <div class="d-grid gap-3 d-sm-flex justify-content-sm-center">
+                            <h1 class="display-5 fw-bolder text-white mb-2">Website Jual Beli Action Figure</h1>
+                            <p class="lead text-white-50 mb-4">Ingin beli action figure murah dan terpercaya? Tokosidia jawabannya</p>
+                            <!-- <div class="d-grid gap-3 d-sm-flex justify-content-sm-center">
                                 <a class="btn btn-primary btn-lg px-4 me-sm-3" href="#features">Get Started</a>
-                                <!-- <a class="btn btn-outline-light btn-lg px-4" href="#!">Learn More</a> -->
-                            </div>
+                                 <a class="btn btn-outline-light btn-lg px-4" href="#!">Learn More</a>
+                            </div> -->
                         </div>
                     </div>
                 </div>
@@ -101,7 +101,7 @@
         <section class="intro py-5 border-bottom bg-light" id="features">
             <div class="mask d-flex align-items-center h-100">
                 <div class="container text-center">
-                    <h2>Lowongan Pekerjaan</h2>
+                    <h2>Action Figures</h2>
                     <div class="row justify-content-center">
                         <form action="" method="post">
                             <div class="input-group">
@@ -109,21 +109,21 @@
                                     <select class="form-select" name='lokasi' id='lokasi'>
                                         <option value=''>All</option>
                                     </select>
-                                    <label for="lokasi">Lokasi</label>
+                                    <label for="lokasi">Series</label>
                                 </div>
-                                <div class="form-floating mb-3 mx-5">
+                                <!-- <div class="form-floating mb-3 mx-5">
                                     <select class="form-select" name='jabatan' id='jabatan'>
                                         <option value=''>All</option>
                                     </select>
-                                    <label for="jabatan">Jabatan</label>
-                                </div>
+                                    <label for="jabatan">Official</label>
+                                </div> -->
                                 <div class="form-floating mb-3 mx-5">
                                     <select class="form-select" name='jenis' id='jenis'>
                                     <option value=''>All</option>
                                     </select>
-                                    <label for="jenis">Jenis</label>
+                                    <label for="jenis">Harga</label>
                                 </div>
-                                <div class="form-floating mb-3 mx-5">
+                                <!-- <div class="form-floating mb-3 mx-5">
                                     <select class="form-select" name='sort' id='sort'>
                                     <option value=''>All</option>
                                     </select>
@@ -134,7 +134,7 @@
                                         <option value=''>All</option>
                                     </select>
                                     <label for="asc">Sort</label>
-                                </div>
+                                </div> -->
                                 <button hidden type='submit' id='btn-filter'>haha</button>
                             </div>
                         </form>
@@ -149,13 +149,13 @@
                                             <thead>
                                             <tr>
                                                 <th scope="col">No </th>
-                                                <th scope="col">Company</th>
-                                                <th scope="col">Pekerjaan</th>
-                                                <th scope="col">Lokasi</th>
-                                                <th scope="col">Jabatan</th>
-                                                <th scope="col">Jenis</th>
+                                                <th scope="col">Nama Action Figure</th>
+                                                <th scope="col">Seri</th>
+                                                <th scope="col">Harga</th>
+                                                <th scope="col">Stok</th>
+                                                <!-- <th scope="col">Jenis</th>
                                                 <th scope="col">Deadline</th>
-                                                <th scope="col">Action</th>
+                                                <th scope="col">Action</th> -->
                                             </tr>
                                             </thead>
                                             <tbody>
@@ -166,8 +166,8 @@
                                                     <td></td>
                                                     <td></td>
                                                     <td></td>
-                                                    <td></td>
-                                                    <td></td>
+                                                    <!-- <td></td>
+                                                    <td></td> -->
                                                     <td class="d-grid gap-2">
                                                         <!-- <form action='' method='post'> -->
                                                             <input type='hidden' name='apply' value=''>
