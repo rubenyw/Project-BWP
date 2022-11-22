@@ -3,7 +3,7 @@
     $success = "";
     if(isset($_POST['btn-register'])){
         $username = $_POST['username'];
-        $email = $_POST['fullname'];
+        $email = $_POST['email'];
         $gender = $_POST['gender'];
         $password = $_POST['password'];
         $confirmp = $_POST['confirmp'];
