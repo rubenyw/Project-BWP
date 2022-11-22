@@ -79,12 +79,12 @@
                         ?>
                     </div>
                     <br> 
-                    <nav class="navbar bg-transparent">
-                        <div class="container-fluid d-grid gap-2 justify-content-center align-items-center">
-                            <a class="" href="index.php"><button class='btn btn-outline-primary'>Back to Home</button></a>
-                        </div>
-                    </nav>
                 </form>  
+                <nav class="navbar bg-transparent">
+                    <div class="container-fluid d-grid gap-2 justify-content-center align-items-center">
+                        <a class="" href="index.php"><button class='btn btn-outline-primary'>Back to Home</button></a>
+                    </div>
+                </nav>
             </div>
         </div>
     </div>
