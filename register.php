@@ -3,13 +3,12 @@
     $success = "";
     if(isset($_POST['btn-register'])){
         $username = $_POST['username'];
-        $fullname = $_POST['fullname'];
+        $email = $_POST['fullname'];
         $gender = $_POST['gender'];
         $password = $_POST['password'];
         $confirmp = $_POST['confirmp'];
-        $hobi = $_POST['hobi'];
         $error = "";
-        if($username == "" || $fullname == "" || $password == "" || $confirmp == "" || $hobi == ""){
+        if($username == "" || $email == "" || $password == "" || $confirmp == "" || $gender==""){
             $error = "Ada FIELD KOSONG!";
         }else if ($password != $confirmp){
             $error = "Password dan Confirm Password Tidak sesuai!";
@@ -24,7 +23,7 @@
                 $row = mysqli_fetch_array($id);
                 $id = $row['ID'];
                 $gender = ($gender == "male"? 1 : 0);
-                $result = mysqli_query($con, "insert into users values('$id', '$username', '$fullname', '$gender', '$hobi', '$password')");
+                $result = mysqli_query($con, "insert into users values('$id', '$username', '$email', '$gender', '$password')");
                 $success = "Berhasil Registrasi";
             }
                     
@@ -50,12 +49,12 @@
                 <form class="col-4 bg-white border py-5 px-5" action="" method="post">
                     <h2>Register</h2>
                     <div class="form-floating mb-3 mt-5">
-                        <input type="text" class="form-control bg-light form" id="floatingFull" name="fullname" placeholder=" ">
-                        <label for="floatingFull" class="fw-bold">Full Name</label>
+                        <input type="text" class="form-control bg-light form" id="floatingFull" name="username" placeholder=" ">
+                        <label for="floatingFull" class="fw-bold">User Name</label>
                     </div>
                     <div class="form-floating mb-3">
-                        <input type="tel" class="form-control bg-light form" id="floatingTel" name="telephone" placeholder=" ">
-                        <label for="floatingTel" class="fw-bold">No. Telp</label>
+                        <input type="tel" class="form-control bg-light form" id="floatingTel" name="email" placeholder=" ">
+                        <label for="floatingTel" class="fw-bold">Email</label>
                     </div>
                     <div class="input-group mb-3">
                         <select class="form-select bg-light fw-bold form" style="height: 55px;" name="gender" id="floatingGender">

@@ -2,7 +2,7 @@
     require('action.php');
     
     // Test Akun kalau ada misalnya
-    $_SESSION['userLogin']['fullname'] = 'Rubenyw';
+    $_SESSION['userLogin']['username'] = 'Rubenyw';
 
     // Buat masuk ke page login
     if(isset($_POST['login'])){
@@ -64,7 +64,7 @@
                         <!-- Kalau sudah Login yang muncul ini -->
                         <div class="d-grid gap-2 d-md-block">
                             <button class="btn btn-dark btn-sm px-3 fw-bold" name="profile">
-                                <i class="bi bi-person-circle fill me-1"></i> <?=$_SESSION['userLogin']['fullname']?>
+                                <i class="bi bi-person-circle fill me-1"></i> <?=$_SESSION['userLogin']['username']?>
                             </button>
                             <button class="btn btn-outline-light btn-sm px-3 fw-bold" type="submit">
                                 <i class="bi-cart-fill me-1"></i>
