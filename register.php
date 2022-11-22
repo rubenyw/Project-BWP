@@ -14,12 +14,12 @@
             $error = "Password dan Confirm Password Tidak sesuai!";
         }
         else{
-            $sql_u = "SELECT * FROM users WHERE username='$username'";
+            $sql_u = "SELECT * FROM users WHERE us_username='$username'";
             $res_u = mysqli_query($con, $sql_u);
             if (mysqli_num_rows($res_u) > 0) {
                 $error = "Maaf... username telah digunakan"; 	
             }else{
-                $id = (mysqli_query($con, "SELECT concat('US', lpad(ifnull(max(substr(id,3,3))+1, 1), 3, 0)) as 'ID' from users"));
+                $id = (mysqli_query($con, "SELECT concat('US', lpad(ifnull(max(substr(us_id,3,3))+1, 1), 3, 0)) as 'ID' from users"));
                 $row = mysqli_fetch_array($id);
                 $id = $row['ID'];
                 $gender = ($gender == "male"? 1 : 0);
