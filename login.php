@@ -36,14 +36,14 @@
     <title>Bootstrap demo</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <link href="assets/css/form.css" rel="stylesheet">
-    
+    <link href="assets/css/general.css" rel="stylesheet">
 </head>
 <body>
-    <div class="container-fluid bg-light">
+    <div class="container-fluid bg-dark">
         <div class="container-fluid bg-transparent" style="height: 800px;">
             <div class="row h-100 justify-content-center align-items-center">
                 <form class="col-4 bg-white border py-5 px-5" action="" method="post">
-                    <h2 style="text-align: center;">Login</h2>
+                    <h2 style="text-align: center;" class="hover-1">Login</h2>
                     <div class="form-floating mb-3 mt-5">
                         <input type="text" class="form-control bg-light" id="floatingInput" name="username" placeholder=" ">
                         <label for="floatingInput" class="fw-bold">Username</label>
@@ -53,11 +53,11 @@
                         <label for="floatingPassword" class="fw-bold">Password</label>
                     </div>
                     <div class="d-grid gap-2">
-                        <button class="btn btn-primary text-uppercase fw-bold" type="submit" name="btn-login">Login</button>
+                        <button class="btn btn-secondary text-uppercase fw-bold hvr-overlay-from-center" type="submit" name="btn-login">Login</button>
                     </div>
                     <div class="row">
                         <div class="col text-center">
-                            No Account? <a href="register.php">Register</a>
+                            No Account? <a href="register.php" class="hover" style="text-decoration: none;">Register</a>
                         </div>
                     </div>
                     <div class="success text-center">
@@ -77,8 +77,7 @@
                             }
                         }
                         ?>
-                    </div>
-                    <br> 
+                    </div> 
                 </form>  
                 <nav class="navbar bg-transparent">
                     <div class="container-fluid d-grid gap-2 justify-content-center align-items-center">

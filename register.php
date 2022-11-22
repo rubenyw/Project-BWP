@@ -14,7 +14,7 @@
             $error = "Email tidak sesuai";
         }else if ($password != $confirmp){
             $error = "Password dan Confirm Password Tidak sesuai!";
-        } else{
+        }else{
             $sql_u = "SELECT * FROM users WHERE us_username='$username'";
             $res_u = mysqli_query($con, $sql_u);
             if (mysqli_num_rows($res_u) > 0) {
@@ -32,25 +32,25 @@
     }
     
 ?>
-
 <!doctype html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap demo</title>
+    <title>Register</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <link href="assets/css/form.css" rel="stylesheet">
+    <link href="assets/css/general.css" rel="stylesheet">
 </head>
 <body>
-    <div class="container-fluid bg-light">
+    <div class="container-fluid bg-dark">
         <div class="container-fluid">
-        <div class="row justify-content-center align-items-center" style='height: 900px;'>
+            <div class="row justify-content-center align-items-center" style='height: 900px;'>
                 <form class="col-4 bg-white border py-5 px-5" action="" method="post">
-                    <h2 style="text-align: center;">Register</h2>
+                    <h2 style="text-align: center;" class="hover-1">Register</h2>
                     <div class="form-floating mb-3 mt-5">
                         <input type="text" class="form-control bg-light form" id="floatingFull" name="username" placeholder=" ">
-                        <label for="floatingFull" class="fw-bold">User Name</label>
+                        <label for="floatingFull" class="fw-bold">Username</label>
                     </div>
                     <div class="form-floating mb-3">
                         <input type="email" class="form-control bg-light form" id="floatingTel" name="email" placeholder=" ">
@@ -72,11 +72,11 @@
                         <label for="floatingConfirm" class="fw-bold">Confirm Password</label>
                     </div>
                     <div class="d-grid gap-2">
-                        <button class="btn btn-primary btn-login text-uppercase fw-bold" type="submit" name='btn-register'>Register</button>
+                        <button class="btn btn-secondary btn-login text-uppercase fw-bold hvr-overlay-from-center" type="submit" name='btn-register'>Register</button>
                     </div>
                     <div class="row">
                         <div class="col text-center">
-                            Have an Account? <a href="login.php">Login</a>
+                            Have an Account? <a href="login.php" class="hover" style="text-decoration: none;">Login</a>
                         </div>
                     </div>
                     <div class="text-success fw-bold text-center">
