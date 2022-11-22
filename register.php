@@ -10,10 +10,11 @@
         $error = "";
         if($username == "" || $email == "" || $password == "" || $confirmp == "" || $gender==""){
             $error = "Ada FIELD KOSONG!";
+        }else if (!str_contains($email, '@')  || !str_contains($email, '.')){
+            $error = "Email tidak sesuai";
         }else if ($password != $confirmp){
             $error = "Password dan Confirm Password Tidak sesuai!";
-        }
-        else{
+        } else{
             $sql_u = "SELECT * FROM users WHERE us_username='$username'";
             $res_u = mysqli_query($con, $sql_u);
             if (mysqli_num_rows($res_u) > 0) {
@@ -57,7 +58,7 @@
                         <label for="floatingFull" class="fw-bold">User Name</label>
                     </div>
                     <div class="form-floating mb-3">
-                        <input type="tel" class="form-control bg-light form" id="floatingTel" name="email" placeholder=" ">
+                        <input type="email" class="form-control bg-light form" id="floatingTel" name="email" placeholder=" ">
                         <label for="floatingTel" class="fw-bold">Email</label>
                     </div>
                     <div class="input-group mb-3">
