@@ -40,15 +40,10 @@
 </head>
 <body>
     <div class="container-fluid bg-light">
-        <nav class="navbar bg-transparent">
-            <div class="container-fluid">
-                <a class="" href="index.php"><button class='btn btn-outline-danger'>Home</button></a>
-            </div>
-        </nav>
         <div class="container-fluid bg-transparent" style="height: 800px;">
             <div class="row h-100 justify-content-center align-items-center">
                 <form class="col-4 bg-white border py-5 px-5" action="" method="post">
-                    <h2>Login</h2>
+                    <h2 style="text-align: center;">Login</h2>
                     <div class="form-floating mb-3 mt-5">
                         <input type="text" class="form-control bg-light" id="floatingInput" name="username" placeholder=" ">
                         <label for="floatingInput" class="fw-bold">Username</label>
@@ -82,7 +77,13 @@
                             }
                         }
                         ?>
-                    </div> 
+                    </div>
+                    <br> 
+                    <nav class="navbar bg-transparent">
+                        <div class="container-fluid d-grid gap-2 justify-content-center align-items-center">
+                            <a class="" href="index.php"><button class='btn btn-outline-primary'>Back to Home</button></a>
+                        </div>
+                    </nav>
                 </form>  
             </div>
         </div>
