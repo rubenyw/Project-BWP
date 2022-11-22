@@ -99,7 +99,7 @@
                     </div>
                     <div class="row">
                         <div class="col text-center">
-                            Have an Account? <a href="index.php">Login</a>
+                            Have an Account? <a href="login.php">Login</a>
                         </div>
                     </div>
                     <div class="success text-center">

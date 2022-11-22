@@ -101,7 +101,6 @@
         </header>
         <!-- Features section-->
         <section class="intro py-5 border-bottom bg-light" id="features">
-            
             <div class="mask d-flex align-items-center h-100">
                 <div class="container text-center">
                     <h2>Lowongan Pekerjaan</h2>
