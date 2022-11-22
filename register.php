@@ -71,6 +71,10 @@
                         <input type="text" class="form-control bg-light" id="floatingFull" name="fullname" placeholder=" ">
                         <label for="floatingFull" class="fw-bold">Full Name</label>
                     </div>
+                    <div class="form-floating mb-3">
+                        <input type="tel" class="form-control bg-light" id="floatingTel" name="telephone" placeholder=" ">
+                        <label for="floatingTel" class="fw-bold">No. Telp</label>
+                    </div>
                     <div class="input-group mb-3">
                         <select class="form-select bg-light fw-bold" style="height: 55px;" name="gender" id="floatingGender">
                             <option class="fw-bold" value="" hidden>Gender</option>

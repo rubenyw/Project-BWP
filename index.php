@@ -1,14 +1,22 @@
 <?php
     require('action.php');
     
+    // Test Akun kalau ada misalnya
+    $_SESSION['userLogin']['username'] = 'Rubenyw';
+
+    // Buat masuk ke page login
     if(isset($_POST['login'])){
         header('Location: login.php');
     }
+
+    // Buat masuk ke page register
     if(isset($_POST['register'])){
         header('Location: register.php');
     }
+
+    // Buat logout, sessionnya di hapus biar hilang datanya
     if(isset($_POST['logout'])){
-        // unset('userLogin', $_SESSION);
+        unset($_SESSION['userLogin']);
     }
 ?>
 <!DOCTYPE html>
@@ -32,30 +40,41 @@
                 <a class="navbar-brand" href="">Job Finder</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <ul class="navbar-nav ms-auto mb-2 me-3 mb-lg-0">
                         <li class="nav-item"><a class="nav-link active" aria-current="page" href="">Home</a></li>
                         <li class="nav-item"><a class="nav-link" href="user_request.php">Request</a></li>
-                        <li class="nav-item"><a class="nav-link" href="user_profile.php"></a></li>
+                        <li class="nav-item"></li>
                     </ul>
                     <form class="d-flex" role="search" action="" method="post">
                         <?php
                         if(!isset($_SESSION['userLogin'])){
                         ?>
-                        <button class="btn btn-dark btn-sm mx-4 px-5" name="login">
-                            <i class="bi bi-person-circle me-auto"></i> LOGIN
-                        </button>
-                        <button class="btn btn-outline-light btn-sm px-5" name="register">
-                            Sign up
-                        </button>
+                        <!-- Kalau belum login yang muncul ini -->
+                        <div class="d-grid gap-2 d-md-block">
+                            <button class="btn btn-dark btn-sm px-3 fw-bold" name="login">
+                                LOGIN
+                            </button>
+                            <button class="btn btn-outline-light btn-sm px-3 fw-bold" name="register">
+                                SIGN UP
+                            </button>
+                        </div>
                         <?php
                         }else{
                         ?>
-                        <button class="btn btn-dark btn-sm mx-4 px-5" name="profile">
-                            <i class="bi bi-person-circle me-auto"></i> <?=$_SESSION['userLogin']['username']?>
-                        </button>
-                        <button class="btn btn-outline-light btn-sm px-5" name="logout">
-                            Logout
-                        </button>
+                        <!-- Kalau sudah Login yang muncul ini -->
+                        <div class="d-grid gap-2 d-md-block">
+                            <button class="btn btn-dark btn-sm px-3 fw-bold" name="profile">
+                                <i class="bi bi-person-circle fill me-1"></i> <?=$_SESSION['userLogin']['username']?>
+                            </button>
+                            <button class="btn btn-outline-light btn-sm px-3 fw-bold" type="submit">
+                                <i class="bi-cart-fill me-1"></i>
+                                Cart
+                                <span class="badge bg-dark text-light ms-1 rounded-pill">4</span>
+                            </button>
+                            <button class="btn btn-danger btn-sm px-3 fw-bold" name="logout">
+                                Logout
+                            </button>
+                        </div>
                         <?php
                         }
                         ?>
@@ -80,6 +99,73 @@
                 </div>
             </div>
         </header>
+        <!-- Section Form -->
+        <section class="bg-light py-5">
+            <div class="container px-5 my-5 px-5">
+                <div class="text-center mb-5">
+                    <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-envelope"></i></div>
+                    <h2 class="fw-bolder">Get in touch</h2>
+                    <p class="lead mb-0">We'd love to hear from you</p>
+                </div>
+                <div class="row gx-5 justify-content-center">
+                    <div class="col-lg-6">
+                        <!-- * * * * * * * * * * * * * * *-->
+                        <!-- * * SB Forms Contact Form * *-->
+                        <!-- * * * * * * * * * * * * * * *-->
+                        <!-- This form is pre-integrated with SB Forms.-->
+                        <!-- To make this form functional, sign up at-->
+                        <!-- https://startbootstrap.com/solution/contact-forms-->
+                        <!-- to get an API token!-->
+                        <form id="contactForm" data-sb-form-api-token="API_TOKEN">
+                            <!-- Name input-->
+                            <div class="form-floating mb-3">
+                                <input class="form-control" id="name" type="text" placeholder="Enter your name..." data-sb-validations="required" />
+                                <label for="name">Full name</label>
+                                <div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>
+                            </div>
+                            <!-- Email address input-->
+                            <div class="form-floating mb-3">
+                                <input class="form-control" id="email" type="email" placeholder="name@example.com" data-sb-validations="required,email" />
+                                <label for="email">Email address</label>
+                                <div class="invalid-feedback" data-sb-feedback="email:required">An email is required.</div>
+                                <div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div>
+                            </div>
+                            <!-- Phone number input-->
+                            <div class="form-floating mb-3">
+                                <input class="form-control" id="phone" type="tel" placeholder="(123) 456-7890" data-sb-validations="required" />
+                                <label for="phone">Phone number</label>
+                                <div class="invalid-feedback" data-sb-feedback="phone:required">A phone number is required.</div>
+                            </div>
+                            <!-- Message input-->
+                            <div class="form-floating mb-3">
+                                <textarea class="form-control" id="message" type="text" placeholder="Enter your message here..." style="height: 10rem" data-sb-validations="required"></textarea>
+                                <label for="message">Message</label>
+                                <div class="invalid-feedback" data-sb-feedback="message:required">A message is required.</div>
+                            </div>
+                            <!-- Submit success message-->
+                            <!---->
+                            <!-- This is what your users will see when the form-->
+                            <!-- has successfully submitted-->
+                            <div class="d-none" id="submitSuccessMessage">
+                                <div class="text-center mb-3">
+                                    <div class="fw-bolder">Form submission successful!</div>
+                                    To activate this form, sign up at
+                                    <br />
+                                    <a href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
+                                </div>
+                            </div>
+                            <!-- Submit error message-->
+                            <!---->
+                            <!-- This is what your users will see when there is-->
+                            <!-- an error submitting the form-->
+                            <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
+                            <!-- Submit Button-->
+                            <div class="d-grid"><button class="btn btn-primary btn-lg disabled" id="submitButton" type="submit">Submit</button></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
         <!-- Features section-->
         <section class="intro py-5 border-bottom bg-light" id="features">
             
