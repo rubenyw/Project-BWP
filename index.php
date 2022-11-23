@@ -214,27 +214,27 @@
                         $(this).addClass("btn-outline-success");
                     }
                 })
-                let lokasi = $("#lokasi");
-                let jabatan = $("#jabatan");
-                let jenis = $("#jenis");
-                let sort = $("#sort");
-                let asc = $("#asc");
-                $(lokasi).change(function(){
-                    $('#btn-filter').click();
-                })
-                $(jabatan).change(function(){
-                    $('#btn-filter').click();
-                })
-                $(jenis).change(function(){
-                    $('#btn-filter').click();
-                })
-                $(sort).change(function(){
-                    $('#btn-filter').click();
-                })
-                $(asc).change(function(){
-                    $('#btn-filter').click();
-                })
-                })
+                // let lokasi = $("#lokasi");
+                // let jabatan = $("#jabatan");
+                // let jenis = $("#jenis");
+                // let sort = $("#sort");
+                // let asc = $("#asc");
+                // $(lokasi).change(function(){
+                //     $('#btn-filter').click();
+                // })
+                // $(jabatan).change(function(){
+                //     $('#btn-filter').click();
+                // })
+                // $(jenis).change(function(){
+                //     $('#btn-filter').click();
+                // })
+                // $(sort).change(function(){
+                //     $('#btn-filter').click();
+                // })
+                // $(asc).change(function(){
+                //     $('#btn-filter').click();
+                // })
+            })
 
         </script>
         <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
