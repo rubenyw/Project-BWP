@@ -1,6 +1,9 @@
 <?php
     require('action.php');
     
+    $select_query = "SELECT count(*) as 'cart' FROM cart where ca_us_id = '".$_SESSION['userLogin']['id']."' and ca_status = 'Requested'";
+    $cart = $con->query($select_query);
+    $cart = $cart->fetch_assoc();
 
     // Buat masuk ke page login
     if(isset($_POST['login'])){
@@ -67,7 +70,7 @@
                             <button class="btn btn-outline-light btn-sm px-3 fw-bold" type="submit">
                                 <i class="bi-cart-fill me-1"></i>
                                 Cart
-                                <span class="badge bg-dark text-light ms-1 rounded-pill">4</span>
+                                <span class="badge bg-dark text-light ms-1 rounded-pill"><?=$cart['cart']?></span>
                             </button>
                             <button class="btn btn-danger btn-sm px-3 fw-bold" name="logout">
                                 Logout
