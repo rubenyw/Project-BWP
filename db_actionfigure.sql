@@ -47,6 +47,7 @@ DROP TABLE IF EXISTS `cart`;
 CREATE TABLE `cart` (
   `ca_us_id` varchar(5) NOT NULL,
   `ca_af_id` varchar(5) NOT NULL,
+  `ca_status` varchar(11) NOT NULL,
   PRIMARY KEY (`ca_us_id`,`ca_af_id`),
   KEY `ca_af_id` (`ca_af_id`),
   CONSTRAINT `cart_ibfk_1` FOREIGN KEY (`ca_us_id`) REFERENCES `users` (`us_id`),
@@ -55,9 +56,9 @@ CREATE TABLE `cart` (
 
 /*Data for the table `cart` */
 
-insert  into `cart`(`ca_us_id`,`ca_af_id`) values 
-('US001','AF001'),
-('US001','AF003');
+insert  into `cart`(`ca_us_id`,`ca_af_id`,`ca_status`) values 
+('US001','AF001','Requested'),
+('US001','AF003','Requested');
 
 /*Table structure for table `discount` */
 
