@@ -1,9 +1,7 @@
 <?php
     require('action.php');
     
-    $select_query = "SELECT count(*) as 'cart' FROM cart where ca_us_id = '".$_SESSION['userLogin']['id']."' and ca_status = 'Requested'";
-    $cart = $con->query($select_query);
-    $cart = $cart->fetch_assoc();
+    $cart = 0;
 
     // Buat masuk ke page login
     if(isset($_POST['login'])){
@@ -61,6 +59,9 @@
                         </div>
                         <?php
                             }else{
+                                $select_query = "SELECT count(*) as 'cart' FROM cart where ca_us_id = '".$_SESSION['userLogin']['id']."' and ca_status = 'Requested'";
+                                $cart = $con->query($select_query);
+                                $cart = $cart->fetch_assoc();
                         ?>
                         <!-- Kalau sudah Login yang muncul ini -->
                         <div class="d-grid gap-2 d-md-block">
