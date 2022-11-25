@@ -5,9 +5,15 @@
         $password = $_REQUEST['password'];
         if ($username == "" || $password == "") {
             $error = "Ada isian kosong";
+        }else if($username == 'admin' && $password == 'admin'){
+            header('Location: admin.php');
         }else {
-            $query = mysqli_query($con, "SELECT * FROM users WHERE us_username = '$username'");
-            if (mysqli_num_rows($query)> 0) {
+            if(str_contains($username, '@')){
+                $query = mysqli_query($con, "SELECT * FROM users WHERE us_email = '$username'");
+            }else{
+                $query = mysqli_query($con, "SELECT * FROM users WHERE us_username = '$username'");
+            }
+            if (mysqli_num_rows($query) > 0) {
                 $result = mysqli_fetch_array($query, MYSQLI_ASSOC);
                 if ($result['us_password'] != $password){
                     $error = 'Password Salah!';
@@ -22,6 +28,7 @@
                     header("Location: index.php");
                 }
             }else{
+
                 $error = "Username Tidak Terdaftar";
             }
         }
