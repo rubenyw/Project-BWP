@@ -1,7 +1,7 @@
 <?php
     require('action.php');
     
-    $cart = 0;
+    $cart = "";
     if(isset($_SESSION['userLogin'])){
         $select_query = "SELECT count(*) as 'cart' FROM cart where ca_us_id = '".$_SESSION['userLogin']['id']."' and ca_status = 'Requested'";
         $cart = $con->query($select_query);
@@ -18,9 +18,19 @@
         header('Location: register.php');
     }
 
+    // Buat masuk cart
+    if(isset($_POST['cart'])){
+        if(isset($_SESSION['userLogin'])){
+            header('Location: cart.php');
+        }else{
+            header('Location: login.php');
+        }
+    }
+
     // Buat logout, sessionnya di hapus biar hilang datanya
     if(isset($_POST['logout'])){
         unset($_SESSION['userLogin']);
+        $cart = "";
     }
 ?>
 <!DOCTYPE html>
@@ -46,18 +56,22 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 me-3 mb-lg-0 px-3 border-end">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="">Home</a>
+                            <a class="nav-link" aria-current="page" href="">
+                                <button class="btn btn-sm text-light fw-bold">Home</button>
+                            </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="">Request</a>
+                            <a class="nav-link" href="">
+                                <button class="btn btn-sm text-light">Request</button>
+                            </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="cart.php">
-                                <button class="btn btn-outline-light btn-sm px-3 fw-bold">
+                            <form class="nav-link" action="" method="post">
+                                <button class="btn btn-outline-light btn-sm px-3 fw-bold" type="submit" name='cart'>
                                     <i class="bi-cart-fill me-1"></i>Cart
                                     <span class="badge bg-dark text-light ms-1 rounded-pill"><?=$cart?></span>
                                 </button>
-                            </a>
+                            </form>
                         </li>
                     </ul>
                     <form class="d-flex" role="search" action="" method="post">
