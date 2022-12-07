@@ -2,7 +2,12 @@
     require('action.php');
     
     $cart = 0;
-
+    if(isset($_SESSION['userLogin'])){
+        $select_query = "SELECT count(*) as 'cart' FROM cart where ca_us_id = '".$_SESSION['userLogin']['id']."' and ca_status = 'Requested'";
+        $cart = $con->query($select_query);
+        $cart = $cart->fetch_assoc();
+        $cart = $cart['cart'];
+    }
     // Buat masuk ke page login
     if(isset($_POST['login'])){
         header('Location: login.php');
@@ -39,10 +44,21 @@
                 <a class="navbar-brand" href="">Tokosidia</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav ms-auto mb-2 me-3 mb-lg-0">
-                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="user_request.php">Request</a></li>
-                        <li class="nav-item"></li>
+                    <ul class="navbar-nav ms-auto mb-2 me-3 mb-lg-0 px-3 border-end">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="">Request</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="cart.php">
+                                <button class="btn btn-outline-light btn-sm px-3 fw-bold">
+                                    <i class="bi-cart-fill me-1"></i>Cart
+                                    <span class="badge bg-dark text-light ms-1 rounded-pill"><?=$cart?></span>
+                                </button>
+                            </a>
+                        </li>
                     </ul>
                     <form class="d-flex" role="search" action="" method="post">
                         <?php
@@ -59,19 +75,11 @@
                         </div>
                         <?php
                             }else{
-                                $select_query = "SELECT count(*) as 'cart' FROM cart where ca_us_id = '".$_SESSION['userLogin']['id']."' and ca_status = 'Requested'";
-                                $cart = $con->query($select_query);
-                                $cart = $cart->fetch_assoc();
                         ?>
                         <!-- Kalau sudah Login yang muncul ini -->
                         <div class="d-grid gap-2 d-md-block">
                             <button class="btn btn-dark btn-sm px-3 fw-bold" name="profile">
-                                <i class="bi bi-person-circle fill me-1"></i> <?=$_SESSION['userLogin']['username']?>
-                            </button>
-                            <button class="btn btn-outline-light btn-sm px-3 fw-bold" type="submit">
-                                <i class="bi-cart-fill me-1"></i>
-                                Cart
-                                <span class="badge bg-dark text-light ms-1 rounded-pill"><?=$cart['cart']?></span>
+                                <i class="bi bi-person-circle fill me-1"></i>Hello, <?=$_SESSION['userLogin']['username']?>
                             </button>
                             <button class="btn btn-danger btn-sm px-3 fw-bold" name="logout">
                                 Logout

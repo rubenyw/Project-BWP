@@ -12,5 +12,6 @@
 </head>
 <body>
     <h1>Welcome, Admin Tokosidia</h1>
+    <a href="index.php"><button>Logout</button></a>
 </body>
 </html>
