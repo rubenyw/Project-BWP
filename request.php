@@ -56,13 +56,13 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 me-3 mb-lg-0 px-3 border-end">
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="">
-                                <button class="btn btn-sm text-light fw-bold">Home</button>
+                            <a class="nav-link" aria-current="page" href="index.php">
+                                <button class="btn btn-sm text-light">Home</button>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="request.php">
-                                <button class="btn btn-sm text-light">Request</button>
+                            <a class="nav-link" href="">
+                                <button class="btn btn-sm text-light fw-bold">Request</button>
                             </a>
                         </li>
                         <li class="nav-item">
