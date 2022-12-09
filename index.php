@@ -152,9 +152,6 @@
                                                 <th scope="col">Seri</th>
                                                 <th scope="col">Harga</th>
                                                 <th scope="col">Stok</th>
-                                                <!-- <th scope="col">Jenis</th>
-                                                <th scope="col">Deadline</th>
-                                                <th scope="col">Action</th> -->
                                             </tr>
                                             </thead>
                                             <tbody>
@@ -165,12 +162,10 @@
                                                     <td></td>
                                                     <td></td>
                                                     <td></td>
-                                                    <!-- <td></td>
-                                                    <td></td> -->
                                                     <td class="d-grid gap-2">
                                                         <!-- <form action='' method='post'> -->
-                                                            <input type='hidden' name='apply' value=''>
-                                                            <button name='btn-apply' class='btn btn-outline-success btn-sm px-4'>Apply</button>
+                                                        <input type='hidden' name='apply' value=''>
+                                                        <button name='btn-apply' class='btn btn-outline-success btn-sm px-4'>Apply</button>
                                                         <!-- </form> -->
                                                     </td>
                                                 </tr>
