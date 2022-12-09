@@ -68,8 +68,7 @@
                         <li class="nav-item">
                             <form class="nav-link" action="" method="post">
                                 <button class="btn btn-outline-light btn-sm px-3 fw-bold" type="submit" name='cart'>
-                                    <i class="bi-cart-fill me-1"></i>Cart
-                                    <span class="badge bg-dark text-light ms-1 rounded-pill"><?=$cart?></span>
+                                    <i class="bi-cart-fill me-1"></i>Cart<span class="badge bg-dark text-light ms-1 rounded-pill"><?=$cart?></span>
                                 </button>
                             </form>
                         </li>
@@ -80,24 +79,16 @@
                         ?>
                         <!-- Kalau belum login yang muncul ini -->
                         <div class="d-grid gap-2 d-md-block">
-                            <button class="btn btn-dark btn-sm px-3 fw-bold" name="login">
-                                LOGIN
-                            </button>
-                            <button class="btn btn-outline-light btn-sm px-3 fw-bold" name="register">
-                                SIGN UP
-                            </button>
+                            <button class="btn btn-dark btn-sm px-3 fw-bold" name="login">LOGIN</button>
+                            <button class="btn btn-outline-light btn-sm px-3 fw-bold" name="register">SIGN UP</button>
                         </div>
                         <?php
                             }else{
                         ?>
                         <!-- Kalau sudah Login yang muncul ini -->
                         <div class="d-grid gap-2 d-md-block">
-                            <button class="btn btn-dark btn-sm px-3 fw-bold" name="profile">
-                                <i class="bi bi-person-circle fill me-1"></i>Hello, <?=$_SESSION['userLogin']['username']?>
-                            </button>
-                            <button class="btn btn-danger btn-sm px-3 fw-bold" name="logout">
-                                Logout
-                            </button>
+                            <button class="btn btn-dark btn-sm px-3 fw-bold" name="profile"><i class="bi bi-person-circle fill me-1"></i>Hello, <?=$_SESSION['userLogin']['username']?></button>
+                            <button class="btn btn-danger btn-sm px-3 fw-bold" name="logout">Logout</button>
                         </div>
                         <?php
                         }
@@ -137,30 +128,12 @@
                                     </select>
                                     <label for="lokasi">Series</label>
                                 </div>
-                                <!-- <div class="form-floating mb-3 mx-5">
-                                    <select class="form-select" name='jabatan' id='jabatan'>
-                                        <option value=''>All</option>
-                                    </select>
-                                    <label for="jabatan">Official</label>
-                                </div> -->
                                 <div class="form-floating mb-3 mx-5">
                                     <select class="form-select" name='jenis' id='jenis'>
                                     <option value=''>All</option>
                                     </select>
                                     <label for="jenis">Harga</label>
                                 </div>
-                                <!-- <div class="form-floating mb-3 mx-5">
-                                    <select class="form-select" name='sort' id='sort'>
-                                    <option value=''>All</option>
-                                    </select>
-                                    <label for="sort">Sort</label>
-                                </div>
-                                <div class="form-floating mb-3 mx-5">
-                                    <select class="form-select" name='asc' id='asc'>
-                                        <option value=''>All</option>
-                                    </select>
-                                    <label for="asc">Sort</label>
-                                </div> -->
                                 <button hidden type='submit' id='btn-filter'>haha</button>
                             </div>
                         </form>
@@ -197,9 +170,7 @@
                                                     <td class="d-grid gap-2">
                                                         <!-- <form action='' method='post'> -->
                                                             <input type='hidden' name='apply' value=''>
-                                                            <button name='btn-apply' class='btn btn-outline-success btn-sm px-4'>
-                                                                Apply
-                                                            </button>
+                                                            <button name='btn-apply' class='btn btn-outline-success btn-sm px-4'>Apply</button>
                                                         <!-- </form> -->
                                                     </td>
                                                 </tr>

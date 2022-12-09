@@ -31,6 +31,8 @@
     if(isset($_POST['logout'])){
         unset($_SESSION['userLogin']);
         $cart = "";
+        // Balikin ke Home
+        header('Location: index.php');
     }
 ?>
 <!DOCTYPE html>
@@ -197,9 +199,7 @@
                                                     <td class="d-grid gap-2">
                                                         <!-- <form action='' method='post'> -->
                                                             <input type='hidden' name='apply' value=''>
-                                                            <button name='btn-apply' class='btn btn-outline-success btn-sm px-4'>
-                                                                Apply
-                                                            </button>
+                                                            <button name='btn-apply' class='btn btn-outline-success btn-sm'>Apply</button>
                                                         <!-- </form> -->
                                                     </td>
                                                 </tr>
