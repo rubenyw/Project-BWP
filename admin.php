@@ -20,7 +20,7 @@
         <!-- Responsive navbar-->
         <nav class="navbar navbar-expand-lg p-3 position-sticky top-0 w-100 shadow navbar-dark bg-dark">
             <div class="container">
-                <a class="navbar-brand" href="">Admin</a>
+                <a class="navbar-brand" href="admin.php">Tokosidia</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 me-5 mb-lg-0 px-3 border-end">
@@ -49,12 +49,8 @@
                 <div class="row gx-5 justify-content-center">
                     <div class="col-lg-6">
                         <div class="text-center my-5">
-                            <h1 class="display-5 fw-bolder text-white mb-2">Website Jual Beli Action Figure</h1>
+                            <h1 class="display-5 fw-bolder text-white mb-2">Welcome Admin!</h1>
                             <p class="lead text-white-50 mb-4">Ingin beli action figure murah dan terpercaya? Tokosidia jawabannya</p>
-                            <!-- <div class="d-grid gap-3 d-sm-flex justify-content-sm-center">
-                                <a class="btn btn-primary btn-lg px-4 me-sm-3" href="#features">Get Started</a>
-                                 <a class="btn btn-outline-light btn-lg px-4" href="#!">Learn More</a>
-                            </div> -->
                         </div>
                     </div>
                 </div>

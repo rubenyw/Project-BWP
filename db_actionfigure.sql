@@ -176,6 +176,20 @@ insert  into `series`(`se_id`,`se_name`) values
 ('SE009','Siap 86'),
 ('SE010','Ded Node');
 
+/*Table structure for table `transaksi` */
+
+DROP TABLE IF EXISTS `transaksi`;
+
+CREATE TABLE `transaksi` (
+  `tr_id` varchar(5) NOT NULL,
+  `tr_af_id` varchar(5) NOT NULL,
+  `tr_us_id` varchar(5) NOT NULL,
+  `tr_status` varchar(10) NOT NULL,
+  PRIMARY KEY (`tr_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+/*Data for the table `transaksi` */
+
 /*Table structure for table `users` */
 
 DROP TABLE IF EXISTS `users`;

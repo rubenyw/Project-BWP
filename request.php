@@ -53,7 +53,7 @@
         <!-- Responsive navbar-->
         <nav class="navbar navbar-expand-lg p-3 position-sticky top-0 w-100 shadow navbar-dark bg-dark">
             <div class="container">
-                <a class="navbar-brand" href="">Tokosidia</a>
+                <a class="navbar-brand" href="index.php">Tokosidia</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 me-3 mb-lg-0 px-3 border-end">
@@ -64,14 +64,13 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="">
-                                <button class="btn btn-sm text-light fw-bold">Request</button>
+                                <button class="btn btn-sm text-light fw-bold">Transaction</button>
                             </a>
                         </li>
                         <li class="nav-item">
                             <form class="nav-link" action="" method="post">
                                 <button class="btn btn-outline-light btn-sm px-3 fw-bold" type="submit" name='cart'>
-                                    <i class="bi-cart-fill me-1"></i>Cart
-                                    <span class="badge bg-dark text-light ms-1 rounded-pill"><?=$cart?></span>
+                                    <i class="bi-cart-fill me-1"></i>Cart<span class="badge bg-dark text-light ms-1 rounded-pill"><?=$cart?></span>
                                 </button>
                             </form>
                         </li>
