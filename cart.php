@@ -93,92 +93,32 @@
         <section class="intro py-5 border-bottom bg-light" id="features">
             <div class="mask d-flex h-100">
                 <div class="container bg-white py-3 px-3">
-                    <h2 class='mb-5'>Transaction</h2>
-                    <ul class="nav nav-tabs" id="myTab" role="tablist">
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link text-black active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">Active</button>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link text-black" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">Expired</button>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link text-black" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact-tab-pane" type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false">Paid</button>
-                        </li>
-                    </ul>
-                    <div class="tab-content" id="myTabContent">
-                        <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
-                            <?php
-                            
-                            $query = "SELECT * from transaksi where tr_us_id = '".$_SESSION['userLogin']['id']."' and tr_status = 'Active'";
-                            $query = mysqli_query($con, $query);
-                            if(mysqli_num_rows($query) > 0){
-                            ?>
+                    <h2 class='mb-5'>Cart</h2>
+                    <?php
+                    
+                    $query = "SELECT * from cart where ca_us_id = '".$_SESSION['userLogin']['id']."' and ca_status = 'Requested'";
+                    $query = mysqli_query($con, $query);
+                    if(mysqli_num_rows($query) > 0){
+                    ?>
 
-                            <!-- Content -->
+                    <!-- Content -->
 
-                            <?php
-                            }else{
-                            ?>
-                            <div class="row align-items-center text-center" style="height: 200px;">
-                                <div class="col">
-                                    <div class="h2">Belum ada Transaksi nih</div>
-                                    <a class="text-danger" href="index.php">Belanja yuk</a>
-                                </div>
-                            </div>
-                            <?php
-                            }
+                    <?php
 
-                            ?>
-                        </div>
-                        <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
-                            <?php
-                            
-                            $query = "SELECT * from transaksi where tr_us_id = '".$_SESSION['userLogin']['id']."' and tr_status = 'Expired'";
-                            $query = mysqli_query($con, $query);
-                            if(mysqli_num_rows($query) > 0){
-                            ?>
+                    }else{
 
-                            <!-- Content -->
-
-                            <?php
-                            }else{
-                            ?>
-                            <div class="row align-items-center text-center" style="height: 200px;">
-                                <div class="col">
-                                    <div class="h2">Belum ada Transaksi nih</div>
-                                    <a class="text-danger" href="index.php">Belanja yuk</a>
-                                </div>
-                            </div>
-                            <?php
-                            }
-
-                            ?>
-                        </div>
-                        <div class="tab-pane fade" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab" tabindex="0">
-                            <?php
-                            
-                            $query = "SELECT * from transaksi where tr_us_id = '".$_SESSION['userLogin']['id']."' and tr_status = 'Paid'";
-                            $query = mysqli_query($con, $query);
-                            if(mysqli_num_rows($query) > 0){
-                            ?>
-
-                            <!-- Content -->
-
-                            <?php
-                            }else{
-                            ?>
-                            <div class="row align-items-center text-center" style="height: 200px;">
-                                <div class="col">
-                                    <div class="h2">Belum ada Transaksi nih</div>
-                                    <a class="text-danger" href="index.php">Belanja yuk</a>
-                                </div>
-                            </div>
-                            <?php
-                            }
-
-                            ?>
+                    ?>
+                    <div class="row align-items-center text-center" style="height: 200px;">
+                        <div class="col">
+                            <div class="h2">Belum ada Barang nih</div>
+                            <a class="text-danger" href="index.php">Belanja yuk</a>
                         </div>
                     </div>
+                    <?php
+
+                    }
+
+                    ?>
                     <div class="row justify-content-center">
                         <div class="col-12">
                             <div class="card shadow-2-strong" style="background-color: #f5f7fa;">

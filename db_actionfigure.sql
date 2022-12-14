@@ -185,7 +185,11 @@ CREATE TABLE `transaksi` (
   `tr_af_id` varchar(5) NOT NULL,
   `tr_us_id` varchar(5) NOT NULL,
   `tr_status` varchar(10) NOT NULL,
-  PRIMARY KEY (`tr_id`)
+  PRIMARY KEY (`tr_id`),
+  KEY `tr_af_id` (`tr_af_id`),
+  KEY `tr_us_id` (`tr_us_id`),
+  CONSTRAINT `transaksi_ibfk_1` FOREIGN KEY (`tr_af_id`) REFERENCES `actionfigure` (`af_id`),
+  CONSTRAINT `transaksi_ibfk_2` FOREIGN KEY (`tr_us_id`) REFERENCES `users` (`us_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `transaksi` */
@@ -215,7 +219,8 @@ insert  into `users`(`us_id`,`us_username`,`us_email`,`us_gender`,`us_password`)
 ('US007','gajelas','nich@gmail.com',0,'123'),
 ('US008','quarter','rz@gmail.com',1,'123'),
 ('US009','kampus4life','kampus4life@gmail.com',1,'123'),
-('US010','transgender','tim@gmail.com',0,'123');
+('US010','transgender','tim@gmail.com',0,'123'),
+('US011','rubenyw','rubenyasonwinarta@gmail.com',0,'123');
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;

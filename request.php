@@ -107,23 +107,146 @@
                 </div>
             </div>
         </nav>
-        <!-- Header-->
-        <header class="bg-dark py-5">
-            <div class="container px-5">
-                <div class="row gx-5 justify-content-center">
-                    <div class="col-lg-6">
-                        <div class="text-center my-5">
-                            <h1 class="display-5 fw-bolder text-white mb-2">Website Jual Beli Action Figure</h1>
-                            <p class="lead text-white-50 mb-4">Ingin beli action figure murah dan terpercaya? Tokosidia jawabannya</p>
-                            <!-- <div class="d-grid gap-3 d-sm-flex justify-content-sm-center">
-                                <a class="btn btn-primary btn-lg px-4 me-sm-3" href="#features">Get Started</a>
-                                 <a class="btn btn-outline-light btn-lg px-4" href="#!">Learn More</a>
-                            </div> -->
+        <!-- Section  -->
+        <section class="intro py-5 border-bottom bg-light" id="features">
+            <div class="mask d-flex h-100">
+                <div class="container bg-white py-3 px-3">
+                    <h2 class='mb-5'>Transaction</h2>
+                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link text-black active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">Active</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link text-black" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">Expired</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link text-black" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact-tab-pane" type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false">Paid</button>
+                        </li>
+                    </ul>
+                    <div class="tab-content" id="myTabContent">
+                        <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
+                            <?php
+                            
+                            $query = "SELECT * from transaksi where tr_us_id = '".$_SESSION['userLogin']['id']."' and tr_status = 'Active'";
+                            $query = mysqli_query($con, $query);
+                            if(mysqli_num_rows($query) > 0){
+                            ?>
+
+                            <!-- Content -->
+
+                            <?php
+                            }else{
+                            ?>
+                            <div class="row align-items-center text-center" style="height: 200px;">
+                                <div class="col">
+                                    <div class="h2">Belum ada Transaksi nih</div>
+                                    <a class="text-danger" href="index.php">Belanja yuk</a>
+                                </div>
+                            </div>
+                            <?php
+                            }
+
+                            ?>
+                        </div>
+                        <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
+                            <?php
+                            
+                            $query = "SELECT * from transaksi where tr_us_id = '".$_SESSION['userLogin']['id']."' and tr_status = 'Expired'";
+                            $query = mysqli_query($con, $query);
+                            if(mysqli_num_rows($query) > 0){
+                            ?>
+
+                            <!-- Content -->
+
+                            <?php
+                            }else{
+                            ?>
+                            <div class="row align-items-center text-center" style="height: 200px;">
+                                <div class="col">
+                                    <div class="h2">Belum ada Transaksi nih</div>
+                                    <a class="text-danger" href="index.php">Belanja yuk</a>
+                                </div>
+                            </div>
+                            <?php
+                            }
+
+                            ?>
+                        </div>
+                        <div class="tab-pane fade" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab" tabindex="0">
+                            <?php
+                            
+                            $query = "SELECT * from transaksi where tr_us_id = '".$_SESSION['userLogin']['id']."' and tr_status = 'Paid'";
+                            $query = mysqli_query($con, $query);
+                            if(mysqli_num_rows($query) > 0){
+                            ?>
+
+                            <!-- Content -->
+
+                            <?php
+                            }else{
+                            ?>
+                            <div class="row align-items-center text-center" style="height: 200px;">
+                                <div class="col">
+                                    <div class="h2">Belum ada Transaksi nih</div>
+                                    <a class="text-danger" href="index.php">Belanja yuk</a>
+                                </div>
+                            </div>
+                            <?php
+                            }
+
+                            ?>
+                        </div>
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="col-12">
+                            <div class="card shadow-2-strong" style="background-color: #f5f7fa;">
+                                <div class="card-body">
+                                    
+                                    <div class="table-responsive">
+                                        <table class="table table-borderless mb-0 align-items-center justify-content-center">
+                                            <thead>
+                                            <tr>
+                                                <th scope="col">No </th>
+                                                <th scope="col">Nama Action Figure</th>
+                                                <th scope="col">Seri</th>
+                                                <th scope="col">Harga</th>
+                                                <th scope="col">Stok</th>
+                                                <!-- <th scope="col">Jenis</th>
+                                                <th scope="col">Deadline</th>
+                                                <th scope="col">Action</th> -->
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tbody>
+                                                <tr>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <!-- <td></td>
+                                                    <td></td> -->
+                                                    <td class="d-grid gap-2">
+                                                        <!-- <form action='' method='post'> -->
+                                                            <input type='hidden' name='apply' value=''>
+                                                            <button name='btn-apply' class='btn btn-outline-success btn-sm px-4'>Apply</button>
+                                                        <!-- </form> -->
+                                                    </td>
+                                                </tr>
+                                              
+                                            
+                                            </tbody>
+                                                
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </header>
+            
+        </section>
         <!-- Features section-->
         <section class="intro py-5 border-bottom bg-light" id="features">
             <div class="mask d-flex align-items-center h-100">
