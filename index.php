@@ -18,6 +18,15 @@
         header('Location: register.php');
     }
 
+    //Buat masuk Transaction
+    if(isset($_POST['transaction'])){
+        if(isset($_SESSION['userLogin'])){
+            header('Location: request.php');
+        }else{
+            header('Location: login.php');
+        }
+    }
+
     // Buat masuk cart
     if(isset($_POST['cart'])){
         if(isset($_SESSION['userLogin'])){
@@ -61,9 +70,9 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="request.php">
-                                <button class="btn btn-sm text-light">Transaction</button>
-                            </a>
+                            <form class="nav-link" action="" method="post">
+                                <button class="btn btn-sm text-light" type='submit' name='transaction'>Transaction</button>
+                            </form>
                         </li>
                         <li class="nav-item">
                             <form class="nav-link" action="" method="post">
