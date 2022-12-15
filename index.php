@@ -113,35 +113,50 @@
                 <div class="row justify-content-center">
                     <div class="col-lg-8">
                         <div class="text-center">
-                            <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+                            <h3 class="display-6 fw-bolder text-white mb-5">Website Jual Beli Action Figure</h3>
+                            <div id="carouselExampleDark" class="carousel slide carousel-fade" data-bs-ride="carousel">
                                 <div class="carousel-indicators">
-                                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+
+                                <?php
+
+                                $counter = 0;
+                                while($counter < 12){
+
+                                ?>
+
+                                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="<?=$counter?>" <?=($counter == 0? 'class="active" aria-current="true"' : '')?>  aria-label="Slide <?=($counter+1)?>"></button>
+                                
+                                <?php
+                                    $counter++;
+                                }
+
+                                ?>
+
                                 </div>
-                                <div class="carousel-inner w-100">
-                                    <div class="carousel-item active" data-bs-interval="2000">
-                                    <img src="assets/Gambar/1.jpg" class="d-block w-100">
-                                    <div class="carousel-caption d-none d-md-block">
+                                <div class="carousel-inner rounded-5 shadow-4-strong">
+
+                                    <?php
+
+                                    $counter = 0;
+                                    while($counter < 12){
+
+                                    ?>
+                                    <div class="carousel-item <?=($counter == 0? 'active' : '')?>" data-bs-interval="2000">
+                                    <img src="assets/Gambar/<?=($counter+1)?>.jpg" class="d-block w-100">
+                                    <div class="carousel-caption d-none d-md-block text-light fw-bold">
                                         <h5>Website Jual Beli Action Figure</h5>
-                                        <p>Some representative placeholder content for the first slide.</p>
+                                        <p>&nbsp</p>
                                     </div>
                                     </div>
-                                    <div class="carousel-item" data-bs-interval="2000">
-                                    <img src="assets/Gambar/2.jpg" class="d-block w-100">
-                                    <div class="carousel-caption d-none d-md-block">
-                                        <h5>Second slide label</h5>
-                                        <p>Some representative placeholder content for the second slide.</p>
-                                    </div>
-                                    </div>
-                                    <div class="carousel-item">
-                                    <img src="assets/Gambar/3.jpg" class="d-block w-100">
-                                    <div class="carousel-caption d-none d-md-block">
-                                        <h5>Third slide label</h5>
-                                        <p>Some representative placeholder content for the third slide.</p>
-                                    </div>
-                                    </div>
+
+                                    <?php
+                                        $counter++;
+                                    }
+
+                                    ?>
+                                   
                                 </div>
+
                                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
                                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                     <span class="visually-hidden">Previous</span>
@@ -151,8 +166,8 @@
                                     <span class="visually-hidden">Next</span>
                                 </button>
                             </div>
-                            <h1 class="display-5 fw-bolder text-white mb-2">Website Jual Beli Action Figure</h1>
-                            <p class="lead text-white-50 mb-4">Ingin beli action figure murah dan terpercaya? Tokosidia jawabannya</p>
+                            
+                            <p class="lead text-white-50 mt-4">Ingin beli action figure murah dan terpercaya? Tokosidia jawabannya</p>
                         </div>
                     </div>
                 </div>
