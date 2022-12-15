@@ -26,12 +26,17 @@
                     <ul class="navbar-nav ms-auto mb-2 me-5 mb-lg-0 px-3 border-end">
                         <li class="nav-item">
                             <a class="nav-link" aria-current="page" href="">
-                                <button class="btn btn-sm text-light fw-bold">Order</button>
+                                <button class="btn btn-sm text-light fw-bold">Transaction</button>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="">
-                                <button class="btn btn-sm text-light">Barang</button>
+                                <button class="btn btn-sm text-light">Items</button>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="">
+                                <button class="btn btn-sm text-light">Users</button>
                             </a>
                         </li>
                     </ul>

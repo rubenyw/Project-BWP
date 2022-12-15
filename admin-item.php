@@ -1,46 +1,6 @@
 <?php
     require('action.php');
     
-    $cart = "";
-    if(isset($_SESSION['userLogin'])){
-        $select_query = "SELECT count(*) as 'cart' FROM cart where ca_us_id = '".$_SESSION['userLogin']['id']."' and ca_status = 'Requested'";
-        $cart = $con->query($select_query);
-        $cart = $cart->fetch_assoc();
-        $cart = $cart['cart'];
-    }
-    // Buat masuk ke page login
-    if(isset($_POST['login'])){
-        header('Location: login.php');
-    }
-
-    // Buat masuk ke page register
-    if(isset($_POST['register'])){
-        header('Location: register.php');
-    }
-
-    //Buat masuk Transaction
-    if(isset($_POST['transaction'])){
-        if(isset($_SESSION['userLogin'])){
-            header('Location: request.php');
-        }else{
-            header('Location: login.php');
-        }
-    }
-
-    // Buat masuk cart
-    if(isset($_POST['cart'])){
-        if(isset($_SESSION['userLogin'])){
-            header('Location: cart.php');
-        }else{
-            header('Location: login.php');
-        }
-    }
-
-    // Buat logout, sessionnya di hapus biar hilang datanya
-    if(isset($_POST['logout'])){
-        unset($_SESSION['userLogin']);
-        $cart = "";
-    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -58,126 +18,49 @@
     </head>
     <body>
         <!-- Responsive navbar-->
-        <nav class="my-nav navbar navbar-expand-lg p-3 position-sticky top-0 w-100 shadow navbar-dark bg-dark">
+        <nav class="navbar navbar-expand-lg p-3 position-sticky top-0 w-100 shadow navbar-dark bg-dark">
             <div class="container">
-                <a class="navbar-brand" href="index.php">Tokosidia</a>
-                
+                <a class="navbar-brand" href="admin.php">Tokosidia</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav ms-auto mb-2 me-3 mb-lg-0 px-3 border-end">
+                    <ul class="navbar-nav ms-auto mb-2 me-5 mb-lg-0 px-3 border-end">
                         <li class="nav-item">
                             <a class="nav-link" aria-current="page" href="">
-                                <button class="btn btn-sm text-light fw-bold">Home</button>
+                                <button class="btn btn-sm text-light">Transaction</button>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <form class="nav-link" action="" method="post">
-                                <button class="btn btn-sm text-light" type='submit' name='transaction'>Transaction</button>
-                            </form>
+                            <a class="nav-link" href="">
+                                <button class="btn btn-sm text-light fw-bold">Items</button>
+                            </a>
                         </li>
                         <li class="nav-item">
-                            <form class="nav-link" action="" method="post">
-                                <button class="btn btn-outline-light btn-sm px-3 fw-bold" type="submit" name='cart'>
-                                    <i class="bi-cart-fill me-1"></i>Cart<span class="badge bg-dark text-light ms-1 rounded-pill"><?=$cart?></span>
-                                </button>
-                            </form>
+                            <a class="nav-link" href="">
+                                <button class="btn btn-sm text-light">Users</button>
+                            </a>
                         </li>
                     </ul>
-                    <form class="d-flex" role="search" action="" method="post">
-                        <?php
-                            if(!isset($_SESSION['userLogin'])){
-                        ?>
-                        <!-- Kalau belum login yang muncul ini -->
-                        <div class="d-grid gap-2 d-md-block">
-                            <button class="btn btn-dark btn-sm px-3 fw-bold" name="login">LOGIN</button>
-                            <button class="btn btn-outline-light btn-sm px-3 fw-bold" name="register">SIGN UP</button>
-                        </div>
-                        <?php
-                            }else{
-                        ?>
-                        <!-- Kalau sudah Login yang muncul ini -->
-                        <div class="d-grid gap-2 d-md-block">
-                            <button class="btn btn-dark btn-sm px-3 fw-bold" name="profile"><i class="bi bi-person-circle fill me-1"></i>Hello, <?=$_SESSION['userLogin']['username']?></button>
+                    <div class="d-flex">
+                        <a class="" href="index.php">
                             <button class="btn btn-danger btn-sm px-3 fw-bold" name="logout">Logout</button>
-                        </div>
-                        <?php
-                        }
-                        ?>
-                    </form>
+                        </a>
+                    </div>
                 </div>
             </div>
         </nav>
         <!-- Header-->
-        <header class="bg-dark">
+        <header class="bg-dark py-5">
             <div class="container px-5">
-                <div class="row justify-content-center">
-                    <div class="col-lg-8">
-                        <div class="text-center">
-                            <h3 class="display-6 fw-bolder text-white my-5">Website Jual Beli Action Figure</h3>
-                            <div id="carouselExampleDark" class="carousel slide carousel-fade my-carousel" data-bs-ride="carousel">
-                                <div class="carousel-indicators">
-
-                                <?php
-
-                                $counter = 0;
-                                while($counter < 12){
-
-                                ?>
-
-                                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="<?=$counter?>" <?=($counter == 0? 'class="active" aria-current="true"' : '')?>  aria-label="Slide <?=($counter+1)?>"></button>
-                                
-                                <?php
-                                    $counter++;
-                                }
-
-                                ?>
-
-                                </div>
-                                <div class="carousel-inner rounded-5 shadow-4-strong">
-
-                                    <?php
-
-                                    $counter = 0;
-                                    while($counter < 12){
-
-                                    ?>
-                                    <div class="carousel-item <?=($counter == 0? 'active' : '')?>" data-bs-interval="2000">
-                                    <img src="assets/Gambar/<?=($counter+1)?>.jpg" class="d-block w-100">
-                                    <div class="carousel-caption d-none d-md-block text-light fw-bold">
-                                        <h5>Website Jual Beli Action Figure</h5>
-                                        <p>&nbsp</p>
-                                    </div>
-                                    </div>
-
-                                    <?php
-                                        $counter++;
-                                    }
-
-                                    ?>
-                                   
-                                </div>
-
-                                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
-                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                    <span class="visually-hidden">Previous</span>
-                                </button>
-                                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
-                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                    <span class="visually-hidden">Next</span>
-                                </button>
-                            </div>
-                            
-                            <p class="lead text-white-50 mt-4">Ingin beli action figure murah dan terpercaya? Tokosidia jawabannya</p>
+                <div class="row gx-5 justify-content-center">
+                    <div class="col-lg-6">
+                        <div class="text-center my-5">
+                            <h1 class="display-5 fw-bolder text-white mb-2">Welcome Admin!</h1>
+                            <p class="lead text-white-50 mb-4">Ingin beli action figure murah dan terpercaya? Tokosidia jawabannya</p>
                         </div>
                     </div>
                 </div>
             </div>
         </header>
-        <?php
-            for($i = 0; $i < 100; $i++){
-                echo "<br>";
-            }
-        ?>
         <!-- Features section-->
         <section class="intro py-5 border-bottom bg-light" id="features">
             <div class="mask d-flex align-items-center h-100">
