@@ -102,3 +102,8 @@
     top: 0;
     bottom: 0;
 }
+.my-nav{
+position: absolute;
+z-index: 10;
+width: 100%;
+}

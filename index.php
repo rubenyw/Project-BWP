@@ -58,7 +58,7 @@
     </head>
     <body>
         <!-- Responsive navbar-->
-        <nav class="navbar navbar-expand-lg p-3 position-sticky top-0 w-100 shadow navbar-dark bg-dark">
+        <nav class="my-nav navbar navbar-expand-lg p-3 position-fixed top-0 w-100 shadow navbar-dark bg-dark">
             <div class="container">
                 <a class="navbar-brand" href="index.php">Tokosidia</a>
                 
@@ -113,8 +113,9 @@
                 <div class="row justify-content-center">
                     <div class="col-lg-8">
                         <div class="text-center">
+                            
                             <h3 class="display-6 fw-bolder text-white mb-5">Website Jual Beli Action Figure</h3>
-                            <div id="carouselExampleDark" class="carousel slide carousel-fade" data-bs-ride="carousel">
+                            <div id="carouselExampleDark" class="carousel slide carousel-fade my-carousel" data-bs-ride="carousel">
                                 <div class="carousel-indicators">
 
                                 <?php
@@ -173,6 +174,11 @@
                 </div>
             </div>
         </header>
+        <?php
+            for($i = 0; $i < 100; $i++){
+                echo "<br>";
+            }
+        ?>
         <!-- Features section-->
         <section class="intro py-5 border-bottom bg-light" id="features">
             <div class="mask d-flex align-items-center h-100">
