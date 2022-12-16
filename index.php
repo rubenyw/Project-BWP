@@ -89,8 +89,8 @@
                         ?>
                         <!-- Kalau belum login yang muncul ini -->
                         <div class="d-grid gap-2 d-md-block">
-                            <button class="btn btn-dark btn-sm px-3 fw-bold" name="login">LOGIN</button>
-                            <button class="btn btn-outline-light btn-sm px-3 fw-bold" name="register">SIGN UP</button>
+                            <button class="btn btn-dark btn-sm px-3 fw-bold" name="login">Login</button>
+                            <button class="btn btn-outline-light btn-sm px-3 fw-bold" name="register">Sign Up</button>
                         </div>
                         <?php
                             }else{

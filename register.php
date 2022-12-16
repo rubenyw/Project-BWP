@@ -59,8 +59,8 @@
                     <div class="input-group mb-3">
                         <select class="form-select bg-light fw-bold form" style="height: 55px;" name="gender" id="floatingGender">
                             <option class="fw-bold" value="" hidden>Gender</option>
-                            <option class="fw-bold" value="male">Male</option>
-                            <option class="fw-bold" value="female">Female</option>
+                            <option class="" value="male">Male</option>
+                            <option class="" value="female">Female</option>
                         </select>
                     </div>
                     <div class="form-floating mb-3">
