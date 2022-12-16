@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 16, 2022 at 07:07 PM
--- Server version: 10.4.22-MariaDB
--- PHP Version: 8.1.2
+-- Generation Time: Dec 16, 2022 at 07:27 PM
+-- Server version: 10.4.24-MariaDB
+-- PHP Version: 8.1.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -77,7 +77,17 @@ INSERT INTO `actionfigure` (`af_id`, `af_name`, `af_price`, `af_stock`, `af_stat
 ('AF029', 'Senkuu full body 12cm', 720000, 7, 1, 'SE022', '', 'assets/GambarFigure/AF029.jpg'),
 ('AF030', 'Emilia - White 10cm', 380000, 21, 1, 'SE023', '', 'assets/GambarFigure/AF030.jpg'),
 ('AF031', 'Esdeath - Standing on Ice 14cm', 420000, 6, 1, 'SE024', '', 'assets/GambarFigure/AF031.jpg'),
-('AF032', 'Ayanami - Chibi 6cm', 200000, 164, 1, 'SE025', '', 'assets/GambarFigure/AF032.jpg');
+('AF032', 'Ayanami - Chibi 6cm', 200000, 164, 1, 'SE025', '', 'assets/GambarFigure/AF032.jpg'),
+('AF033', 'Gilgamesh - Combat Suit 12cm', 900000, 2, 1, 'SE017', '', 'assets/GambarFigure/AF033.jp'),
+('AF034', 'Toosaka Rin', 780000, 8, 1, 'SE017', '', 'assets/GambarFigure/AF034.jp'),
+('AF035', 'Archer', 750000, 12, 1, 'SE017', '', 'assets/GambarFigure/AF035.jp'),
+('AF036', 'Kamado Nezuko', 500000, 9, 1, 'SE014', '', 'assets/GambarFigure/AF036.jp'),
+('AF037', 'Aqua', 800000, 19, 1, 'SE020', '', 'assets/GambarFigure/AF037.jp'),
+('AF038', 'Ishtar', 790000, 22, 1, 'SE017', '', 'assets/GambarFigure/AF038.jp'),
+('AF039', 'Rem', 450000, 7, 1, 'SE023', '', 'assets/GambarFigure/AF039.jp'),
+('AF040', 'Ryoumen Sukuna', 300000, 72, 1, 'SE018', '', 'assets/GambarFigure/AF040.jp'),
+('AF041', 'Yuta Okkotsu', 880000, 4, 1, 'SE018', '', 'assets/GambarFigure/AF041.jp'),
+('AF042', 'Kagura', 720000, 18, 1, 'SE012', '', 'assets/GambarFigure/AF042.jp');
 
 -- --------------------------------------------------------
 
