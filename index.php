@@ -49,7 +49,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Website</title>
+        <title>Tokosidia</title>
         <!-- Bootstrap icons-->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
         <!-- Core theme CSS (includes Bootstrap)-->
@@ -60,7 +60,7 @@
         <!-- Responsive navbar-->
         <nav class="my-nav navbar navbar-expand-lg p-3 position-sticky top-0 w-100 shadow navbar-dark bg-dark">
             <div class="container">
-                <a class="navbar-brand" href="index.php">Tokosidia</a>
+                <a class="navbar-brand" href="index.php" style="font-size: 22pt; font-weight: bold;">Tokosidia</a>
                 
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -72,7 +72,7 @@
                         </li>
                         <li class="nav-item">
                             <form class="nav-link" action="" method="post">
-                                <button class="btn btn-sm text-light" type='submit' name='transaction'>Transaction</button>
+                                <button class="btn btn-sm text-light fw-bold" type='submit' name='transaction'>Transaction</button>
                             </form>
                         </li>
                         <li class="nav-item">
@@ -116,35 +116,26 @@
                             <h3 class="display-6 fw-bolder text-white my-5">Website Jual Beli Action Figure</h3>
                             <div id="carouselExampleDark" class="carousel slide carousel-fade my-carousel" data-bs-ride="carousel">
                                 <div class="carousel-indicators">
-
                                 <?php
-
                                 $counter = 0;
                                 while($counter < 12){
-
                                 ?>
-
                                     <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="<?=$counter?>" <?=($counter == 0? 'class="active" aria-current="true"' : '')?>  aria-label="Slide <?=($counter+1)?>"></button>
-                                
                                 <?php
                                     $counter++;
                                 }
-
                                 ?>
 
                                 </div>
                                 <div class="carousel-inner rounded-5 shadow-4-strong">
-
                                     <?php
-
                                     $counter = 0;
                                     while($counter < 12){
-
                                     ?>
                                     <div class="carousel-item <?=($counter == 0? 'active' : '')?>" data-bs-interval="2000">
                                     <img src="assets/Gambar/<?=($counter+1)?>.jpg" class="d-block w-100">
                                     <div class="carousel-caption d-none d-md-block text-light fw-bold">
-                                        <h5>Website Jual Beli Action Figure</h5>
+                                        <!-- <h5>Website Jual Beli Action Figure</h5> -->
                                         <p>&nbsp</p>
                                     </div>
                                     </div>
@@ -152,7 +143,6 @@
                                     <?php
                                         $counter++;
                                     }
-
                                     ?>
                                    
                                 </div>
