@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 16, 2022 at 04:51 PM
+-- Generation Time: Dec 16, 2022 at 05:25 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.4
 
@@ -52,7 +52,30 @@ INSERT INTO `actionfigure` (`af_id`, `af_name`, `af_price`, `af_stock`, `af_stat
 ('AF006', 'Sanji - One Piece 12cm', 800000, 29, 1, 'SE001'),
 ('AF007', 'Attack Titan 16cm', 560000, 8, 1, 'SE006'),
 ('AF008', 'Colossal Titan 12cm', 400000, 41, 1, 'SE006'),
-('AF009', 'Denji full body 12cm', 450000, 22, 1, 'SE008');
+('AF009', 'Denji full body 12cm', 450000, 22, 1, 'SE007'),
+('AF010', 'Naruto - Rasengan 12cm', 250000, 56, 1, 'SE002'),
+('AF011', 'Milizé Vladilena full body 10cm', 350000, 29, 1, 'SE009'),
+('AF012', 'Ogiso Setsuna - White Dress 14cm', 680000, 27, 1, 'SE008'),
+('AF013', 'Ryuk 8cm', 270000, 71, 1, 'SE010'),
+('AF014', 'Kurosaki Ichigo - Bankai 12cm', 800000, 16, 1, 'SE011'),
+('AF015', 'Sakata Gintoki 12cm', 120000, 99, 1, 'SE012'),
+('AF016', 'Touma Kazusa - White Dress', 3900000, 2, 1, 'SE008'),
+('AF017', 'Violet Evergarden - chibi 4.5cm', 190000, 77, 1, 'SE013'),
+('AF018', 'Kamado Tanjirou - Water Breathing Technique 14cm', 900000, 8, 1, 'SE014'),
+('AF019', 'Megumin 12cm', 475000, 22, 1, 'SE020'),
+('AF020', 'Saber - Combat Outfit 12cm', 745000, 4, 1, 'SE017'),
+('AF021', 'Astolfo full body 12cm', 690000, 6, 1, 'SE017'),
+('AF022', 'Emperor Lelouch 14cm', 721000, 20, 1, 'SE015'),
+('AF023', 'Lelouch Lamperouge 12cm', 820000, 9, 1, 'SE015'),
+('AF024', 'Nanachi - Fishing 12cm', 480000, 16, 1, 'SE016'),
+('AF025', 'Gojou Satoru - Hello 12cm', 590000, 91, 1, 'SE018'),
+('AF026', 'Vegeta - Super Saiyan 12cm', 610000, 32, 1, 'SE003'),
+('AF027', 'Miyazono Kaori Complete Set 12cm', 500000, 25, 1, 'SE019'),
+('AF028', 'Gon Freecss Standing on Rock 16cm', 290000, 61, 1, 'SE021'),
+('AF029', 'Senkuu full body 12cm', 720000, 7, 1, 'SE022'),
+('AF030', 'Emilia - White 10cm', 380000, 21, 1, 'SE023'),
+('AF031', 'Esdeath - Standing on Ice 14cm', 420000, 6, 1, 'SE024'),
+('AF032', 'Ayanami - Chibi 6cm', 200000, 164, 1, 'SE025');
 
 -- --------------------------------------------------------
 
