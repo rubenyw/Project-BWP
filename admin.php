@@ -9,7 +9,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Website</title>
+        <title>Admin</title>
         <!-- Bootstrap icons-->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
         <!-- Core theme CSS (includes Bootstrap)-->
@@ -20,7 +20,7 @@
         <!-- Responsive navbar-->
         <nav class="navbar navbar-expand-lg p-3 position-sticky top-0 w-100 shadow navbar-dark bg-dark">
             <div class="container">
-                <a class="navbar-brand" href="admin.php">Tokosidia</a>
+                <a class="navbar-brand" href="admin.php" style="font-size: 22pt; font-weight: bold;">Tokosidia</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 me-5 mb-lg-0 px-3 border-end">
@@ -68,18 +68,12 @@
                     <h2>Action Figures</h2>
                     <div class="row justify-content-center">
                         <form action="" method="post">
-                            <div class="input-group">
+                            <div class="input-group mx-auto" style="width: 200px; height: 100px; align-items: center;">
                                 <div class="form-floating mb-3 mx-5">
                                     <select class="form-select" name='lokasi' id='lokasi'>
                                         <option value=''>All</option>
                                     </select>
-                                    <label for="lokasi">Series</label>
-                                </div>
-                                <div class="form-floating mb-3 mx-5">
-                                    <select class="form-select" name='jenis' id='jenis'>
-                                    <option value=''>All</option>
-                                    </select>
-                                    <label for="jenis">Harga</label>
+                                    <label for="lokasi">ID</label>
                                 </div>
                                 <button hidden type='submit' id='btn-filter'>haha</button>
                             </div>
