@@ -16,6 +16,28 @@ CREATE DATABASE /*!32312 IF NOT EXISTS*/`db_actionfigure` /*!40100 DEFAULT CHARA
 
 USE `db_actionfigure`;
 
+DROP TABLE IF EXISTS `series`;
+
+CREATE TABLE `series` (
+  `se_id` varchar(5) NOT NULL,
+  `se_name` varchar(255) NOT NULL,
+  PRIMARY KEY (`se_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+/*Data for the table `series` */
+
+insert  into `series`(`se_id`,`se_name`) values 
+('SE001','Wan Pis'),
+('SE002','Narto'),
+('SE003','Bola Naga'),
+('SE004','Semanggi Hitam'),
+('SE005','Doraemong'),
+('SE006','Attack on Tatang'),
+('SE007','Manusia Gergaji'),
+('SE008','Album Putih'),
+('SE009','Siap 86'),
+('SE010','Ded Node');
+
 /*Table structure for table `actionfigure` */
 
 DROP TABLE IF EXISTS `actionfigure`;
@@ -154,27 +176,6 @@ insert  into `htrans_beli`(`hb_id`,`hb_date`,`hb_invoice_number`,`hb_total`,`hb_
 
 /*Table structure for table `series` */
 
-DROP TABLE IF EXISTS `series`;
-
-CREATE TABLE `series` (
-  `se_id` varchar(5) NOT NULL,
-  `se_name` varchar(255) NOT NULL,
-  PRIMARY KEY (`se_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
-/*Data for the table `series` */
-
-insert  into `series`(`se_id`,`se_name`) values 
-('SE001','Wan Pis'),
-('SE002','Narto'),
-('SE003','Bola Naga'),
-('SE004','Semanggi Hitam'),
-('SE005','Doraemong'),
-('SE006','Attack on Tatang'),
-('SE007','Manusia Gergaji'),
-('SE008','Album Putih'),
-('SE009','Siap 86'),
-('SE010','Ded Node');
 
 /*Table structure for table `transaksi` */
 
