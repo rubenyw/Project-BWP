@@ -11,8 +11,11 @@
         $series = $_POST['series'];
         $desc = $_POST['desc'];
         
-        if($name == "" || $price == "" || $stock == "" || $series == "" || $desc == "" || empty($_FILES["image"]["name"])){
+        if($name == "" || $price == "" || $stock == "" || $series == "" || $desc == "" || empty($_FILES["image"])){
             $error = "Ada field yang kosong!";
+            if(empty($_FILES['image']['name'])){
+                alert("HAI");
+            }
         }else if (!is_numeric($price) || !is_numeric($stock)){
             $error = "Field angka harus diisi angka!";
         }else{
