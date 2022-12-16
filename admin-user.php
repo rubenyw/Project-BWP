@@ -67,25 +67,6 @@
                 <div class="container text-center">
                     <h2>List User</h2>
                     <div class="row justify-content-center">
-                        <form action="" method="post">
-                            <div class="input-group">
-                                <div class="form-floating mb-3 mx-5">
-                                    <select class="form-select" name='lokasi' id='lokasi'>
-                                        <option value=''>All</option>
-                                    </select>
-                                    <label for="lokasi">Series</label>
-                                </div>
-                                <div class="form-floating mb-3 mx-5">
-                                    <select class="form-select" name='jenis' id='jenis'>
-                                    <option value=''>All</option>
-                                    </select>
-                                    <label for="jenis">Harga</label>
-                                </div>
-                                <button hidden type='submit' id='btn-filter'>haha</button>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="row justify-content-center">
                         <div class="col-12">
                             <div class="card shadow-2-strong" style="background-color: #f5f7fa;">
                                 <div class="card-body">
