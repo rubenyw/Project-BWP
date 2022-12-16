@@ -76,22 +76,6 @@
                         </li>
                     </ul>
                     <form class="d-flex" role="search" action="" method="post">
-                        <?php
-                            if(!isset($_SESSION['userLogin'])){
-                        ?>
-                        <!-- Kalau belum login yang muncul ini -->
-                        <div class="d-grid gap-2 d-md-block">
-                            <button class="btn btn-dark btn-sm px-3 fw-bold" name="login">
-                                LOGIN
-                            </button>
-                            <button class="btn btn-outline-light btn-sm px-3 fw-bold" name="register">
-                                SIGN UP
-                            </button>
-                        </div>
-                        <?php
-                            }else{
-                        ?>
-                        <!-- Kalau sudah Login yang muncul ini -->
                         <div class="d-grid gap-2 d-md-block">
                             <button class="btn btn-dark btn-sm px-3 fw-bold" name="profile">
                                 <i class="bi bi-person-circle fill me-1"></i>Hello, <?=$_SESSION['userLogin']['username']?>
@@ -100,9 +84,6 @@
                                 Logout
                             </button>
                         </div>
-                        <?php
-                        }
-                        ?>
                     </form>
                 </div>
             </div>
