@@ -127,7 +127,7 @@
                         <div class="col-3 border text-center justify-content-center py-4">
                         <?php   
                             
-                            $query = "SELECT SUM(a.af_price) AS 'Total Price' FROM actionfigure a JOIN cart c ON c.ca_af_id = af_id JOIN users u ON u.us_id = '".$_SESSION['userLogin']['id']."'";
+                            $query = "SELECT (SUM(a.af_price)) AS 'Total Price' FROM actionfigure a JOIN cart c ON c.ca_af_id = af_id JOIN users u ON u.us_id = c.ca_us_id and u.us_id = '".$_SESSION['userLogin']['id']."'";
                             $query = $con -> query($query);
                             if(mysqli_num_rows($query) > 0){
                                 $row = $query -> fetch_array(MYSQLI_ASSOC);
