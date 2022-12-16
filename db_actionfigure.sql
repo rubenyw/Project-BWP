@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 16, 2022 at 04:24 PM
--- Server version: 10.4.22-MariaDB
--- PHP Version: 8.1.2
+-- Generation Time: Dec 16, 2022 at 04:51 PM
+-- Server version: 10.4.24-MariaDB
+-- PHP Version: 8.1.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -47,7 +47,12 @@ INSERT INTO `actionfigure` (`af_id`, `af_name`, `af_price`, `af_stock`, `af_stat
 ('AF001', 'Luffy D. Monkey Gear 3 Deluxe Edition 7cm', 1000000, 11, 1, 'SE001'),
 ('AF002', 'Sasuke Uchiha Susanoo Matakao 3x5cm', 2000000, 5, 1, 'SE002'),
 ('AF003', 'Son Goku Super Saiyan Anniversary Edition 8cm', 500000, 71, 1, 'SE003'),
-('AF004', 'Asta Full Body Figure 7cm', 900000, 28, 1, 'SE004');
+('AF004', 'Asta Full Body Figure 7cm', 900000, 28, 1, 'SE004'),
+('AF005', 'Doraemon 8cm', 300000, 7, 1, 'SE005'),
+('AF006', 'Sanji - One Piece 12cm', 800000, 29, 1, 'SE001'),
+('AF007', 'Attack Titan 16cm', 560000, 8, 1, 'SE006'),
+('AF008', 'Colossal Titan 12cm', 400000, 41, 1, 'SE006'),
+('AF009', 'Denji full body 12cm', 450000, 22, 1, 'SE008');
 
 -- --------------------------------------------------------
 
@@ -192,7 +197,25 @@ INSERT INTO `series` (`se_id`, `se_name`) VALUES
 ('SE007', 'Chainsaw Man'),
 ('SE008', 'White Album'),
 ('SE009', '86'),
-('SE010', 'Death Note');
+('SE010', 'Death Note'),
+('SE011', 'Bleach'),
+('SE012', 'Gintama'),
+('SE013', 'Violet Evergarden'),
+('SE014', 'Kimetsu no Yaiba'),
+('SE015', 'Code Geass'),
+('SE016', 'Made in Abyss'),
+('SE017', 'Fate'),
+('SE018', 'Jujutsu Kaisen'),
+('SE019', 'Shigatsu wa Kimi no Uso'),
+('SE020', 'Kono Subarashii Sekai ni Shukufuku wo! (Konosuba)'),
+('SE021', 'Hunter x Hunter'),
+('SE022', 'Dr. Stone'),
+('SE023', 'Re:Zero kara Hajimeru Isekai Seikatsu'),
+('SE024', 'Akame Ga Kill'),
+('SE025', 'Azur Lane'),
+('SE026', 'Darling in The Franxx'),
+('SE027', 'Domestic na Kanojo'),
+('SE028', 'Enen no Shouboutai');
 
 -- --------------------------------------------------------
 
