@@ -35,8 +35,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            
-                        <a class="nav-link" href="admin-user.php">
+                            <a class="nav-link" href="admin-user.php">
                                 <button class="btn btn-sm text-light">Users</button>
                             </a>
                         </li>
