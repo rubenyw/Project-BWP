@@ -17,7 +17,7 @@
             $error = "Field angka harus diisi angka!";
         }else{
             move_uploaded_file($_FILES["image"]["tmp_name"],"assets/GambarFigure/" . $_FILES["image"]["name"]);
-            $file = "assets/img/".$_FILES["image"]["name"];
+            $file = "assets/GambarFigure/".$_FILES["image"]["name"];
 
             $query = "SELECT CONCAT('AF', LPAD(IFNULL((MAX(SUBSTR(af_id,3,3))+1), 1), 3, 0)) as 'ID' FROM actionfigure";
             $id = mysqli_query($con, $query);
