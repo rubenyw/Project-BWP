@@ -64,8 +64,9 @@
         <!-- Features section-->
         <section class="intro py-5 border-bottom bg-light" id="features">
             <div class="mask d-flex align-items-center h-100">
-                <div class="container text-center">
-                    <h2>List Item</h2>
+                <div class="container">
+                    <div class='h2 mb-5'>List Item</div>
+                    <a href="add-item.php"><button class="btn btn-outline-success w-25 mb-5">Add Item</button></a>
                     <div class="row justify-content-center">
                         <form action="" method="post">
                             <div class="input-group">
