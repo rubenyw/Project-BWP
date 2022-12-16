@@ -20,7 +20,7 @@
         <!-- Responsive navbar-->
         <nav class="my-nav navbar navbar-expand-lg p-3 position-sticky top-0 w-100 shadow navbar-dark bg-dark">
             <div class="container">
-                <a class="navbar-brand" href="admin.php">Tokosidia</a>
+                <a class="navbar-brand" href="admin.php" style="font-size: 22pt; font-weight: bold;">Tokosidia</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 me-5 mb-lg-0 px-3 border-end">
@@ -55,7 +55,6 @@
                     <div class="col-lg-6">
                         <div class="text-center my-5">
                             <h1 class="display-5 fw-bolder text-white mb-2">Welcome Admin!</h1>
-                            <p class="lead text-white-50 mb-4">Ingin beli action figure murah dan terpercaya? Tokosidia jawabannya</p>
                         </div>
                     </div>
                 </div>
@@ -80,7 +79,7 @@
                                                 <th scope="col">Email</th>
                                                 <th scope="col">Password</th>
                                                 <th scope="col">Gender</th>
-                                                <th scope="col">Action</th>
+                                                <th scope="col">Status</th>
                                             </tr>
                                             </thead>
                                             <tbody>
@@ -100,7 +99,7 @@
                                                     <td class='col-2'><?=($row['us_gender'] == 1? 'Laki-Laki' : 'Perempuan')?></td>
                                                     <td class='col-1'>
                                                         <input type='hidden' name='apply' value=''>
-                                                        <button name='btn-apply' class='btn btn-outline-success btn-sm px-4'>Apply</button>
+                                                        <button name='btn-apply' class='btn btn-outline-success btn-sm px-4'>Aktif</button>
                                                     </td>
                                                 </tr>
                                                 <?php
@@ -132,12 +131,12 @@
             $(function(){
                 let button = $("[name='btn-apply']");
                 $(button).click(function(){
-                    if($(this).text() == "Apply"){
-                        $(this).text("Pending")
+                    if($(this).text() == "Aktif"){
+                        $(this).text("Nonaktif")
                         $(this).removeClass("btn-outline-success");
                         $(this).addClass("btn-outline-danger");
                     }else{
-                        $(this).text("Apply");
+                        $(this).text("Aktif");
                         $(this).removeClass("btn-outline-danger");
                         $(this).addClass("btn-outline-success");
                     }
