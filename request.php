@@ -229,7 +229,7 @@
             
         </section>
         <!-- Features section-->
-        <section class="intro py-5 border-bottom bg-light" id="features">
+        <!-- <section class="intro py-5 border-bottom bg-light" id="features">
             <div class="mask d-flex align-items-center h-100">
                 <div class="container text-center">
                     <h2>Action Figures</h2>
@@ -242,19 +242,19 @@
                                     </select>
                                     <label for="lokasi">Series</label>
                                 </div>
-                                <!-- <div class="form-floating mb-3 mx-5">
+                                <div class="form-floating mb-3 mx-5">
                                     <select class="form-select" name='jabatan' id='jabatan'>
                                         <option value=''>All</option>
                                     </select>
                                     <label for="jabatan">Official</label>
-                                </div> -->
+                                </div>
                                 <div class="form-floating mb-3 mx-5">
                                     <select class="form-select" name='jenis' id='jenis'>
                                     <option value=''>All</option>
                                     </select>
                                     <label for="jenis">Harga</label>
                                 </div>
-                                <!-- <div class="form-floating mb-3 mx-5">
+                                <<div class="form-floating mb-3 mx-5">
                                     <select class="form-select" name='sort' id='sort'>
                                     <option value=''>All</option>
                                     </select>
@@ -265,7 +265,7 @@
                                         <option value=''>All</option>
                                     </select>
                                     <label for="asc">Sort</label>
-                                </div> -->
+                                </div> 
                                 <button hidden type='submit' id='btn-filter'>haha</button>
                             </div>
                         </form>
@@ -286,7 +286,7 @@
                                                 <th scope="col">Stok</th>
                                                 <!-- <th scope="col">Jenis</th>
                                                 <th scope="col">Deadline</th>
-                                                <th scope="col">Action</th> -->
+                                                <th scope="col">Action</th>
                                             </tr>
                                             </thead>
                                             <tbody>
@@ -300,10 +300,10 @@
                                                     <!-- <td></td>
                                                     <td></td> -->
                                                     <td class="d-grid gap-2">
-                                                        <!-- <form action='' method='post'> -->
+                                                        <!-- <form action='' method='post'>
                                                             <input type='hidden' name='apply' value=''>
                                                             <button name='btn-apply' class='btn btn-outline-success btn-sm'>Apply</button>
-                                                        <!-- </form> -->
+                                                        <!-- </form>
                                                     </td>
                                                 </tr>
                                               
@@ -319,7 +319,7 @@
                 </div>
             </div>
             
-        </section>
+        </section> -->
         
         <!-- Footer-->
         <footer class="py-5 bg-dark">

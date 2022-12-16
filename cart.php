@@ -93,32 +93,70 @@
         <section class="intro py-5 border-bottom bg-light" id="features">
             <div class="mask d-flex h-100">
                 <div class="container bg-white py-3 px-3">
-                    <h2 class='mb-5'>Cart</h2>
-                    <?php
-                    
-                    $query = "SELECT * from cart where ca_us_id = '".$_SESSION['userLogin']['id']."' and ca_status = 'Requested'";
-                    $query = mysqli_query($con, $query);
-                    if(mysqli_num_rows($query) > 0){
-                    ?>
+                    <h2 class='mb-5'>Shopping Cart</h2>
+                    <div class="row justify-content-center">
+                        <div class="col-8 me-5 border">
 
-                    <!-- Content -->
+                            <?php
+                            
+                            $query = "SELECT * from cart where ca_us_id = '".$_SESSION['userLogin']['id']."' and ca_status = 'Requested'";
+                            $query = mysqli_query($con, $query);
+                            if(mysqli_num_rows($query) > 0){
+                            ?>
 
-                    <?php
+                            <!-- Content -->
 
-                    }else{
+                            <?php
 
-                    ?>
-                    <div class="row align-items-center text-center" style="height: 200px;">
-                        <div class="col">
-                            <div class="h2">Belum ada Barang nih</div>
-                            <a class="text-danger" href="index.php">Belanja yuk</a>
+                            }else{
+
+                            ?>
+                            <div class="row align-items-center text-center" style="height: 200px;">
+                                <div class="col">
+                                    <div class="h2">Belum ada Barang nih</div>
+                                    <a class="text-danger" href="index.php">Belanja yuk</a>
+                                </div>
+                            </div>
+                            <?php
+
+                            }
+
+                            ?>
+
+                        </div>
+                        <div class="col-3 border text-center justify-content-center py-4">
+                        <?php   
+                            
+                            $query = "SELECT SUM(a.af_price) AS 'Total Price' FROM actionfigure a JOIN cart c ON c.ca_af_id = af_id JOIN users u ON u.us_id = '".$_SESSION['userLogin']['id']."'";
+                            $query = $con -> query($query);
+                            if(mysqli_num_rows($query) > 0){
+                                $row = $query -> fetch_array(MYSQLI_ASSOC);
+                                $price = $row['Total Price'];
+                            ?>
+                            
+                            <!-- Content -->
+                            <div class="h5 mb-3" style="color: gray;">TOTAL PRICE</div>
+                            <div class="h3 mb-3" style="color: red;">IDR <?=$price?></div>
+                            <button class="btn btn-success w-100">CHECKOUT</button>
+
+                            <?php
+
+                            }else{
+
+                            ?>
+
+                            <div class="h5 mb-3" style="color: gray;">TOTAL PRICE</div>
+                            <div class="h3 mb-3" style="color: red;">IDR 0</div>
+                            <button class="btn btn-secondary w-100 disable">CHECKOUT</button>
+
+                            <?php
+
+                            }
+
+                            ?>
+                            
                         </div>
                     </div>
-                    <?php
-
-                    }
-
-                    ?>
                     <div class="row justify-content-center">
                         <div class="col-12">
                             <div class="card shadow-2-strong" style="background-color: #f5f7fa;">
