@@ -68,7 +68,7 @@
                     <h2>Action Figures</h2>
                     <div class="row justify-content-center">
                         <form action="" method="post">
-                            <div class="input-group mx-auto rounded" style="width: 200px; height: 100px; align-items: center;">
+                            <div class="input-group mx-auto" style="width: 200px; height: 100px; align-items: center;">
                                 <div class="form-floating mb-3 mx-5">
                                     <select class="form-select" name='lokasi' id='lokasi'>
                                         <option value=''>All</option>
