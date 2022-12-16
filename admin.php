@@ -30,12 +30,12 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="">
+                            <a class="nav-link" href="admin-item.php">
                                 <button class="btn btn-sm text-light">Items</button>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="">
+                            <a class="nav-link" href="admin-user.php">
                                 <button class="btn btn-sm text-light">Users</button>
                             </a>
                         </li>

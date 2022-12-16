@@ -18,19 +18,19 @@
     </head>
     <body>
         <!-- Responsive navbar-->
-        <nav class="navbar navbar-expand-lg p-3 position-sticky top-0 w-100 shadow navbar-dark bg-dark">
+        <nav class="my-nav navbar navbar-expand-lg p-3 position-sticky top-0 w-100 shadow navbar-dark bg-dark">
             <div class="container">
                 <a class="navbar-brand" href="admin.php">Tokosidia</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 me-5 mb-lg-0 px-3 border-end">
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="">
+                            <a class="nav-link" aria-current="page" href="admin.php">
                                 <button class="btn btn-sm text-light">Transaction</button>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="">
+                            <a class="nav-link" href="admin-item.php">
                                 <button class="btn btn-sm text-light">Items</button>
                             </a>
                         </li>
@@ -65,7 +65,7 @@
         <section class="intro py-5 border-bottom bg-light" id="features">
             <div class="mask d-flex align-items-center h-100">
                 <div class="container text-center">
-                    <h2>Action Figures</h2>
+                    <h2>List User</h2>
                     <div class="row justify-content-center">
                         <form action="" method="post">
                             <div class="input-group">
@@ -89,35 +89,43 @@
                         <div class="col-12">
                             <div class="card shadow-2-strong" style="background-color: #f5f7fa;">
                                 <div class="card-body">
-                                    
                                     <div class="table-responsive">
-                                        <table class="table table-borderless mb-0 align-items-center justify-content-center">
+                                        <table class="table table-border mb-0 align-items-center justify-content-center text-start">
                                             <thead>
                                             <tr>
-                                                <th scope="col">No </th>
-                                                <th scope="col">Nama Action Figure</th>
-                                                <th scope="col">Seri</th>
-                                                <th scope="col">Harga</th>
-                                                <th scope="col">Stok</th>
+                                                <th scope="col">No</th>
+                                                <th scope="col">ID</th>
+                                                <th scope="col">Username</th>
+                                                <th scope="col">Email</th>
+                                                <th scope="col">Password</th>
+                                                <th scope="col">Gender</th>
+                                                <th scope="col">Action</th>
                                             </tr>
                                             </thead>
                                             <tbody>
                                             <tbody>
+                                                <?php
+                                                    $query = "SELECT * from users";
+                                                    $query = mysqli_query($con, $query);
+                                                    $counter = 1;
+                                                    while($row = mysqli_fetch_array($query, MYSQLI_ASSOC)){
+                                                ?>
                                                 <tr>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td class="d-grid gap-2">
-                                                        <!-- <form action='' method='post'> -->
+                                                    <td class='col-1'><?=$counter?></td>
+                                                    <td class='col-2'><?=$row['us_id']?></td>
+                                                    <td class='col-2'><?=$row['us_username']?></td>
+                                                    <td class='col-2'><?=$row['us_email']?></td>
+                                                    <td class='col-2'><?=$row['us_password']?></td>
+                                                    <td class='col-2'><?=($row['us_gender'] == 1? 'Laki-Laki' : 'Perempuan')?></td>
+                                                    <td class='col-1'>
                                                         <input type='hidden' name='apply' value=''>
                                                         <button name='btn-apply' class='btn btn-outline-success btn-sm px-4'>Apply</button>
-                                                        <!-- </form> -->
                                                     </td>
                                                 </tr>
-                                              
-                                            
+                                                <?php
+                                                        $counter++;
+                                                    }
+                                                ?>
                                             </tbody>
                                                 
                                         </table>

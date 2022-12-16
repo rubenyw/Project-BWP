@@ -127,11 +127,11 @@
                         <div class="col-3 border text-center justify-content-center py-4">
                         <?php   
                             
-                            $query = "SELECT (SUM(a.af_price)) AS 'Total Price' FROM actionfigure a JOIN cart c ON c.ca_af_id = af_id JOIN users u ON u.us_id = c.ca_us_id and u.us_id = '".$_SESSION['userLogin']['id']."'";
+                            $query = "SELECT (SUM(a.af_price)) AS 'Total' FROM actionfigure a JOIN cart c ON c.ca_af_id = af_id JOIN users u ON u.us_id = c.ca_us_id and u.us_id = '".$_SESSION['userLogin']['id']."'";
                             $query = $con -> query($query);
-                            if(mysqli_num_rows($query) > 0){
-                                $row = $query -> fetch_array(MYSQLI_ASSOC);
-                                $price = $row['Total Price'];
+                            $row = $query -> fetch_array(MYSQLI_ASSOC);
+                            if($row['Total'] != null){
+                                $price = $row['Total'];   
                             ?>
                             
                             <!-- Content -->
@@ -147,7 +147,7 @@
 
                             <div class="h5 mb-3" style="color: gray;">TOTAL PRICE</div>
                             <div class="h3 mb-3" style="color: red;">IDR 0</div>
-                            <button class="btn btn-secondary w-100 disable">CHECKOUT</button>
+                            <button class="btn btn-secondary w-100 disable" disable>CHECKOUT</button>
 
                             <?php
 

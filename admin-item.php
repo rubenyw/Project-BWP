@@ -25,7 +25,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 me-5 mb-lg-0 px-3 border-end">
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="">
+                            <a class="nav-link" aria-current="page" href="admin.php">
                                 <button class="btn btn-sm text-light">Transaction</button>
                             </a>
                         </li>
@@ -35,7 +35,8 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="">
+                            
+                        <a class="nav-link" href="admin-user.php">
                                 <button class="btn btn-sm text-light">Users</button>
                             </a>
                         </li>
@@ -65,7 +66,7 @@
         <section class="intro py-5 border-bottom bg-light" id="features">
             <div class="mask d-flex align-items-center h-100">
                 <div class="container text-center">
-                    <h2>Action Figures</h2>
+                    <h2>List Item</h2>
                     <div class="row justify-content-center">
                         <form action="" method="post">
                             <div class="input-group">
@@ -91,33 +92,42 @@
                                 <div class="card-body">
                                     
                                     <div class="table-responsive">
-                                        <table class="table table-borderless mb-0 align-items-center justify-content-center">
+                                    <table class="table table-border mb-0 align-items-center justify-content-center text-start">
                                             <thead>
                                             <tr>
-                                                <th scope="col">No </th>
-                                                <th scope="col">Nama Action Figure</th>
-                                                <th scope="col">Seri</th>
-                                                <th scope="col">Harga</th>
-                                                <th scope="col">Stok</th>
+                                                <th scope="col">No</th>
+                                                <th scope="col">ID</th>
+                                                <th scope="col">Name</th>
+                                                <th scope="col">Price</th>
+                                                <th scope="col">Stock</th>
+                                                <th scope="col">Series</th>
+                                                <th scope="col">Action</th>
                                             </tr>
                                             </thead>
                                             <tbody>
                                             <tbody>
+                                                <?php
+                                                    $query = "SELECT a.af_id as 'ID', a.af_name as 'Name', a.af_price as 'Price', a.af_stock as 'Stock', a.af_status as 'Status', s.se_name as 'Series' from actionfigure a join series s on s.se_id = a.af_se_id";
+                                                    $query = mysqli_query($con, $query);
+                                                    $counter = 1;
+                                                    while($row = mysqli_fetch_array($query, MYSQLI_ASSOC)){
+                                                ?>
                                                 <tr>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td class="d-grid gap-2">
-                                                        <!-- <form action='' method='post'> -->
+                                                    <td class='col-1'><?=$counter?></td>
+                                                    <td class='col-2'><?=$row['ID']?></td>
+                                                    <td class='col-2'><?=$row['Name']?></td>
+                                                    <td class='col-2'><?=$row['Price']?></td>
+                                                    <td class='col-2'><?=($row['Status'] == 1? 'Aktif' : 'Tidak Aktif')?></td>
+                                                    <td class='col-2'><?=$row['Series']?></td>
+                                                    <td class='col-1'>
                                                         <input type='hidden' name='apply' value=''>
                                                         <button name='btn-apply' class='btn btn-outline-success btn-sm px-4'>Apply</button>
-                                                        <!-- </form> -->
                                                     </td>
                                                 </tr>
-                                              
-                                            
+                                                <?php
+                                                        $counter++;
+                                                    }
+                                                ?>
                                             </tbody>
                                                 
                                         </table>
