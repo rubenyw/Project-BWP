@@ -72,7 +72,7 @@
                         </li>
                         <li class="nav-item">
                             <form class="nav-link" action="" method="post">
-                                <button class="btn btn-sm text-light fw-bold" type='submit' name='transaction'>Transaction</button>
+                                <button class="btn btn-sm text-light" type='submit' name='transaction'>Transaction</button>
                             </form>
                         </li>
                         <li class="nav-item">
