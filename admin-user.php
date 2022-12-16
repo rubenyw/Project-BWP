@@ -80,7 +80,7 @@
                                                 <th scope="col">Email</th>
                                                 <th scope="col">Password</th>
                                                 <th scope="col">Gender</th>
-                                                <th scope="col">Action</th>
+                                                <th scope="col">Status</th>
                                             </tr>
                                             </thead>
                                             <tbody>
@@ -100,7 +100,7 @@
                                                     <td class='col-2'><?=($row['us_gender'] == 1? 'Laki-Laki' : 'Perempuan')?></td>
                                                     <td class='col-1'>
                                                         <input type='hidden' name='apply' value=''>
-                                                        <button name='btn-apply' class='btn btn-outline-success btn-sm px-4'>Apply</button>
+                                                        <button name='btn-apply' class='btn btn-outline-success btn-sm px-4'>Aktif</button>
                                                     </td>
                                                 </tr>
                                                 <?php
@@ -132,12 +132,12 @@
             $(function(){
                 let button = $("[name='btn-apply']");
                 $(button).click(function(){
-                    if($(this).text() == "Apply"){
-                        $(this).text("Pending")
+                    if($(this).text() == "Aktif"){
+                        $(this).text("Nonaktif")
                         $(this).removeClass("btn-outline-success");
                         $(this).addClass("btn-outline-danger");
                     }else{
-                        $(this).text("Apply");
+                        $(this).text("Aktif");
                         $(this).removeClass("btn-outline-danger");
                         $(this).addClass("btn-outline-success");
                     }
