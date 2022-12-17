@@ -13,23 +13,24 @@
         $id = $update['af_id'];
         if($name == "" || $price == "" || $stock == "" || $series == "" || $desc == ""){
             $error = "Ada field yang kosong!";
-            
         }else if (!is_numeric($price) || !is_numeric($stock)){
             $error = "Field angka harus diisi angka!";
         }else{
-            $file_type = $_FILES['image']['type']; //returns the mimetype
+            if(!empty($_FILES["image"]["name"])){
+                $file_type = $_FILES['image']['type']; //returns the mimetype
 
-            $allowed = array("image/jpeg");
-            if(!in_array($file_type, $allowed)) {
-                $error = 'Only jpg files are allowed.';
-            }else{
-                if(!empty($_FILES["image"]["name"])){
+                $allowed = array("image/jpeg");
+                if(!in_array($file_type, $allowed)) {
+                    $error = 'Only jpg files are allowed!';
+                }else{
                     $exp = explode(".",$_FILES["image"]["name"]);
                     $file = "assets/GambarFigure/".$id. ".$exp[1]";
                     move_uploaded_file($_FILES["image"]["tmp_name"], $file);
-                }else{
-                    $file = $update['af_image_path'];
                 }
+            }else{
+                $file = $update['af_image_path'];
+            }
+            if(strlen($error) < 1){
                 $query = "UPDATE actionfigure SET af_name = '$name', af_price = '$price', af_stock = '$stock', af_se_id = '$series', af_desc = '$desc', af_image_path = '$file' where af_id = '$id'";    
                 $query = mysqli_query($con, $query);
                 $success = "Update Success!";
@@ -92,6 +93,9 @@
                     <div class="col-lg-7 border bg-light">
                         <div class="my-5">
                             <form action="" method="post" enctype="multipart/form-data">
+                                <div class="form-control text-center bg-light">
+                                    <img src='assets/GambarFigure/<?=$update['af_id']?>.jpg'>
+                                </div>
                                 <div class="form-floating mt-2">
                                     <input type="text" class="form-control bg-light form" id="floatingInput" name="name" placeholder=" " value="<?=$update['af_name']?>">
                                     <label for="floatingInput" class="fw-bold">Name</label>
@@ -120,11 +124,11 @@
                                         ?>
                                     </select>
                                 </div>
-                                <div class="form-floating mb-5 mt-3">
+                                <div class="form-floating mt-3">
                                     <textarea class="form-control bg-light form" id="txt" placeholder=" " style="height: 300px;" name="desc"><?=$update['af_desc']?></textarea>
                                     <label for="txt" class="fw-bold">Deskripsi</label>
                                 </div>  
-                                <div class="row align-items-center my-3">
+                                <div class="form-control d-flex align-items-center my-3">
                                     <div class="col-3">
                                         Add Picture
                                     </div>

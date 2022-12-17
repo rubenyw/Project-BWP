@@ -5,8 +5,16 @@
     $query = mysqli_query($con, $query);
     $counter = 1;
     while($row = mysqli_fetch_array($query, MYSQLI_ASSOC)){
+        $status = '';
+        $btn = 'btn-outline-primary';
+        $update_btn = '';
+        if($row['Status'] == 0){
+            $status = 'bg-dark text-white';
+            $btn = 'btn-danger';
+            $update_btn = 'disable';
+        }
 ?>
-<tr>
+<tr class='<?=$status?>'>
     <td class='col-1'><?=$counter?></td>
     <td class='col-1'><?=$row['ID']?></td>
     <td class='col-3'><?=$row['Name']?></td>
@@ -16,12 +24,11 @@
     <td class='col'>
         <form action="" method='post'>
             <input type='hidden' name='id_item' value='<?=$row['ID']?>'>
-            <button name='btn-update-item' class='btn btn-outline-success btn-sm px-4'>Update</button>
+            <button name='btn-update-item' class='btn btn-outline-success btn-sm px-4 <?=$update_btn?>'<?=$update_btn?>>Update</button>
         </form>
     </td>
     <td class='col'>
-        <input type='hidden' name='id_item' value='<?=$row['ID']?>'>
-        <button name='btn-update-item' class='btn btn-outline-success btn-sm px-4'>Update</button>
+        <button onclick='update_item(this)' class='btn <?=$btn?> btn-sm px-4' value='<?=$row['ID']?>'>Status</button>
     </td>
 </tr>
 <?php
