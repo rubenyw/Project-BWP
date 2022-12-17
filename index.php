@@ -55,6 +55,8 @@
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
         <link href="assets/css/general.css" rel="stylesheet">
+        <link href="assets/css/product.css" rel="stylesheet">
+        
     </head>
     <body>
         <!-- Responsive navbar-->
@@ -168,6 +170,136 @@
                 echo "<br>";
             }
         ?>
+        <!-- product section -->
+
+        <div class="product"> 
+        <h2 class="product-category">best selling</h2>
+        <button class="pre-btn"><img src="assets/icon/arrow.png" alt=""></button>
+        <button class="nxt-btn"><img src="assets/icon/arrow.png" alt=""></button>
+        <div class="product-container">
+            <div class="product-card">
+                <div class="product-image">
+                    <span class="discount-tag">50% off</span>
+                    <img src="assets/GambarFigure/card (1).jpg" class="product-thumb" alt="">
+                    <button class="card-btn">add to wishlist</button>
+                </div>
+                <div class="product-info">
+                    <h2 class="product-brand">brand</h2>
+                    <p class="product-short-description">a short line about the cloth..</p>
+                    <span class="price">$20</span><span class="actual-price">$40</span>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                    <span class="discount-tag">50% off</span>
+                    <img src="assets/GambarFigure/card (2).jpg" class="product-thumb" alt="">
+                    <button class="card-btn">add to wishlist</button>
+                </div>
+                <div class="product-info">
+                    <h2 class="product-brand">brand</h2>
+                    <p class="product-short-description">a short line about the cloth..</p>
+                    <span class="price">$20</span><span class="actual-price">$40</span>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                    <span class="discount-tag">50% off</span>
+                    <img src="assets/GambarFigure/card (3).jpg" class="product-thumb" alt="">
+                    <button class="card-btn">add to wishlist</button>
+                </div>
+                <div class="product-info">
+                    <h2 class="product-brand">brand</h2>
+                    <p class="product-short-description">a short line about the cloth..</p>
+                    <span class="price">$20</span><span class="actual-price">$40</span>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                    <span class="discount-tag">50% off</span>
+                    <img src="assets/GambarFigure/card (4).jpg" class="product-thumb" alt="">
+                    <button class="card-btn">add to wishlist</button>
+                </div>
+                <div class="product-info">
+                    <h2 class="product-brand">brand</h2>
+                    <p class="product-short-description">a short line about the cloth..</p>
+                    <span class="price">$20</span><span class="actual-price">$40</span>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                    <span class="discount-tag">50% off</span>
+                    <img src="assets/GambarFigure/card (5).jpg" class="product-thumb" alt="">
+                    <button class="card-btn">add to wishlist</button>
+                </div>
+                <div class="product-info">
+                    <h2 class="product-brand">brand</h2>
+                    <p class="product-short-description">a short line about the cloth..</p>
+                    <span class="price">$20</span><span class="actual-price">$40</span>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                    <span class="discount-tag">50% off</span>
+                    <img src="assets/GambarFigure/card (6).jpg" class="product-thumb" alt="">
+                    <button class="card-btn">add to wishlist</button>
+                </div>
+                <div class="product-info">
+                    <h2 class="product-brand">brand</h2>
+                    <p class="product-short-description">a short line about the cloth..</p>
+                    <span class="price">$20</span><span class="actual-price">$40</span>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                    <span class="discount-tag">50% off</span>
+                    <img src="assets/GambarFigure/card (7).jpg" class="product-thumb" alt="">
+                    <button class="card-btn">add to wishlist</button>
+                </div>
+                <div class="product-info">
+                    <h2 class="product-brand">brand</h2>
+                    <p class="product-short-description">a short line about the cloth..</p>
+                    <span class="price">$20</span><span class="actual-price">$40</span>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                    <span class="discount-tag">50% off</span>
+                    <img src="assets/GambarFigure/card (8).jpg" class="product-thumb" alt="">
+                    <button class="card-btn">add to wishlist</button>
+                </div>
+                <div class="product-info">
+                    <h2 class="product-brand">brand</h2>
+                    <p class="product-short-description">a short line about the cloth..</p>
+                    <span class="price">$20</span><span class="actual-price">$40</span>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                    <span class="discount-tag">50% off</span>
+                    <img src="assets/GambarFigure/card (9).jpg" class="product-thumb" alt="">
+                    <button class="card-btn">add to wishlist</button>
+                </div>
+                <div class="product-info">
+                    <h2 class="product-brand">brand</h2>
+                    <p class="product-short-description">a short line about the cloth..</p>
+                    <span class="price">$20</span><span class="actual-price">$40</span>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                    <span class="discount-tag">50% off</span>
+                    <img src="assets/GambarFigure/card (10).jpg" class="product-thumb" alt="">
+                    <button class="card-btn">add to wishlist</button>
+                </div>
+                <div class="product-info">
+                    <h2 class="product-brand">brand</h2>
+                    <p class="product-short-description">a short line about the cloth..</p>
+                    <span class="price">$20</span><span class="actual-price">$40</span>
+                </div>
+            </div>
+        </div>
+        </div>
+
         <!-- Features section-->
         <section class="intro py-5 border-bottom bg-light" id="features">
             <div class="mask d-flex align-items-center h-100">
@@ -291,5 +423,6 @@
         <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
         <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
         <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+        <script src="script.js"></script>
     </body>
 </html>
