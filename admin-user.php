@@ -70,7 +70,7 @@
                             <div class="card shadow-2-strong" style="background-color: #f5f7fa;">
                                 <div class="card-body">
                                     <div class="table-responsive">
-                                        <table class="table table-border mb-0 align-items-center justify-content-center text-start">
+                                        <table class="table table-border mb-0  text-center align-items-center justify-content-center text-start">
                                             <thead>
                                             <tr>
                                                 <th scope="col">No</th>

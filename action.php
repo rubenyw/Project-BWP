@@ -2,8 +2,7 @@
   if(!isset($_SESSION)) 
   { 
       session_start(); 
-  } 
-
+  }  
   $con = mysqli_connect("localhost", "root", "", "db_actionfigure");
 
   function alert($message){

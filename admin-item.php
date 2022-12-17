@@ -91,7 +91,7 @@
                                 <div class="card-body">
                                     
                                     <div class="table-responsive">
-                                    <table class="table table-border mb-0 align-items-center justify-content-center text-start">
+                                    <table class="table table-border mb-0 align-items-center justify-content-center text-center">
                                             <thead>
                                             <tr>
                                                 <th scope="col">No</th>
@@ -113,12 +113,12 @@
                                                 ?>
                                                 <tr>
                                                     <td class='col-1'><?=$counter?></td>
-                                                    <td class='col-2'><?=$row['ID']?></td>
-                                                    <td class='col-2'><?=$row['Name']?></td>
-                                                    <td class='col-2'><?=$row['Price']?></td>
-                                                    <td class='col-2'><?=($row['Status'] == 1? 'Aktif' : 'Tidak Aktif')?></td>
+                                                    <td class='col-1'><?=$row['ID']?></td>
+                                                    <td class='col-3'><?=$row['Name']?></td>
+                                                    <td class='col-1'><?=$row['Price']?></td>
+                                                    <td class='col-1'><?=$row['Stock']?></td>
                                                     <td class='col-2'><?=$row['Series']?></td>
-                                                    <td class='col-1'>
+                                                    <td class='col'>
                                                         <input type='hidden' name='apply' value=''>
                                                         <button name='btn-apply' class='btn btn-outline-success btn-sm px-4'>Apply</button>
                                                     </td>
