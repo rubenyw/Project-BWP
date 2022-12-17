@@ -17,18 +17,26 @@
         }else if (!is_numeric($price) || !is_numeric($stock)){
             $error = "Field angka harus diisi angka!";
         }else{
-            if(!empty($_FILES["image"]["name"])){
-                $exp = explode(".",$_FILES["image"]["name"]);
-                $file = "assets/GambarFigure/". $id['ID'] . "." . end($exp);
-                move_uploaded_file($_FILES["image"]["tmp_name"], $file);
+            $file_type = $_FILES['image']['type']; //returns the mimetype
+
+            $allowed = array("image/jpeg");
+            if(!in_array($file_type, $allowed)) {
+                $error = 'Only jpg files are allowed.';
             }else{
-                $file = "";
+                alert($_FILES['image']['name']);
+                if(!empty($_FILES["image"]["name"])){
+                    $exp = explode(".",$_FILES["image"]["name"]);
+                    $file = "assets/GambarFigure/".$id. ".$exp[1]";
+                    move_uploaded_file($_FILES["image"]["tmp_name"], $file);
+                }else{
+                    $file = $update['af_image_path'];
+                }
+                $query = "UPDATE actionfigure SET af_name = '$name', af_price = '$price', af_stock = '$stock', af_se_id = '$series', af_desc = '$desc', af_image_path = '$file' where af_id = '$id'";    
+                $query = mysqli_query($con, $query);
+                $success = "Update Success!";
+                unset($_SESSION['update']);
+                header('Location: admin-item.php');
             }
-            $query = "UPDATE actionfigure SET af_name = '$name', af_price = '$price', af_stock = '$stock', af_se_id = '$series', af_desc = '$desc', af_image_path = '$file' where af_id = '$id'";    
-            $query = mysqli_query($con, $query);
-            $success = "Update Success!";
-            unset($_SESSION['update']);
-            header('Location: admin-item.php');
         }
     }
 ?>
