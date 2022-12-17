@@ -165,11 +165,6 @@
                 </div>
             </div>
         </header>
-        <?php
-            for($i = 0; $i < 100; $i++){
-                echo "<br>";
-            }
-        ?>
         <!-- product section -->
 
         <!-- <div class="product"> 
