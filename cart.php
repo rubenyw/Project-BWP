@@ -93,29 +93,30 @@
         <section class="intro py-5 border-bottom bg-light" id="features">
             <div class="mask d-flex h-100">
                 <div class="container bg-white py-3 px-3">
-                    <!-- <h2 class='mb-5'>Shopping Cart</h2> -->
-                    <div class="row justify-content-center">
-                        <div class="col-8 me-5 border">
+                    <h2 class='mb-5'>Shopping Cart</h2>
+                    <div class="row justify-content-center d-flex">
+                        <div class="w-50 me-5 border">
 
                             <?php
                             
-                            $query = "SELECT * from cart where ca_us_id = '".$_SESSION['userLogin']['id']."' and ca_status = 'Requested'";
+                            $query = "SELECT a.af_name as 'Name', a.af_price as 'Harga', a.af_image_path as 'path' from actionfigure a join cart c where c.ca_us_id = '".$_SESSION['userLogin']['id']."' and c.ca_status = 'Requested' and c.ca_af_id = a.af_id";
                             $query = mysqli_query($con, $query);
                             if(mysqli_num_rows($query) > 0){
                             ?>
-
                             <!-- Content -->
-                            <h2 class='mb-5'>Shopping Cart</h2>
-                            <hr>
                             <div class="table-responsive">
-                                        <div class="container text-center">
+                                <div class="container text-center">
+                                    <?php
+                                        
+                                        while($row = mysqli_fetch_array($query, MYSQLI_ASSOC)){
+                                            ?>
                                             <div class="row row-cols-2 row-cols-lg-1 g-2 g-lg-3">
                                                 <div class="col">
                                                     <form action="">
                                                         <div class="p-3 border bg-light rounded">
-                                                            <img src="assets/GambarFigure/AF001.jpg" class="product-thumb" alt="">
-                                                            <p>Nama Barang</p>
-                                                            <h6>Harga : Rp. 150000</h6>
+                                                            <img src="<?=$row['path']?>" class="product-thumb" alt="">
+                                                            <p><?=$row['Name']?></p>
+                                                            <h6>Harga : Rp. <?=$row['Harga']?></h6>
                                                             <button class="btn btn-success btn-sm px-3 fw-bold"><i class="bi bi-dash"></i></button>
                                                             2
                                                             <button class="btn btn-success btn-sm px-3 fw-bold"><i class="bi bi-plus"></i></button>
@@ -145,8 +146,12 @@
                                                     </form>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </div>
+                                        <?php
+                                        }
+
+                                        ?>
+                                </div>
+                            </div>
 
                             <?php
 
@@ -166,7 +171,7 @@
                             ?>
 
                         </div>
-                        <div class="col-3 border text-center justify-content-center py-4">
+                        <div class="w-25 border text-center justify-content-center py-4">
                         <?php   
                             
                             $query = "SELECT (SUM(a.af_price)) AS 'Total' FROM actionfigure a JOIN cart c ON c.ca_af_id = af_id JOIN users u ON u.us_id = c.ca_us_id and u.us_id = '".$_SESSION['userLogin']['id']."'";
