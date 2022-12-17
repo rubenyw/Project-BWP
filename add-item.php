@@ -19,13 +19,15 @@
         }else if (!is_numeric($price) || !is_numeric($stock)){
             $error = "Field angka harus diisi angka!";
         }else{
-            move_uploaded_file($_FILES["image"]["tmp_name"],"assets/GambarFigure/" . $_FILES["image"]["name"]);
-            $file = "assets/GambarFigure/".$_FILES["image"]["name"];
-
             $query = "SELECT CONCAT('AF', LPAD(IFNULL((MAX(SUBSTR(af_id,3,3))+1), 1), 3, 0)) as 'ID' FROM actionfigure";
             $id = mysqli_query($con, $query);
             $id = mysqli_fetch_assoc($id);
-            $query = "INSERT INTO post VALUES ('".$id['ID']."', '$name', '$price', '$stock', 1, '$series', '$desc', '$file')";
+
+            $exp = explode(".",$_FILES["image"]["name"]);
+            $file = "assets/GambarFigure/". $id['ID'] . "." . end($exp);
+            move_uploaded_file($_FILES["image"]["tmp_name"], $file);
+
+            $query = "INSERT INTO actionfigure VALUES ('".$id['ID']."', '$name', '$price', '$stock', 1, '$series', '$desc', '$file')";
             $query = mysqli_query($con, $query);
             $success = "Berhasil Upload";
         }
@@ -84,7 +86,7 @@
                 <div class="row gx-5 justify-content-center">
                     <div class="col-lg-7 border bg-light">
                         <div class="my-5">
-                            <form action="" method="post">
+                            <form action="" method="post" enctype="multipart/form-data">
                                 <div class="form-floating mt-2">
                                     <input type="text" class="form-control bg-light form" id="floatingInput" name="name" placeholder=" ">
                                     <label for="floatingInput" class="fw-bold">Name</label>
