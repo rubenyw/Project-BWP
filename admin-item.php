@@ -1,6 +1,23 @@
 <?php
     require('action.php');
     
+    if(isset($_POST['btn-update-item'])){
+        $id = $_POST['id_item'];
+        $query = "SELECT * from actionfigure where af_id = '$id'";
+        $query = mysqli_fetch_array(mysqli_query($con, $query), MYSQLI_ASSOC);
+        $_SESSION['update'] = [
+            'af_id'=> $query['af_id'],
+            'af_name'=> $query['af_name'],
+            'af_price'=> $query['af_price'],
+            'af_stock'=> $query['af_stock'],
+            'af_status'=> $query['af_status'],
+            'af_se_id'=> $query['af_se_id'],
+            'af_desc'=> $query['af_desc'],
+            'af_image_path'=> $query['af_image_path']
+        ];
+        header('Location: update-item.php');
+    }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -119,8 +136,10 @@
                                                     <td class='col-1'><?=$row['Stock']?></td>
                                                     <td class='col-2'><?=$row['Series']?></td>
                                                     <td class='col'>
-                                                        <input type='hidden' name='apply' value=''>
-                                                        <button name='btn-apply' class='btn btn-outline-success btn-sm px-4'>Apply</button>
+                                                        <form action="" method='post'>
+                                                            <input type='hidden' name='id_item' value='<?=$row['ID']?>'>
+                                                            <button name='btn-update-item' class='btn btn-outline-success btn-sm px-4'>Update</button>
+                                                        </form>
                                                     </td>
                                                 </tr>
                                                 <?php

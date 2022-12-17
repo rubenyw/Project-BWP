@@ -11,22 +11,33 @@
         $series = $_POST['series'];
         $desc = $_POST['desc'];
         
+        
+
         if($name == "" || $price == "" || $stock == "" || $series == "" || $desc == "" || empty($_FILES["image"])){
             $error = "Ada field yang kosong!";
         }else if (!is_numeric($price) || !is_numeric($stock)){
             $error = "Field angka harus diisi angka!";
         }else{
-            $query = "SELECT CONCAT('AF', LPAD(IFNULL((MAX(SUBSTR(af_id,3,3))+1), 1), 3, 0)) as 'ID' FROM actionfigure";
-            $id = mysqli_query($con, $query);
-            $id = mysqli_fetch_assoc($id);
 
-            $exp = explode(".",$_FILES["image"]["name"]);
-            $file = "assets/GambarFigure/". $id['ID'] . "." . end($exp);
-            move_uploaded_file($_FILES["image"]["tmp_name"], $file);
+            $file_type = $_FILES['image']['type']; //returns the mimetype
 
-            $query = "INSERT INTO actionfigure VALUES ('".$id['ID']."', '$name', '$price', '$stock', 1, '$series', '$desc', '$file')";
-            $query = mysqli_query($con, $query);
-            $success = "Berhasil Upload";
+            $allowed = array("image/jpeg");
+            if(!in_array($file_type, $allowed)) {
+            $error = 'Only jpg files are allowed.';
+            }else{
+                $query = "SELECT CONCAT('AF', LPAD(IFNULL((MAX(SUBSTR(af_id,3,3))+1), 1), 3, 0)) as 'ID' FROM actionfigure";
+                $id = mysqli_query($con, $query);
+                $id = mysqli_fetch_assoc($id);
+    
+                $exp = explode(".",$_FILES["image"]["name"]);
+                $file = "assets/GambarFigure/". $id['ID'] . "." . end($exp);
+                move_uploaded_file($_FILES["image"]["tmp_name"], $file);
+    
+                $query = "INSERT INTO actionfigure VALUES ('".$id['ID']."', '$name', '$price', '$stock', 1, '$series', '$desc', '$file')";
+                $query = mysqli_query($con, $query);
+                $success = "Berhasil Upload";
+            }
+
         }
     }
 
