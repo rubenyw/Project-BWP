@@ -116,12 +116,14 @@
                                                             <img src="assets/GambarFigure/AF001.jpg" class="product-thumb" alt="">
                                                             <p>Nama Barang</p>
                                                             <h6>Harga : Rp. 150000</h6>
-                                                            <button>-</button>
+                                                            <button class="btn btn-success btn-sm px-3 fw-bold"><i class="bi bi-dash"></i></button>
                                                             2
-                                                            <button>+</button>
+                                                            <button class="btn btn-success btn-sm px-3 fw-bold"><i class="bi bi-plus"></i></button>
                                                             <h6>Subtotal : Rp. 300000</h6>
                                                             <hr>
-                                                            <button>Remove Item</button>
+                                                            <button class="btn btn-danger btn-sm px-3 fw-bold" name="">
+                                                                <i class="bi bi-trash-fill"></i>
+                                                            </button>
                                                         </div>
                                                     </form>
                                                 </div>
@@ -129,11 +131,16 @@
                                                     <form action="">
                                                         <div class="p-3 border bg-light rounded">
                                                             <img src="assets/GambarFigure/AF001.jpg" class="product-thumb" alt="">
-                                                            <p>nama barang</p>
-                                                            <h6>Rp. 150000</h6>
-                                                            <button>-</button>
-                                                            5
-                                                            <button>+</button>
+                                                            <p>Nama Barang</p>
+                                                            <h6>Harga : Rp. 150000</h6>
+                                                            <button class="btn btn-success"><i class="bi bi-dash"></i></button>
+                                                            2
+                                                            <button class="btn btn-success"><i class="bi bi-plus"></i></button>
+                                                            <h6>Subtotal : Rp. 300000</h6>
+                                                            <hr>
+                                                            <button class="btn btn-danger btn-sm px-3 fw-bold" name="">
+                                                                <i class="bi bi-trash-fill"></i>
+                                                            </button>
                                                         </div>
                                                     </form>
                                                 </div>
