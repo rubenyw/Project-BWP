@@ -17,6 +17,8 @@
                 $result = mysqli_fetch_array($query, MYSQLI_ASSOC);
                 if ($result['us_password'] != $password){
                     $error = 'Password Salah!';
+                }else if($result['us_status'] == 0){
+                    $error = 'Akun anda sudah di non-aktifkan';
                 }else { 
                     $_SESSION["userLogin"] = [
                         'username' => $result['us_username'],
