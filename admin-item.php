@@ -33,7 +33,7 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
         <link href="assets/css/general.css" rel="stylesheet">
     </head>
-    <body>
+    <body onload='load_ajax()'>
         <!-- Responsive navbar-->
         <nav class="my-nav navbar navbar-expand-lg p-3 position-sticky top-0 w-100 shadow navbar-dark bg-dark">
             <div class="container">
@@ -117,35 +117,12 @@
                                                 <th scope="col">Price</th>
                                                 <th scope="col">Stock</th>
                                                 <th scope="col">Series</th>
-                                                <th scope="col">Action</th>
+                                                <th scope="col">Update</th>
+                                                <th scope="col">Status</th>
                                             </tr>
                                             </thead>
-                                            <tbody>
-                                            <tbody>
-                                                <?php
-                                                    $query = "SELECT a.af_id as 'ID', a.af_name as 'Name', a.af_price as 'Price', a.af_stock as 'Stock', a.af_status as 'Status', s.se_name as 'Series' from actionfigure a join series s on s.se_id = a.af_se_id";
-                                                    $query = mysqli_query($con, $query);
-                                                    $counter = 1;
-                                                    while($row = mysqli_fetch_array($query, MYSQLI_ASSOC)){
-                                                ?>
-                                                <tr>
-                                                    <td class='col-1'><?=$counter?></td>
-                                                    <td class='col-1'><?=$row['ID']?></td>
-                                                    <td class='col-3'><?=$row['Name']?></td>
-                                                    <td class='col-1'><?=$row['Price']?></td>
-                                                    <td class='col-1'><?=$row['Stock']?></td>
-                                                    <td class='col-2'><?=$row['Series']?></td>
-                                                    <td class='col'>
-                                                        <form action="" method='post'>
-                                                            <input type='hidden' name='id_item' value='<?=$row['ID']?>'>
-                                                            <button name='btn-update-item' class='btn btn-outline-success btn-sm px-4'>Update</button>
-                                                        </form>
-                                                    </td>
-                                                </tr>
-                                                <?php
-                                                        $counter++;
-                                                    }
-                                                ?>
+                                            <tbody id='listItem'>
+                                                
                                             </tbody>
                                                 
                                         </table>
@@ -166,6 +143,48 @@
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
+        <script>
+            let list_item;
+
+            function load_ajax(){
+                list_item = document.getElementById('listItem');
+
+                fetch_items();
+            }
+
+            function fetch_items(){
+                // 1. Inisialisai buat object dulu
+                r = new XMLHttpRequest();
+                // 2. Callback Function apa yang akan dikerjakan
+                // NB: Jangan menggunakan Arrow Function () => {} di sini
+                //     karena akan return undefined dan null
+                r.onreadystatechange = function() {
+                    // Kalau dapat data dan status selesai > Lakukan sesuatu
+                    if ((this.readyState==4) && (this.status==200)) {
+                        list_item.innerHTML = this.responseText;
+                    }
+                }
+                
+                // 3. Memanggil dan mengeksekusi AJAX
+                r.open('GET', 'item_fetch.php');	
+                r.send();
+            }
+
+            function update_item(obj){;
+
+                update_id = obj.value;
+                r = new XMLHttpRequest();
+                r.onreadystatechange = function() {
+                    if ((this.readyState==4) && (this.status==200)) {
+                        fetch_items();
+                    }
+                }
+                
+                r.open('POST', `item_update.php`);
+                r.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                r.send(`update_id=${update_id}`);
+            }
+        </script>
         <script src="js/jquery-3.6.1.min.js"></script>
         <script>
             $(function(){

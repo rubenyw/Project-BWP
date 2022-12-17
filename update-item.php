@@ -23,7 +23,6 @@
             if(!in_array($file_type, $allowed)) {
                 $error = 'Only jpg files are allowed.';
             }else{
-                alert($_FILES['image']['name']);
                 if(!empty($_FILES["image"]["name"])){
                     $exp = explode(".",$_FILES["image"]["name"]);
                     $file = "assets/GambarFigure/".$id. ".$exp[1]";
