@@ -172,7 +172,7 @@
         ?>
         <!-- product section -->
 
-        <div class="product"> 
+        <!-- <div class="product"> 
         <h2 class="product-category">best selling</h2>
         <button class="pre-btn"><img src="assets/icon/arrow.png" alt=""></button>
         <button class="nxt-btn"><img src="assets/icon/arrow.png" alt=""></button>
@@ -298,7 +298,7 @@
                 </div>
             </div>
         </div>
-        </div>
+        </div> -->
 
         <!-- Features section-->
         <section class="intro py-5 border-bottom bg-light" id="features">
@@ -333,36 +333,70 @@
                                 <div class="card-body">
                                     
                                     <div class="table-responsive">
-                                        <table class="table table-borderless mb-0 align-items-center justify-content-center">
-                                            <thead>
-                                            <tr>
-                                                <th scope="col">No </th>
-                                                <th scope="col">Nama Action Figure</th>
-                                                <th scope="col">Seri</th>
-                                                <th scope="col">Harga</th>
-                                                <th scope="col">Stok</th>
-                                            </tr>
-                                            </thead>
-                                            <tbody>
-                                            <tbody>
-                                                <tr>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td class="d-grid gap-2">
-                                                        <!-- <form action='' method='post'> -->
-                                                        <input type='hidden' name='apply' value=''>
-                                                        <button name='btn-apply' class='btn btn-outline-success btn-sm px-4'>Apply</button>
-                                                        <!-- </form> -->
-                                                    </td>
-                                                </tr>
-                                              
-                                            
-                                            </tbody>
-                                                
-                                        </table>
+                                        <div class="container text-center">
+                                            <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
+                                                <div class="col">
+                                                    <div class="p-3 border bg-light">
+                                                        <img src="assets/GambarFigure/card (1).jpg" class="product-thumb" alt="">
+                                                        test
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="p-3 border bg-light">
+                                                        <img src="assets/GambarFigure/card (1).jpg" class="product-thumb" alt="">
+                                                        test
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="p-3 border bg-light">
+                                                        <img src="assets/GambarFigure/card (1).jpg" class="product-thumb" alt="">
+                                                        test
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="p-3 border bg-light">
+                                                        <img src="assets/GambarFigure/card (1).jpg" class="product-thumb" alt="">
+                                                        test
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="p-3 border bg-light">
+                                                        <img src="assets/GambarFigure/card (1).jpg" class="product-thumb" alt="">
+                                                        test
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="p-3 border bg-light">
+                                                        <img src="assets/GambarFigure/card (1).jpg" class="product-thumb" alt="">
+                                                        test
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="p-3 border bg-light">
+                                                        <img src="assets/GambarFigure/card (1).jpg" class="product-thumb" alt="">
+                                                        test
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="p-3 border bg-light">
+                                                        <img src="assets/GambarFigure/card (1).jpg" class="product-thumb" alt="">
+                                                        test
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="p-3 border bg-light">
+                                                        <img src="assets/GambarFigure/card (1).jpg" class="product-thumb" alt="">
+                                                        test
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="p-3 border bg-light">
+                                                        <img src="assets/GambarFigure/card (1).jpg" class="product-thumb" alt="">
+                                                        test
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
