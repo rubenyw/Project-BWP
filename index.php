@@ -194,6 +194,9 @@
                     </div>
                     <div class="row justify-content-center">
                         <div class="col-12">
+                            <div class="row">
+                                
+                            </div>
                             <div class="card shadow-2-strong" style="background-color: #f5f7fa;">
                                 <div class="card-body">
                                     

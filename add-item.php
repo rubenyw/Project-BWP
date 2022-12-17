@@ -59,7 +59,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="">
+                            <a class="nav-link" href="admin-item.php">
                                 <button class="btn btn-sm text-light fw-bold">Items</button>
                             </a>
                         </li>

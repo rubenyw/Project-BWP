@@ -16,7 +16,7 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
         <link href="assets/css/general.css" rel="stylesheet">
     </head>
-    <body>
+    <body onload='load_ajax()'>
         <!-- Responsive navbar-->
         <nav class="my-nav navbar navbar-expand-lg p-3 position-sticky top-0 w-100 shadow navbar-dark bg-dark">
             <div class="container">
@@ -82,30 +82,8 @@
                                                 <th scope="col">Status</th>
                                             </tr>
                                             </thead>
-                                            <tbody>
-                                            <tbody>
-                                                <?php
-                                                    $query = "SELECT * from users";
-                                                    $query = mysqli_query($con, $query);
-                                                    $counter = 1;
-                                                    while($row = mysqli_fetch_array($query, MYSQLI_ASSOC)){
-                                                ?>
-                                                <tr>
-                                                    <td class='col-1'><?=$counter?></td>
-                                                    <td class='col-2'><?=$row['us_id']?></td>
-                                                    <td class='col-2'><?=$row['us_username']?></td>
-                                                    <td class='col-2'><?=$row['us_email']?></td>
-                                                    <td class='col-2'><?=$row['us_password']?></td>
-                                                    <td class='col-2'><?=($row['us_gender'] == 1? 'Laki-Laki' : 'Perempuan')?></td>
-                                                    <td class='col-1'>
-                                                        <input type='hidden' name='apply' value=''>
-                                                        <button name='btn-apply' class='btn btn-outline-success btn-sm px-4'>Aktif</button>
-                                                    </td>
-                                                </tr>
-                                                <?php
-                                                        $counter++;
-                                                    }
-                                                ?>
+                                            <tbody id='listUser'>
+                                                
                                             </tbody>
                                                 
                                         </table>
@@ -126,6 +104,49 @@
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
+        <script>
+            let list_user;
+
+            function load_ajax(){
+                list_user = document.getElementById('listUser');
+
+                fetch_users();
+            }
+
+            function fetch_users(){
+                 // 1. Inisialisai buat object dulu
+                r = new XMLHttpRequest();
+                // 2. Callback Function apa yang akan dikerjakan
+                // NB: Jangan menggunakan Arrow Function () => {} di sini
+                //     karena akan return undefined dan null
+                r.onreadystatechange = function() {
+                    // Kalau dapat data dan status selesai > Lakukan sesuatu
+                    if ((this.readyState==4) && (this.status==200)) {
+                        list_user.innerHTML = this.responseText;
+                    }
+                }
+                
+                // 3. Memanggil dan mengeksekusi AJAX
+                r.open('GET', 'user_fetch.php');	
+                r.send();
+            }
+
+            function update_user(obj){;
+            
+                update_id = obj.value;
+                r = new XMLHttpRequest();
+                r.onreadystatechange = function() {
+                    if ((this.readyState==4) && (this.status==200)) {
+                        fetch_users();
+                    }
+                }
+                
+                r.open('POST', `user_update.php`);
+                r.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                r.send(`update_id=${update_id}`);
+            }
+
+        </script>
         <script src="js/jquery-3.6.1.min.js"></script>
         <script>
             $(function(){
