@@ -2,6 +2,8 @@
     require('action.php');
     
     $cart = "";
+    $filter_series = '';
+
     if(isset($_SESSION['userLogin'])){
         $select_query = "SELECT count(*) as 'cart' FROM cart where ca_us_id = '".$_SESSION['userLogin']['id']."' and ca_status = 'Requested'";
         $cart = $con->query($select_query);
@@ -34,6 +36,10 @@
         }else{
             header('Location: login.php');
         }
+    }
+
+    if(isset($_POST['filter'])){
+        $filter_series = $_POST['series'];
     }
 
     // Buat logout, sessionnya di hapus biar hilang datanya
@@ -304,10 +310,26 @@
                         <form action="" method="post">
                             <div class="input-group">
                                 <div class="form-floating mb-3 mx-5">
-                                    <select class="form-select" name='lokasi' id='lokasi'>
-                                        <option value=''>All</option>
-                                    </select>
-                                    <label for="lokasi">Series</label>
+                                    <form action="" method='post'>
+                                        <select class="form-select" name='series' id='series'>
+                                            <option value=''>All</option>
+                                            <?php
+                                            
+                                            $select_query = "SELECT * from series";
+                                            $select_query = mysqli_query($con, $select_query);
+                                            while($row = mysqli_fetch_array($select_query, MYSQLI_ASSOC)){
+                                            ?>
+
+                                            <option value='<?=$row['se_id']?>' <?=($row['se_id'] == $filter_series? "selected='selected'" : "") ?>><?=$row['se_name']?></option>
+
+                                            <?php
+                                            }
+
+                                            ?>
+                                        </select>
+                                        <button type="submit" style="display: none;" id="filter" name='filter'></button>
+                                        <label for="lokasi">Series</label>
+                                    </form>
                                 </div>
                                 <div class="form-floating mb-3 mx-5">
                                     <select class="form-select" name='jenis' id='jenis'>
@@ -326,102 +348,29 @@
                             </div>
                             <div class="card shadow-2-strong" style="background-color: #f5f7fa;">
                                 <div class="card-body">
-                                    
-                                    <div class="table-responsive">
-                                        <div class="container text-center">
-                                            <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
-                                                <div class="col">
-                                                    <form action="">
-                                                        <div class="p-3 border bg-light rounded">
-                                                            <img src="assets/GambarFigure/card (1).jpg" class="product-thumb" alt="">
-                                                            <p>test</p>
-                                                            <button type="submit" name="form1">Detail</button>
-                                                        </div>
-                                                    </form>
+                                    <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
+                                        <?php
+                                        
+                                        $select = "SELECT * from actionfigure where af_se_id like '%$filter_series%'";
+                                        $select = (mysqli_query($con, $select));
+
+                                        while($row = mysqli_fetch_array($select, MYSQLI_ASSOC)){
+                                        
+                                        ?>
+
+                                        <div class="col">
+                                            <form action="">
+                                                <div class="p-3 border bg-light rounded">
+                                                    <img src="assets/GambarFigure/<?=$row['af_id']?>.jpg" class="product-thumb" alt="">
+                                                    <p><?=$row['af_name']?></p>
+                                                    <button type="submit" name="item">Detail</button>
                                                 </div>
-                                                <div class="col">
-                                                    <form action="">
-                                                        <div class="p-3 border bg-light rounded">
-                                                            <img src="assets/GambarFigure/card (1).jpg" class="product-thumb" alt="">
-                                                            <p>test</p>
-                                                            <button type="submit" name="form1">Detail</button>
-                                                        </div>
-                                                    </form>
-                                                </div>
-                                                <div class="col">
-                                                    <form action="">
-                                                        <div class="p-3 border bg-light rounded">
-                                                            <img src="assets/GambarFigure/card (1).jpg" class="product-thumb" alt="">
-                                                            <p>test</p>
-                                                            <button type="submit" name="form1">Detail</button>
-                                                        </div>
-                                                    </form>
-                                                </div>
-                                                <div class="col">
-                                                    <form action="">
-                                                        <div class="p-3 border bg-light rounded">
-                                                            <img src="assets/GambarFigure/card (1).jpg" class="product-thumb" alt="">
-                                                            <p>test</p>
-                                                            <button type="submit" name="form1">Detail</button>
-                                                        </div>
-                                                    </form>
-                                                </div>
-                                                <div class="col">
-                                                    <form action="">
-                                                        <div class="p-3 border bg-light rounded">
-                                                            <img src="assets/GambarFigure/card (1).jpg" class="product-thumb" alt="">
-                                                            <p>test</p>
-                                                            <button type="submit" name="form1">Detail</button>
-                                                        </div>
-                                                    </form>
-                                                </div>
-                                                <div class="col">
-                                                    <form action="">
-                                                        <div class="p-3 border bg-light rounded">
-                                                            <img src="assets/GambarFigure/card (1).jpg" class="product-thumb" alt="">
-                                                            <p>test</p>
-                                                            <button type="submit" name="form1">Detail</button>
-                                                        </div>
-                                                    </form>
-                                                </div>
-                                                <div class="col">
-                                                    <form action="">
-                                                        <div class="p-3 border bg-light rounded">
-                                                            <img src="assets/GambarFigure/card (1).jpg" class="product-thumb" alt="">
-                                                            <p>test</p>
-                                                            <button type="submit" name="form1">Detail</button>
-                                                        </div>
-                                                    </form>
-                                                </div>
-                                                <div class="col">
-                                                    <form action="">
-                                                        <div class="p-3 border bg-light rounded">
-                                                            <img src="assets/GambarFigure/card (1).jpg" class="product-thumb" alt="">
-                                                            <p>test</p>
-                                                            <button type="submit" name="form1">Detail</button>
-                                                        </div>
-                                                    </form>
-                                                </div>
-                                                <div class="col">
-                                                    <form action="">
-                                                        <div class="p-3 border bg-light rounded">
-                                                            <img src="assets/GambarFigure/card (1).jpg" class="product-thumb" alt="">
-                                                            <p>test</p>
-                                                            <button type="submit" name="form1">Detail</button>
-                                                        </div>
-                                                    </form>
-                                                </div>
-                                                <div class="col">
-                                                    <form action="">
-                                                        <div class="p-3 border bg-light rounded">
-                                                            <img src="assets/GambarFigure/card (1).jpg" class="product-thumb" alt="">
-                                                            <p>test</p>
-                                                            <button type="submit" name="form1">Detail</button>
-                                                        </div>
-                                                    </form>
-                                                </div>
-                                            </div>
+                                            </form>
                                         </div>
+
+                                        <?php
+                                        }
+                                        ?>
                                     </div>
                                 </div>
                             </div>
@@ -442,6 +391,12 @@
         <script src="js/jquery-3.6.1.min.js"></script>
         <script>
             $(function(){
+                let filterseries = $("#series");
+
+                $(filterseries).change(function(){
+                    $("#filter").click();
+                })
+
                 let button = $("[name='btn-apply']");
                 $(button).click(function(){
                     if($(this).text() == "Apply"){
