@@ -42,7 +42,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Website</title>
+        <title>Cart</title>
         <!-- Bootstrap icons-->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
         <!-- Core theme CSS (includes Bootstrap)-->
@@ -93,7 +93,7 @@
         <section class="intro py-5 border-bottom bg-light" id="features">
             <div class="mask d-flex h-100">
                 <div class="container bg-white py-3 px-3">
-                    <h2 class='mb-5'>Shopping Cart</h2>
+                    <!-- <h2 class='mb-5'>Shopping Cart</h2> -->
                     <div class="row justify-content-center">
                         <div class="col-8 me-5 border">
 
@@ -105,6 +105,41 @@
                             ?>
 
                             <!-- Content -->
+                            <h2 class='mb-5'>Shopping Cart</h2>
+                            <hr>
+                            <div class="table-responsive">
+                                        <div class="container text-center">
+                                            <div class="row row-cols-2 row-cols-lg-1 g-2 g-lg-3">
+                                                <div class="col">
+                                                    <form action="">
+                                                        <div class="p-3 border bg-light rounded">
+                                                            <img src="assets/GambarFigure/AF001.jpg" class="product-thumb" alt="">
+                                                            <p>Nama Barang</p>
+                                                            <h6>Harga : Rp. 150000</h6>
+                                                            <button>-</button>
+                                                            2
+                                                            <button>+</button>
+                                                            <h6>Subtotal : Rp. 300000</h6>
+                                                            <hr>
+                                                            <button>Remove Item</button>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                                <div class="col">
+                                                    <form action="">
+                                                        <div class="p-3 border bg-light rounded">
+                                                            <img src="assets/GambarFigure/AF001.jpg" class="product-thumb" alt="">
+                                                            <p>nama barang</p>
+                                                            <h6>Rp. 150000</h6>
+                                                            <button>-</button>
+                                                            5
+                                                            <button>+</button>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
 
                             <?php
 
@@ -155,52 +190,6 @@
 
                             ?>
                             
-                        </div>
-                    </div>
-                    <div class="row justify-content-center">
-                        <div class="col-12">
-                            <div class="card shadow-2-strong" style="background-color: #f5f7fa;">
-                                <div class="card-body">
-                                    
-                                    <div class="table-responsive">
-                                        <table class="table table-borderless mb-0 align-items-center justify-content-center">
-                                            <thead>
-                                            <tr>
-                                                <th scope="col">No </th>
-                                                <th scope="col">Nama Action Figure</th>
-                                                <th scope="col">Seri</th>
-                                                <th scope="col">Harga</th>
-                                                <th scope="col">Stok</th>
-                                                <!-- <th scope="col">Jenis</th>
-                                                <th scope="col">Deadline</th>
-                                                <th scope="col">Action</th> -->
-                                            </tr>
-                                            </thead>
-                                            <tbody>
-                                            <tbody>
-                                                <tr>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <!-- <td></td>
-                                                    <td></td> -->
-                                                    <td class="d-grid gap-2">
-                                                        <!-- <form action='' method='post'> -->
-                                                            <input type='hidden' name='apply' value=''>
-                                                            <button name='btn-apply' class='btn btn-outline-success btn-sm px-4'>Apply</button>
-                                                        <!-- </form> -->
-                                                    </td>
-                                                </tr>
-                                              
-                                            
-                                            </tbody>
-                                                
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
