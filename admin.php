@@ -88,20 +88,27 @@
                                             <thead>
                                             <tr>
                                                 <th scope="col">No </th>
-                                                <th scope="col">Nama Action Figure</th>
-                                                <th scope="col">Seri</th>
-                                                <th scope="col">Harga</th>
-                                                <th scope="col">Stok</th>
+                                                <th scope="col">ID Transaksi</th>
+                                                <th scope="col">ID Customer</th>
+                                                <th scope="col">Nama Customer</th>
+                                                <th scope="col">Total Pembelian</th>
+                                                <th scope="col">Tanggal Transaksi</th>
+                                                <th scope="col">Order ID</th>
+                                                <th scope="col">Status</th>
+                                                <th scope="col">Detail Transaksi</th>
                                             </tr>
                                             </thead>
                                             <tbody>
                                             <tbody>
                                                 <tr>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
+                                                    <td>1</td>
+                                                    <td>TR001</td>
+                                                    <td>US001</td>
+                                                    <td>arsa</td>
+                                                    <td>RP. 15000</td>
+                                                    <td>29-02-2022</td>
+                                                    <td>B001</td>
+                                                    <td>Accepted</td>
                                                     <td class="d-grid gap-2">
                                                         <!-- <form action='' method='post'> -->
                                                         <input type='hidden' name='apply' value=''>
@@ -109,8 +116,22 @@
                                                         <!-- </form> -->
                                                     </td>
                                                 </tr>
-                                              
-                                            
+                                                <tr>
+                                                    <td>1</td>
+                                                    <td>TR001</td>
+                                                    <td>US001</td>
+                                                    <td>arsa</td>
+                                                    <td>RP. 15000</td>
+                                                    <td>29-02-2022</td>
+                                                    <td>B001</td>
+                                                    <td>Accepted</td>
+                                                    <td class="d-grid gap-2">
+                                                        <!-- <form action='' method='post'> -->
+                                                        <input type='hidden' name='apply' value=''>
+                                                        <button name='btn-apply' class='btn btn-outline-success btn-sm px-4'>Apply</button>
+                                                        <!-- </form> -->
+                                                    </td>
+                                                </tr>
                                             </tbody>
                                                 
                                         </table>
