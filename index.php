@@ -336,64 +336,94 @@
                                         <div class="container text-center">
                                             <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
                                                 <div class="col">
-                                                    <div class="p-3 border bg-light">
-                                                        <img src="assets/GambarFigure/card (1).jpg" class="product-thumb" alt="">
-                                                        test
-                                                    </div>
+                                                    <form action="">
+                                                        <div class="p-3 border bg-light rounded">
+                                                            <img src="assets/GambarFigure/card (1).jpg" class="product-thumb" alt="">
+                                                            <p>test</p>
+                                                            <button type="submit" name="form1">Detail</button>
+                                                        </div>
+                                                    </form>
                                                 </div>
                                                 <div class="col">
-                                                    <div class="p-3 border bg-light">
-                                                        <img src="assets/GambarFigure/card (1).jpg" class="product-thumb" alt="">
-                                                        test
-                                                    </div>
+                                                    <form action="">
+                                                        <div class="p-3 border bg-light rounded">
+                                                            <img src="assets/GambarFigure/card (1).jpg" class="product-thumb" alt="">
+                                                            <p>test</p>
+                                                            <button type="submit" name="form1">Detail</button>
+                                                        </div>
+                                                    </form>
                                                 </div>
                                                 <div class="col">
-                                                    <div class="p-3 border bg-light">
-                                                        <img src="assets/GambarFigure/card (1).jpg" class="product-thumb" alt="">
-                                                        test
-                                                    </div>
+                                                    <form action="">
+                                                        <div class="p-3 border bg-light rounded">
+                                                            <img src="assets/GambarFigure/card (1).jpg" class="product-thumb" alt="">
+                                                            <p>test</p>
+                                                            <button type="submit" name="form1">Detail</button>
+                                                        </div>
+                                                    </form>
                                                 </div>
                                                 <div class="col">
-                                                    <div class="p-3 border bg-light">
-                                                        <img src="assets/GambarFigure/card (1).jpg" class="product-thumb" alt="">
-                                                        test
-                                                    </div>
+                                                    <form action="">
+                                                        <div class="p-3 border bg-light rounded">
+                                                            <img src="assets/GambarFigure/card (1).jpg" class="product-thumb" alt="">
+                                                            <p>test</p>
+                                                            <button type="submit" name="form1">Detail</button>
+                                                        </div>
+                                                    </form>
                                                 </div>
                                                 <div class="col">
-                                                    <div class="p-3 border bg-light">
-                                                        <img src="assets/GambarFigure/card (1).jpg" class="product-thumb" alt="">
-                                                        test
-                                                    </div>
+                                                    <form action="">
+                                                        <div class="p-3 border bg-light rounded">
+                                                            <img src="assets/GambarFigure/card (1).jpg" class="product-thumb" alt="">
+                                                            <p>test</p>
+                                                            <button type="submit" name="form1">Detail</button>
+                                                        </div>
+                                                    </form>
                                                 </div>
                                                 <div class="col">
-                                                    <div class="p-3 border bg-light">
-                                                        <img src="assets/GambarFigure/card (1).jpg" class="product-thumb" alt="">
-                                                        test
-                                                    </div>
+                                                    <form action="">
+                                                        <div class="p-3 border bg-light rounded">
+                                                            <img src="assets/GambarFigure/card (1).jpg" class="product-thumb" alt="">
+                                                            <p>test</p>
+                                                            <button type="submit" name="form1">Detail</button>
+                                                        </div>
+                                                    </form>
                                                 </div>
                                                 <div class="col">
-                                                    <div class="p-3 border bg-light">
-                                                        <img src="assets/GambarFigure/card (1).jpg" class="product-thumb" alt="">
-                                                        test
-                                                    </div>
+                                                    <form action="">
+                                                        <div class="p-3 border bg-light rounded">
+                                                            <img src="assets/GambarFigure/card (1).jpg" class="product-thumb" alt="">
+                                                            <p>test</p>
+                                                            <button type="submit" name="form1">Detail</button>
+                                                        </div>
+                                                    </form>
                                                 </div>
                                                 <div class="col">
-                                                    <div class="p-3 border bg-light">
-                                                        <img src="assets/GambarFigure/card (1).jpg" class="product-thumb" alt="">
-                                                        test
-                                                    </div>
+                                                    <form action="">
+                                                        <div class="p-3 border bg-light rounded">
+                                                            <img src="assets/GambarFigure/card (1).jpg" class="product-thumb" alt="">
+                                                            <p>test</p>
+                                                            <button type="submit" name="form1">Detail</button>
+                                                        </div>
+                                                    </form>
                                                 </div>
                                                 <div class="col">
-                                                    <div class="p-3 border bg-light">
-                                                        <img src="assets/GambarFigure/card (1).jpg" class="product-thumb" alt="">
-                                                        test
-                                                    </div>
+                                                    <form action="">
+                                                        <div class="p-3 border bg-light rounded">
+                                                            <img src="assets/GambarFigure/card (1).jpg" class="product-thumb" alt="">
+                                                            <p>test</p>
+                                                            <button type="submit" name="form1">Detail</button>
+                                                        </div>
+                                                    </form>
                                                 </div>
                                                 <div class="col">
-                                                    <div class="p-3 border bg-light">
-                                                        <img src="assets/GambarFigure/card (1).jpg" class="product-thumb" alt="">
-                                                        test
-                                                    </div>
+                                                    <form action="">
+                                                        <div class="p-3 border bg-light rounded">
+                                                            <img src="assets/GambarFigure/card (1).jpg" class="product-thumb" alt="">
+                                                            <p>test</p>
+                                                            <button type="submit" name="form1">Detail</button>
+                                                        </div>
+                                                    </form>
                                                 </div>
                                             </div>
                                         </div>
