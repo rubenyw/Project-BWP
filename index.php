@@ -333,7 +333,7 @@
                                                 <div class="col">
                                                     <form action="">
                                                         <div class="p-3 border bg-light rounded">
-                                                            <img src="assets/GambarFigure/card (1).jpg" class="product-thumb" alt="">
+                                                            <img src="assets/GambarFigure/AF001.jpg" class="product-thumb" alt="">
                                                             <p>test</p>
                                                             <button type="submit" name="form1">Detail</button>
                                                         </div>
@@ -342,7 +342,7 @@
                                                 <div class="col">
                                                     <form action="">
                                                         <div class="p-3 border bg-light rounded">
-                                                            <img src="assets/GambarFigure/card (1).jpg" class="product-thumb" alt="">
+                                                            <img src="assets/GambarFigure/AF001.jpg" class="product-thumb" alt="">
                                                             <p>test</p>
                                                             <button type="submit" name="form1">Detail</button>
                                                         </div>
@@ -351,7 +351,7 @@
                                                 <div class="col">
                                                     <form action="">
                                                         <div class="p-3 border bg-light rounded">
-                                                            <img src="assets/GambarFigure/card (1).jpg" class="product-thumb" alt="">
+                                                            <img src="assets/GambarFigure/AF001.jpg" class="product-thumb" alt="">
                                                             <p>test</p>
                                                             <button type="submit" name="form1">Detail</button>
                                                         </div>
@@ -360,7 +360,7 @@
                                                 <div class="col">
                                                     <form action="">
                                                         <div class="p-3 border bg-light rounded">
-                                                            <img src="assets/GambarFigure/card (1).jpg" class="product-thumb" alt="">
+                                                            <img src="assets/GambarFigure/AF001.jpg" class="product-thumb" alt="">
                                                             <p>test</p>
                                                             <button type="submit" name="form1">Detail</button>
                                                         </div>
@@ -369,7 +369,7 @@
                                                 <div class="col">
                                                     <form action="">
                                                         <div class="p-3 border bg-light rounded">
-                                                            <img src="assets/GambarFigure/card (1).jpg" class="product-thumb" alt="">
+                                                            <img src="assets/GambarFigure/AF001.jpg" class="product-thumb" alt="">
                                                             <p>test</p>
                                                             <button type="submit" name="form1">Detail</button>
                                                         </div>
@@ -378,7 +378,7 @@
                                                 <div class="col">
                                                     <form action="">
                                                         <div class="p-3 border bg-light rounded">
-                                                            <img src="assets/GambarFigure/card (1).jpg" class="product-thumb" alt="">
+                                                            <img src="assets/GambarFigure/AF001.jpg" class="product-thumb" alt="">
                                                             <p>test</p>
                                                             <button type="submit" name="form1">Detail</button>
                                                         </div>
@@ -387,7 +387,7 @@
                                                 <div class="col">
                                                     <form action="">
                                                         <div class="p-3 border bg-light rounded">
-                                                            <img src="assets/GambarFigure/card (1).jpg" class="product-thumb" alt="">
+                                                            <img src="assets/GambarFigure/AF001.jpg" class="product-thumb" alt="">
                                                             <p>test</p>
                                                             <button type="submit" name="form1">Detail</button>
                                                         </div>
@@ -396,7 +396,7 @@
                                                 <div class="col">
                                                     <form action="">
                                                         <div class="p-3 border bg-light rounded">
-                                                            <img src="assets/GambarFigure/card (1).jpg" class="product-thumb" alt="">
+                                                            <img src="assets/GambarFigure/AF001.jpg" class="product-thumb" alt="">
                                                             <p>test</p>
                                                             <button type="submit" name="form1">Detail</button>
                                                         </div>
@@ -405,7 +405,7 @@
                                                 <div class="col">
                                                     <form action="">
                                                         <div class="p-3 border bg-light rounded">
-                                                            <img src="assets/GambarFigure/card (1).jpg" class="product-thumb" alt="">
+                                                            <img src="assets/GambarFigure/AF001.jpg" class="product-thumb" alt="">
                                                             <p>test</p>
                                                             <button type="submit" name="form1">Detail</button>
                                                         </div>
@@ -414,7 +414,7 @@
                                                 <div class="col">
                                                     <form action="">
                                                         <div class="p-3 border bg-light rounded">
-                                                            <img src="assets/GambarFigure/card (1).jpg" class="product-thumb" alt="">
+                                                            <img src="assets/GambarFigure/AF001.jpg" class="product-thumb" alt="">
                                                             <p>test</p>
                                                             <button type="submit" name="form1">Detail</button>
                                                         </div>
