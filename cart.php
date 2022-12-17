@@ -122,7 +122,7 @@
                                                             <h6>Subtotal : Rp. 300000</h6>
                                                             <hr>
                                                             <button class="btn btn-danger btn-sm px-3 fw-bold" name="">
-                                                                <i class="bi bi-trash-fill"></i>
+                                                                <i class="bi bi-trash-fill me-2"></i>Remove
                                                             </button>
                                                         </div>
                                                     </form>
@@ -133,9 +133,9 @@
                                                             <img src="assets/GambarFigure/AF001.jpg" class="product-thumb" alt="">
                                                             <p>Nama Barang</p>
                                                             <h6>Harga : Rp. 150000</h6>
-                                                            <button class="btn btn-success"><i class="bi bi-dash"></i></button>
+                                                            <button class="btn btn-success btn-sm px-3 fw-bold"><i class="bi bi-dash"></i></button>
                                                             2
-                                                            <button class="btn btn-success"><i class="bi bi-plus"></i></button>
+                                                            <button class="btn btn-success btn-sm px-3 fw-bold"><i class="bi bi-plus"></i></button>
                                                             <h6>Subtotal : Rp. 300000</h6>
                                                             <hr>
                                                             <button class="btn btn-danger btn-sm px-3 fw-bold" name="">
@@ -177,8 +177,8 @@
                             ?>
                             
                             <!-- Content -->
-                            <div class="h5 mb-3" style="color: gray;">TOTAL PRICE</div>
-                            <div class="h3 mb-3" style="color: red;">IDR <?=$price?></div>
+                            <div class="h5 mb-3" style="color: gray;">TOTAL</div>
+                            <div class="h3 mb-3" style="color: red;">Rp. <?=$price?></div>
                             <button class="btn btn-success w-100">CHECKOUT</button>
 
                             <?php
