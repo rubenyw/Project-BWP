@@ -64,7 +64,7 @@
         <link href="assets/css/product.css" rel="stylesheet">
         
     </head>
-    <body>
+    <body onload="load_ajax()">
         <!-- Responsive navbar-->
         <nav class="my-nav navbar navbar-expand-lg p-3 position-sticky top-0 w-100 shadow navbar-dark bg-dark">
             <div class="container">
@@ -311,7 +311,7 @@
                             <div class="input-group">
                                 <div class="form-floating mb-3 mx-5">
                                     <form action="" method='post'>
-                                        <select class="form-select" name='series' id='series'>
+                                        <select class="form-select" name='series' id='series' onchange="update_item(this)">
                                             <option value=''>All</option>
                                             <?php
                                             
@@ -348,29 +348,8 @@
                             </div>
                             <div class="card shadow-2-strong" style="background-color: #f5f7fa;">
                                 <div class="card-body">
-                                    <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
-                                        <?php
+                                    <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3" id="list_product">
                                         
-                                        $select = "SELECT * from actionfigure where af_se_id like '%$filter_series%'";
-                                        $select = (mysqli_query($con, $select));
-
-                                        while($row = mysqli_fetch_array($select, MYSQLI_ASSOC)){
-                                        
-                                        ?>
-
-                                        <div class="col">
-                                            <form action="">
-                                                <div class="p-3 border bg-light rounded">
-                                                    <img src="assets/GambarFigure/<?=$row['af_id']?>.jpg" class="product-thumb" alt="">
-                                                    <p><?=$row['af_name']?></p>
-                                                    <button type="submit" name="item">Detail</button>
-                                                </div>
-                                            </form>
-                                        </div>
-
-                                        <?php
-                                        }
-                                        ?>
                                     </div>
                                 </div>
                             </div>
@@ -388,13 +367,54 @@
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
+        <script>
+            let list_item;
+
+            function load_ajax(){
+                list_item = document.getElementById('list_product');
+                fetch_items();
+            }
+
+            function fetch_items(){
+                // 1. Inisialisai buat object dulu
+                r = new XMLHttpRequest();
+                // 2. Callback Function apa yang akan dikerjakan
+                // NB: Jangan menggunakan Arrow Function () => {} di sini
+                //     karena akan return undefined dan null
+                r.onreadystatechange = function() {
+                    // Kalau dapat data dan status selesai > Lakukan sesuatu
+                    if ((this.readyState==4) && (this.status==200)) {
+                        list_item.innerHTML = this.responseText;
+                    }
+                }
+                
+                // 3. Memanggil dan mengeksekusi AJAX
+                r.open('GET', 'index_fetch.php');
+                r.send();
+            }
+
+            function update_item(obj){;
+
+                update_id = obj.value;
+                r = new XMLHttpRequest();
+                r.onreadystatechange = function() {
+                    if ((this.readyState==4) && (this.status==200)) {
+                        fetch_items();
+                    }
+                }
+                
+                r.open('POST', `index_update.php`);
+                r.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                r.send(`update_id=${update_id}`);
+            }
+        </script>
         <script src="js/jquery-3.6.1.min.js"></script>
         <script>
             $(function(){
                 let filterseries = $("#series");
 
                 $(filterseries).change(function(){
-                    $("#filter").click();
+                    
                 })
 
                 let button = $("[name='btn-apply']");

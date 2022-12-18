@@ -18,7 +18,7 @@
     </head>
     <body>
         <!-- Responsive navbar-->
-        <nav class="navbar navbar-expand-lg p-3 position-sticky top-0 w-100 shadow navbar-dark bg-dark">
+        <nav class="my-nav navbar navbar-expand-lg p-3 position-sticky top-0 w-100 shadow navbar-dark bg-dark">
             <div class="container">
                 <a class="navbar-brand" href="admin.php" style="font-size: 22pt; font-weight: bold;">Tokosidia</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
@@ -100,14 +100,21 @@
                                             </thead>
                                             <tbody>
                                             <tbody>
+                                                <?php
+                                                    $query = "SELECT h.hb_id as 'ID_Trans', h.hb_customerid as 'ID' ,u.us_username as 'Cust_name', h.hb_total as 'Total', h.hb_date as 'Tanggal', h.hb_invoice_number as 'Order', h.hb_status as 'Status'
+                                                             from htrans_beli h join users u on u.us_id = h.hb_customerid";
+                                                    $query = mysqli_query($con, $query);
+                                                    $counter =1;
+                                                    while($row = mysqli_fetch_array($query, MYSQLI_ASSOC)){
+                                                ?>
                                                 <tr>
-                                                    <td>1</td>
-                                                    <td>TR001</td>
-                                                    <td>US001</td>
-                                                    <td>arsa</td>
-                                                    <td>RP. 15000</td>
-                                                    <td>29-02-2022</td>
-                                                    <td>B001</td>
+                                                    <td><?=$counter++?></td>
+                                                    <td><?=$row['ID_Trans']?></td>
+                                                    <td><?=$row['ID']?></td>
+                                                    <td><?=$row['Cust_name']?></td>
+                                                    <td><?=$row['Total']?></td>
+                                                    <td><?=$row['Tanggal']?></td>
+                                                    <td><?=$row['Order']?></td>
                                                     <td>Accepted</td>
                                                     <td class="d-grid gap-2">
                                                         <!-- <form action='' method='post'> -->
@@ -116,22 +123,10 @@
                                                         <!-- </form> -->
                                                     </td>
                                                 </tr>
-                                                <tr>
-                                                    <td>1</td>
-                                                    <td>TR001</td>
-                                                    <td>US001</td>
-                                                    <td>arsa</td>
-                                                    <td>RP. 15000</td>
-                                                    <td>29-02-2022</td>
-                                                    <td>B001</td>
-                                                    <td>Accepted</td>
-                                                    <td class="d-grid gap-2">
-                                                        <!-- <form action='' method='post'> -->
-                                                        <input type='hidden' name='apply' value=''>
-                                                        <button name='btn-apply' class='btn btn-outline-success btn-sm px-4'>Apply</button>
-                                                        <!-- </form> -->
-                                                    </td>
-                                                </tr>
+
+                                                <?php
+                                                    }
+                                                ?>
                                             </tbody>
                                                 
                                         </table>
