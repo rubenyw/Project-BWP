@@ -92,92 +92,8 @@
         <section class="intro py-5 border-bottom bg-light" id="features">
             <div class="mask d-flex h-100">
                 <div class="container bg-white py-3 px-3">
-                    <h2 class='mb-5'>Transaction</h2>
-                    <ul class="nav nav-tabs" id="myTab" role="tablist">
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link text-black active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">Active</button>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link text-black" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">Expired</button>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link text-black" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact-tab-pane" type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false">Paid</button>
-                        </li>
-                    </ul>
-                    <div class="tab-content" id="myTabContent">
-                        <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
-                            <?php
-                            
-                            $query = "SELECT * from transaksi where tr_us_id = '".$_SESSION['userLogin']['id']."' and tr_status = 'Active'";
-                            $query = mysqli_query($con, $query);
-                            if(mysqli_num_rows($query) > 0){
-                            ?>
-
-                            <!-- Content -->
-
-                            <?php
-                            }else{
-                            ?>
-                            <div class="row align-items-center text-center" style="height: 200px;">
-                                <div class="col">
-                                    <div class="h2">Belum ada Transaksi nih</div>
-                                    <a class="text-danger" href="index.php">Belanja yuk</a>
-                                </div>
-                            </div>
-                            <?php
-                            }
-
-                            ?>
-                        </div>
-                        <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
-                            <?php
-                            
-                            $query = "SELECT * from transaksi where tr_us_id = '".$_SESSION['userLogin']['id']."' and tr_status = 'Expired'";
-                            $query = mysqli_query($con, $query);
-                            if(mysqli_num_rows($query) > 0){
-                            ?>
-
-                            <!-- Content -->
-
-                            <?php
-                            }else{
-                            ?>
-                            <div class="row align-items-center text-center" style="height: 200px;">
-                                <div class="col">
-                                    <div class="h2">Belum ada Transaksi nih</div>
-                                    <a class="text-danger" href="index.php">Belanja yuk</a>
-                                </div>
-                            </div>
-                            <?php
-                            }
-
-                            ?>
-                        </div>
-                        <div class="tab-pane fade" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab" tabindex="0">
-                            <?php
-                            
-                            $query = "SELECT * from transaksi where tr_us_id = '".$_SESSION['userLogin']['id']."' and tr_status = 'Paid'";
-                            $query = mysqli_query($con, $query);
-                            if(mysqli_num_rows($query) > 0){
-                            ?>
-
-                            <!-- Content -->
-
-                            <?php
-                            }else{
-                            ?>
-                            <div class="row align-items-center text-center" style="height: 200px;">
-                                <div class="col">
-                                    <div class="h2">Belum ada Transaksi nih</div>
-                                    <a class="text-danger" href="index.php">Belanja yuk</a>
-                                </div>
-                            </div>
-                            <?php
-                            }
-
-                            ?>
-                        </div>
-                    </div>
+                    <h2 class='mb-5'>History</h2>
+ 
                     <div class="row justify-content-center">
                         <div class="col-12">
                             <div class="card shadow-2-strong" style="background-color: #f5f7fa;">
@@ -189,9 +105,9 @@
                                             <tr>
                                                 <th scope="col">No </th>
                                                 <th scope="col">Nama Action Figure</th>
-                                                <th scope="col">Seri</th>
+                                                <th scope="col">Jumlah</th>
                                                 <th scope="col">Harga</th>
-                                                <th scope="col">Stok</th>
+                                                <th scope="col">Tanggal</th>
                                                 <!-- <th scope="col">Jenis</th>
                                                 <th scope="col">Deadline</th>
                                                 <th scope="col">Action</th> -->
@@ -199,21 +115,24 @@
                                             </thead>
                                             <tbody>
                                             <tbody>
-                                                <tr>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <!-- <td></td>
-                                                    <td></td> -->
-                                                    <td class="d-grid gap-2">
-                                                        <!-- <form action='' method='post'> -->
-                                                            <input type='hidden' name='apply' value=''>
-                                                            <button name='btn-apply' class='btn btn-outline-success btn-sm px-4'>Apply</button>
-                                                        <!-- </form> -->
-                                                    </td>
-                                                </tr>
+                                                <?php
+                                                    $select_query = "
+                                                    SELECT af.af_name as 'nama', db.db_amount as 'jumlah', db.db_subtotal as 'total', hb.hb_date as 'tanggal' from dtrans_beli db 
+                                                    join htrans_beli hb on hb.hb_id = db.db_hb_id 
+                                                    join actionfigure af on af.af_id = db.db_af_id 
+                                                    where hb.hb_customerid = '".$_SESSION['userLogin']['id']."'";
+                                                    $isi = mysqli_query($con, $select_query);
+                                                    $counter = 0;
+                                                    while($row = mysqli_fetch_array($isi)){
+                                                ?>
+                                                    <td><?=++$counter?></td>
+                                                    <td><?=$row['nama']?></td>
+                                                    <td><?=$row['jumlah']?></td>
+                                                    <td><?=$row['total']?></td>
+                                                    <td><?=$row['tanggal']?></td>
+                                                <?php
+                                                    }
+                                                ?>
                                               
                                             
                                             </tbody>
