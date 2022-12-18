@@ -32,6 +32,15 @@
         $query = "DELETE from cart where ca_us_id = '$id_user' and ca_af_id = '$id_figure'";
         $query = mysqli_query($con, $query);
     }
+
+    if(isset($_POST['checkout'])){
+        $select = "SELECT * from cart where ca_us_id = '".$_SESSION['userLogin']['id']."'";
+        $htrans = "SELECT concat('HB', LPAD(ifnull(MAX(substr(hb_id,3,3))+1,1), 3, 0)) as 'id_htrans' from htrans_beli";
+        $htrans = mysqli_query($con, $htrans);
+        $htrans = mysqli_fetch_array($htrans, MYSQLI_ASSOC)['id_htrans'];
+        $insert = "INSERT into htrans_beli values('$htrans', NOW(), )"
+    }
+
     // Buat logout, sessionnya di hapus biar hilang datanya
     if(isset($_POST['logout'])){
         unset($_SESSION['userLogin']);
@@ -54,7 +63,7 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
         <link href="assets/css/general.css" rel="stylesheet">
     </head>
-    <body>
+    <body onload="load_ajax()">
         <!-- Responsive navbar-->
         <nav class="navbar navbar-expand-lg p-3 position-sticky top-0 w-100 shadow navbar-dark bg-dark">
             <div class="container">
@@ -99,97 +108,9 @@
             <div class="mask d-flex h-100">
                 <div class="container bg-white py-3 px-3">
                     <h2 class='mb-5'>Shopping Cart</h2>
-                    <div class="row justify-content-center d-flex">
-                        <div class="w-50 me-5 border">
-
-                            <?php
-                            
-                            $query = "SELECT a.af_id as 'ID', a.af_name as 'Name', a.af_price as 'Harga', a.af_image_path as 'path', c.ca_qty as 'qty' from actionfigure a join cart c where c.ca_us_id = '".$_SESSION['userLogin']['id']."' and c.ca_status = 'Requested' and c.ca_af_id = a.af_id";
-                            $query = mysqli_query($con, $query);
-                            if(mysqli_num_rows($query) > 0){
-                            ?>
-                            <!-- Content -->
-                            <div class="table-responsive">
-                                <div class="container text-center">
-                                    <?php
-                                        
-                                        while($row = mysqli_fetch_array($query, MYSQLI_ASSOC)){
-                                            ?>
-                                            <div class="row row-cols-2 row-cols-lg-1 g-2 g-lg-3">
-                                                <div class="col align-item-center">
-                                                    <form action="" method="post">
-                                                        <div class="p-3 border bg-light rounded">
-                                                            <img src="<?=$row['path']?>" class="product-thumb" alt="">
-                                                            <p><?=$row['Name']?></p>
-                                                            <h5>Harga : Rp. <?=number_format($row['Harga'], 0, ',')?></h5>
-                                                            <input class="form-control w-25" type="number" name="qty" id="" step="1" min="1" value="<?=$row['qty']?>">
-                                                            <h5>Subtotal : Rp. <?=number_format($row['Harga'] * $row['qty'], 0, ',')?></h5>
-                                                            <hr>
-                                                            <input type="hidden" name="id_figure" value="<?=$row['ID']?>">
-                                                            <button class="btn btn-danger btn-sm px-3 fw-bold" name="remove">
-                                                                <i class="bi bi-trash-fill me-2"></i>Remove
-                                                            </button>
-                                                        </div>
-                                                    </form>
-                                                </div>
-                                            </div>
-                                        <?php
-                                        }
-
-                                        ?>
-                                </div>
-                            </div>
-
-                            <?php
-
-                            }else{
-
-                            ?>
-                            <div class="row align-items-center text-center" style="height: 200px;">
-                                <div class="col">
-                                    <div class="h2">Belum ada Barang nih</div>
-                                    <a class="text-danger" href="index.php">Belanja yuk</a>
-                                </div>
-                            </div>
-                            <?php
-
-                            }
-
-                            ?>
-
-                        </div>
-                        <div class="w-25 border text-center justify-content-center py-4">
-                        <?php   
-                            
-                            $query = "SELECT (SUM(b.subtotal)) AS 'Total' FROM actionfigure a JOIN cart c ON c.ca_af_id = af_id JOIN (select a.af_price * c.ca_qty as 'subtotal' from cart c join actionfigure a on c.ca_af_id = a.af_id) b JOIN users u ON u.us_id = c.ca_us_id and u.us_id = '".$_SESSION['userLogin']['id']."'";
-                            $query = $con -> query($query);
-                            $row = $query -> fetch_array(MYSQLI_ASSOC);
-                            if($row['Total'] != null){
-                                $price = $row['Total'];   
-                            ?>
-                            
-                            <!-- Content -->
-                            <div class="h5 mb-3" style="color: gray;">TOTAL</div>
-                            <div class="h3 mb-3" style="color: red;">Rp. <?=number_format($price, 0, ',')?></div>
-                            <button class="btn btn-success w-100">CHECKOUT</button>
-
-                            <?php
-
-                            }else{
-
-                            ?>
-
-                            <div class="h5 mb-3" style="color: gray;">TOTAL PRICE</div>
-                            <div class="h3 mb-3" style="color: red;">IDR 0</div>
-                            <button class="btn btn-secondary w-100 disable" disable>CHECKOUT</button>
-
-                            <?php
-
-                            }
-
-                            ?>
-                            
-                        </div>
+                    <div class="row justify-content-center d-flex" id='list_cart'>
+                        
+                        
                     </div>
                 </div>
             </div>
@@ -201,6 +122,50 @@
             <div class="container px-5"><p class="m-0 text-center text-white">Copyright &copy; Your Website 2022</p></div>
         </footer>
         <!-- Core theme JS-->
+        <script>
+            let list_cart;
+
+            function load_ajax(){
+                list_cart = document.getElementById('list_cart');
+                fetch_items();
+            }
+
+            function fetch_items(){
+                // 1. Inisialisai buat object dulu
+                r = new XMLHttpRequest();
+                // 2. Callback Function apa yang akan dikerjakan
+                // NB: Jangan menggunakan Arrow Function () => {} di sini
+                //     karena akan return undefined dan null
+                r.onreadystatechange = function() {
+                    // Kalau dapat data dan status selesai > Lakukan sesuatu
+                    if ((this.readyState==4) && (this.status==200)) {
+                        list_cart.innerHTML = this.responseText;
+                    }
+                }
+                
+                // 3. Memanggil dan mengeksekusi AJAX
+                r.open('GET', 'cart_fetch.php');
+                r.send();
+            }
+
+            function update_item(id_figure, index){
+                r = new XMLHttpRequest();
+                r.onreadystatechange = function() {
+                    if ((this.readyState==4) && (this.status==200)) {
+                        fetch_items();
+                    }
+                }
+                console.log(index);
+                var params = {
+                    "id_figure":id_figure,
+                    "qty":document.getElementById("qty_"+index).value
+                };
+
+                r.open('POST', `cart_update.php`);
+                r.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                r.send(`params=${JSON.stringify(params)}`);
+            }
+        </script>
         <script src="js/jquery-3.6.1.min.js"></script>
         <script>
             $(function(){
