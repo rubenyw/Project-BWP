@@ -24,7 +24,7 @@
                         <img src="assets/GambarFigure/<?=$row['af_id']?>.jpg" class="product-thumb" alt="">
                         <p><?=$row['af_name']?></p>
                         <input type="hidden" name="id_item" value="<?=$row['af_id']?>">
-                        <button type="submit" name="item">Detail</button>
+                        <button type="submit" name="item" class="btn btn-primary">Detail</button>
                     </div>
                 </form>
             </div>                      
