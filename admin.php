@@ -93,7 +93,6 @@
                                                 <th scope="col">Nama Customer</th>
                                                 <th scope="col">Total Pembelian</th>
                                                 <th scope="col">Tanggal Transaksi</th>
-                                                <th scope="col">Order ID</th>
                                                 <th scope="col">Status</th>
                                                 <th scope="col">Detail Transaksi</th>
                                             </tr>
@@ -101,7 +100,7 @@
                                             <tbody>
                                             <tbody>
                                                 <?php
-                                                    $query = "SELECT h.hb_id as 'ID_Trans', h.hb_customerid as 'ID' ,u.us_username as 'Cust_name', h.hb_total as 'Total', h.hb_date as 'Tanggal', h.hb_invoice_number as 'Order', h.hb_status as 'Status'
+                                                    $query = "SELECT h.hb_id as 'ID_Trans', h.hb_customerid as 'ID' ,u.us_username as 'Cust_name', h.hb_total as 'Total', h.hb_date as 'Tanggal'
                                                              from htrans_beli h join users u on u.us_id = h.hb_customerid";
                                                     $query = mysqli_query($con, $query);
                                                     $counter =1;
@@ -114,7 +113,6 @@
                                                     <td><?=$row['Cust_name']?></td>
                                                     <td><?=$row['Total']?></td>
                                                     <td><?=$row['Tanggal']?></td>
-                                                    <td><?=$row['Order']?></td>
                                                     <td>Accepted</td>
                                                     <td class="d-grid gap-2">
                                                         <!-- <form action='' method='post'> -->
