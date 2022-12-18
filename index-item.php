@@ -17,8 +17,6 @@
         $result = mysqli_fetch_array($query, MYSQLI_ASSOC);
     }
 
-    
-    
 
     if(isset($_POST['addcart'])){
         $qty = intval($_POST['qty']);
@@ -30,7 +28,7 @@
             $insert = mysqli_query($con, $insert);
             
         }else{
-            $update = "UPDATE cart set ca_qty = ca_qty + $qty";
+            $update = "UPDATE cart set ca_qty = ca_qty + $qty where ca_us_id = '$id' and ca_af_id = '$figure'";
             $update = mysqli_query($con, $update);
         }
         alert("Item ditambahkan ke cart");
