@@ -99,7 +99,7 @@
 
                             <?php
                             
-                            $query = "SELECT a.af_name as 'Name', a.af_price as 'Harga', a.af_image_path as 'path' from actionfigure a join cart c where c.ca_us_id = '".$_SESSION['userLogin']['id']."' and c.ca_status = 'Requested' and c.ca_af_id = a.af_id";
+                            $query = "SELECT a.af_name as 'Name', a.af_price as 'Harga', a.af_image_path as 'path', c.ca_qty as 'qty' from actionfigure a join cart c where c.ca_us_id = '".$_SESSION['userLogin']['id']."' and c.ca_status = 'Requested' and c.ca_af_id = a.af_id";
                             $query = mysqli_query($con, $query);
                             if(mysqli_num_rows($query) > 0){
                             ?>
@@ -111,16 +111,14 @@
                                         while($row = mysqli_fetch_array($query, MYSQLI_ASSOC)){
                                             ?>
                                             <div class="row row-cols-2 row-cols-lg-1 g-2 g-lg-3">
-                                                <div class="col">
+                                                <div class="col align-item-center">
                                                     <form action="">
                                                         <div class="p-3 border bg-light rounded">
                                                             <img src="<?=$row['path']?>" class="product-thumb" alt="">
                                                             <p><?=$row['Name']?></p>
-                                                            <h6>Harga : Rp. <?=$row['Harga']?></h6>
-                                                            <button class="btn btn-success btn-sm px-3 fw-bold"><i class="bi bi-dash"></i></button>
-                                                            2
-                                                            <button class="btn btn-success btn-sm px-3 fw-bold"><i class="bi bi-plus"></i></button>
-                                                            <h6>Subtotal : Rp. 300000</h6>
+                                                            <h5>Harga : Rp. <?=number_format($row['Harga'], 0, ',')?></h5>
+                                                            <input class="form-control w-25" type="number" name="qty" id="" step="1" min="1" value="<?=$row['qty']?>">
+                                                            <h5>Subtotal : Rp. <?=number_format($row['Harga'] * $row['qty'], 0, ',')?></h5>
                                                             <hr>
                                                             <button class="btn btn-danger btn-sm px-3 fw-bold" name="">
                                                                 <i class="bi bi-trash-fill me-2"></i>Remove
@@ -157,7 +155,7 @@
                         <div class="w-25 border text-center justify-content-center py-4">
                         <?php   
                             
-                            $query = "SELECT (SUM(a.af_price)) AS 'Total' FROM actionfigure a JOIN cart c ON c.ca_af_id = af_id JOIN users u ON u.us_id = c.ca_us_id and u.us_id = '".$_SESSION['userLogin']['id']."'";
+                            $query = "SELECT (SUM(b.subtotal)) AS 'Total' FROM actionfigure a JOIN cart c ON c.ca_af_id = af_id JOIN (select a.af_price * c.ca_qty as 'subtotal' from cart c join actionfigure a on c.ca_af_id = a.af_id) b JOIN users u ON u.us_id = c.ca_us_id and u.us_id = '".$_SESSION['userLogin']['id']."'";
                             $query = $con -> query($query);
                             $row = $query -> fetch_array(MYSQLI_ASSOC);
                             if($row['Total'] != null){
@@ -166,7 +164,7 @@
                             
                             <!-- Content -->
                             <div class="h5 mb-3" style="color: gray;">TOTAL</div>
-                            <div class="h3 mb-3" style="color: red;">Rp. <?=$price?></div>
+                            <div class="h3 mb-3" style="color: red;">Rp. <?=number_format($price, 0, ',')?></div>
                             <button class="btn btn-success w-100">CHECKOUT</button>
 
                             <?php

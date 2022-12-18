@@ -9,39 +9,31 @@
         $cart = $cart->fetch_assoc();
         $cart = $cart['cart'];
     }
-    // Buat masuk ke page login
-    if(isset($_POST['login'])){
-        header('Location: login.php');
-    }
-
-    // Buat masuk ke page register
-    if(isset($_POST['register'])){
-        header('Location: register.php');
-    }
-
+   
     if(isset($_GET['figure'])){
         $figure = $_GET['figure'];
-        $query = "SELECT a.af_name as 'Name', a.af_price as 'Price', a.af_stock as 'Stock', s.se_name as 'Series', a.af_desc as 'Desc', a.af_image_path as 'Image' from actionfigure a join series s on s.se_id = a.af_se_id where a.af_id = $figure";
+        $query = "SELECT a.af_name as 'Name', a.af_price as 'Price', a.af_stock as 'Stock', s.se_name as 'Series', a.af_desc as 'Desc', a.af_image_path as 'Image' from actionfigure a join series s on s.se_id = a.af_se_id where a.af_id = '$figure'";
         $query = mysqli_query($con, $query);
         $result = mysqli_fetch_array($query, MYSQLI_ASSOC);
     }
 
-    //Buat masuk Transaction
-    if(isset($_POST['transaction'])){
-        if(isset($_SESSION['userLogin'])){
-            header('Location: request.php');
-        }else{
-            header('Location: login.php');
-        }
-    }
+    
+    
 
-    // Buat masuk cart
-    if(isset($_POST['cart'])){
-        if(isset($_SESSION['userLogin'])){
-            header('Location: cart.php');
+    if(isset($_POST['addcart'])){
+        $qty = intval($_POST['qty']);
+        $id = $_SESSION['userLogin']['id'];
+        $query = "SELECT * from cart where ca_us_id = '$id' and ca_af_id = '$figure'";
+        $query = mysqli_query($con, $query);
+        if(mysqli_num_rows($query) <= 0){
+            $insert = "INSERT into cart values('$id', '$figure', 'Requested', $qty)";
+            $insert = mysqli_query($con, $insert);
+            
         }else{
-            header('Location: login.php');
+            $update = "UPDATE cart set ca_qty = ca_qty + $qty";
+            $update = mysqli_query($con, $update);
         }
+        alert("Item ditambahkan ke cart");
     }
 
     // Buat logout, sessionnya di hapus biar hilang datanya
@@ -117,17 +109,18 @@
                         <div class="row mb-3">
                             <div class="h3">IDR <?=number_format(intval($result['Price']),0,".")?></div>
                         </div>
-                        <form action="">
+                        <form action="" method="post">
                             <div class="row mb-3">
                                 <div class="col-1">
                                     <div class="h5 mt-1">QTY</div>
                                 </div>
                                 <div class="col-3">
-                                    <input class="form-control" type="number" name="" id="" step="1" min="1" value="1">
+                                    <input class="form-control" type="number" name="qty" id="" step="1" min="1" value="1">
                                 </div>
                             </div>
                             <div class="row mb-3">
-                                <button class="btn btn-outline-primary">Add to Cart</button>
+                                <input type="hidden" name="id_item" value="<?=$figure?>">
+                                <button class="btn btn-outline-primary" name="addcart">Add to Cart</button>
                             </div>
                         </form>
                         <div class="row mb-3">

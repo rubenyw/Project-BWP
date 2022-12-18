@@ -10,11 +10,39 @@
         $cart = $cart['cart'];
     }
 
+     // Buat masuk ke page login
+     if(isset($_POST['login'])){
+        header('Location: login.php');
+    }
+
+    // Buat masuk ke page register
+    if(isset($_POST['register'])){
+        header('Location: register.php');
+    }
+
+    //Buat masuk Transaction
+    if(isset($_POST['transaction'])){
+        if(isset($_SESSION['userLogin'])){
+            header('Location: request.php');
+        }else{
+            header('Location: login.php');
+        }
+    }
+
+    // Buat masuk cart
+    if(isset($_POST['cart'])){
+        if(isset($_SESSION['userLogin'])){
+            header('Location: cart.php');
+        }else{
+            header('Location: login.php');
+        }
+    }
+
     if(isset($_POST['item'])){
         alert("HAI");
         if(isset($_SESSION['userLogin'])){
             $figure = $_POST['id_item'];
-            header('Location: index-item.php?figure="'.$figure.'"');
+            header('Location: index-item.php?figure='.$figure);
         }else{
             header('Location: login.php');
         }
