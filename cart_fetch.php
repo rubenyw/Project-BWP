@@ -13,8 +13,9 @@
         <div class="container text-center">
             <?php
                 $i = 0;
+                $total = 0;
                 while($row = mysqli_fetch_array($query, MYSQLI_ASSOC)){
-                        
+                        $total += $row['Harga'] * $row['qty'];
                     ?>
                     <div class="row row-cols-2 row-cols-lg-1 g-2 g-lg-3">
                         <div class="col align-item-center">
@@ -76,7 +77,8 @@
         <div class="h5 mb-3 text-start" style="">
             <h2>TOTAL :</h2>
         </div>
-        <div class="h3 mb-3 text-start" style="color: gray;">Rp. <?=number_format($row['Total'], 0, ',')?></div><br><hr>
+        <div class="h3 mb-3 text-start" style="color: gray;">Rp. <?=number_format($total, 0, ',')?></div><br><hr>
+        <input type="hidden" name="total" value=<?=$total?>>
         <button class="btn btn-success w-100" name="checkout">CHECKOUT</button>
         </form>
 

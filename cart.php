@@ -40,23 +40,26 @@
         $htrans = mysqli_fetch_array($htrans, MYSQLI_ASSOC)['id_htrans'];
 
         $id = $_SESSION['userLogin']['id'];
-        $total = "SELECT (SUM(b.subtotal)) AS 'Total' FROM actionfigure a JOIN cart c ON c.ca_af_id = af_id JOIN (select a.af_price * c.ca_qty as 'subtotal' from cart c join actionfigure a on c.ca_af_id = a.af_id where c.ca_us_id = '$id') b JOIN users u ON u.us_id = c.ca_us_id and u.us_id = '".$_SESSION['userLogin']['id']."'";
-        $total = $con -> query($total);
-        $total = $total -> fetch_array(MYSQLI_ASSOC)['Total'];
+        // $total = "SELECT (SUM(b.subtotal)) AS 'Total' FROM actionfigure a JOIN cart c ON c.ca_af_id = af_id JOIN (select a.af_price * c.ca_qty as 'subtotal' from cart c join actionfigure a on c.ca_af_id = a.af_id where c.ca_us_id = '$id') b JOIN users u ON u.us_id = c.ca_us_id and u.us_id = '".$_SESSION['userLogin']['id']."'";
+        // $total = $con -> query($total);
+        // $total = $total -> fetch_array(MYSQLI_ASSOC)['Total'];
+
+        $total = $_POST['total'];
 
         $insert = "INSERT into htrans_beli values('$htrans', NOW(), $total, '".$_SESSION['userLogin']['id']."', null)";
         $insert = mysqli_query($con, $insert);
 
-        while($row = mysqli_fetch_array(mysqli_query($con, $select), MYSQLI_ASSOC)){
+        $query = mysqli_query($con, $select);
+        while($row = mysqli_fetch_array($query, MYSQLI_ASSOC)){
             $id_dtrans = mysqli_query($con, "SELECT concat('DB', LPAD(ifnull(MAX(substr(db_id,3,3))+1,1), 3, 0)) as 'id_htrans' from dtrans_beli");
             $id_dtrans = mysqli_fetch_array($id_dtrans, MYSQLI_ASSOC)['id_htrans'];
             $qty = $row['ca_qty'];
 
-            $subtotal = "SELECT (a.af_price * c.ca_qty) as 'subtotal' from actionfigure a join cart c where c.ca_af_id = a.af_id and a.af_id = '".$row['ca_af_id']."'";
+            $subtotal = "SELECT (a.af_price * ".$row['ca_qty'].") as 'subtotal' from actionfigure a where a.af_id = '".$row['ca_af_id']."'";
             $subtotal = mysqli_fetch_array(mysqli_query($con, $subtotal))['subtotal'];
             
             $id_figure = $row['ca_af_id'];
-
+            
             $insert = "INSERT into dtrans_beli values('$id_dtrans', $qty, '$htrans', $subtotal, '$id_figure')";
           
             
@@ -107,7 +110,7 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="request.php">
-                                <button class="btn btn-sm text-light">Transaction</button>
+                                <button class="btn btn-sm text-light">History</button>
                             </a>
                         </li>
                         <li class="nav-item">

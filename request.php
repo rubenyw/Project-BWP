@@ -64,7 +64,7 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="">
-                                <button class="btn btn-sm text-light fw-bold">Transaction</button>
+                                <button class="btn btn-sm text-light fw-bold">History</button>
                             </a>
                         </li>
                         <li class="nav-item">
@@ -125,11 +125,14 @@
                                                     $counter = 0;
                                                     while($row = mysqli_fetch_array($isi)){
                                                 ?>
-                                                    <td><?=++$counter?></td>
-                                                    <td><?=$row['nama']?></td>
-                                                    <td><?=$row['jumlah']?></td>
-                                                    <td><?=$row['total']?></td>
-                                                    <td><?=$row['tanggal']?></td>
+                                                    <tr>
+
+                                                        <td><?=++$counter?></td>
+                                                        <td><?=$row['nama']?></td>
+                                                        <td><?=$row['jumlah']?></td>
+                                                        <td><?=$row['total']?></td>
+                                                        <td><?=$row['tanggal']?></td>
+                                                    </tr>
                                                 <?php
                                                     }
                                                 ?>
