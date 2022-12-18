@@ -197,7 +197,7 @@
                                             while($row = mysqli_fetch_array($select_query, MYSQLI_ASSOC)){
                                             ?>
 
-                                            <option value='<?=$row['se_id']?>' <?=($row['se_id'] == $filter_series? "selected='selected'" : "") ?>><?=$row['se_name']?></option>
+                                            <option value='<?=$row['se_id']?>'><?=$row['se_name']?></option>
 
                                             <?php
                                             }
