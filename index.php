@@ -325,7 +325,7 @@
                                             <?php
                                             }
 
-                                            ?>
+                                            ?>  
                                         </select>
                                         <button type="submit" style="display: none;" id="filter" name='filter'></button>
                                         <label for="lokasi">Series</label>

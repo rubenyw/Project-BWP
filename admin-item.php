@@ -1,5 +1,7 @@
 <?php
     require('action.php');
+
+    $filter_series = "";
     
     if(isset($_POST['btn-update-item'])){
         $id = $_POST['id_item'];
@@ -16,6 +18,10 @@
             'af_image_path'=> $query['af_image_path']
         ];
         header('Location: update-item.php');
+    }
+
+    if(isset($_POST['filter'])){
+        $filter_series = $_POST['lokasi'];
     }
 
 ?>
@@ -89,16 +95,30 @@
                                 <div class="form-floating mb-3 mx-5">
                                     <select class="form-select" name='lokasi' id='lokasi'>
                                         <option value=''>All</option>
+                                        <?php
+                                            
+                                            $select_query = "SELECT * from series";
+                                            $select_query = mysqli_query($con, $select_query);
+                                            while($row = mysqli_fetch_array($select_query, MYSQLI_ASSOC)){
+                                            ?>
+
+                                            <option value='<?=$row['se_id']?>' <?=($row['se_id'] == $filter_series? "selected='selected'" : "") ?>><?=$row['se_name']?></option>
+
+                                            <?php
+                                            }
+
+                                        ?>  
                                     </select>
                                     <label for="lokasi">Series</label>
                                 </div>
                                 <div class="form-floating mb-3 mx-5">
                                     <select class="form-select" name='jenis' id='jenis'>
-                                    <option value=''>All</option>
+                                        <option value=''>All</option>
+                                        
                                     </select>
                                     <label for="jenis">Harga</label>
                                 </div>
-                                <button hidden type='submit' id='btn-filter'>haha</button>
+                                <button hidden type='submit' name="filter" id='btn-filter'>haha</button>
                             </div>
                         </form>
                     </div>
@@ -166,7 +186,7 @@
                 }
                 
                 // 3. Memanggil dan mengeksekusi AJAX
-                r.open('GET', 'item_fetch.php');	
+                r.open('GET', 'item_fetch.php'+'<?=$filter_series==''?'':'?series='.$filter_series?>');
                 r.send();
             }
 
@@ -188,6 +208,13 @@
         <script src="js/jquery-3.6.1.min.js"></script>
         <script>
             $(function(){
+
+                let filterseries = $("#lokasi");
+
+                $(filterseries).change(function(){
+                    $("#btn-filter").click();
+                })
+
                 let button = $("[name='btn-apply']");
                 $(button).click(function(){
                     if($(this).text() == "Apply"){
