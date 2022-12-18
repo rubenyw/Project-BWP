@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 18, 2022 at 12:44 PM
+-- Generation Time: Dec 18, 2022 at 01:05 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.0.25
 
@@ -104,7 +104,6 @@ CREATE TABLE `cart` (
 --
 
 INSERT INTO `cart` (`ca_us_id`, `ca_af_id`, `ca_status`, `ca_qty`) VALUES
-('US001', 'AF003', 'Requested', 10),
 ('US004', 'AF008', 'Requested', 6);
 
 -- --------------------------------------------------------
@@ -156,7 +155,8 @@ INSERT INTO `dtrans_beli` (`db_id`, `db_amount`, `db_hb_id`, `db_subtotal`, `db_
 ('DB006', 1, 'HB004', 180000, ''),
 ('DB007', 1, 'HB005', 185000, ''),
 ('DB008', 1, 'HB005', 260000, ''),
-('DB009', 2, 'HB005', 5392170, '');
+('DB009', 2, 'HB005', 5392170, ''),
+('DB010', 1, 'HB025', 500000, 'AF003');
 
 -- --------------------------------------------------------
 
@@ -169,8 +169,6 @@ CREATE TABLE `htrans_beli` (
   `hb_date` date NOT NULL,
   `hb_total` double NOT NULL,
   `hb_customerid` varchar(5) NOT NULL,
-  `hb_status` int(10) NOT NULL,
-  `hb_employeeid` varchar(5) NOT NULL,
   `hb_di_id` varchar(5) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -178,27 +176,32 @@ CREATE TABLE `htrans_beli` (
 -- Dumping data for table `htrans_beli`
 --
 
-INSERT INTO `htrans_beli` (`hb_id`, `hb_date`, `hb_total`, `hb_customerid`, `hb_status`, `hb_employeeid`, `hb_di_id`) VALUES
-('HB001', '2022-10-26', 275000, 'US005', 1, 'US001', 'DI001'),
-('HB002', '2022-10-26', 20900, 'US007', 1, 'US002', NULL),
-('HB003', '2022-10-28', 15991500, 'US004', 1, 'US002', NULL),
-('HB004', '2022-11-02', 28680000, 'US008', 1, 'US001', NULL),
-('HB005', '2022-11-11', 0, 'US004', 1, 'US003', 'DI003'),
-('HB006', '2022-11-11', 102350, 'US009', 1, 'US003', 'DI003'),
-('HB007', '2022-11-15', 10568225, 'US010', 1, 'US001', 'DI002'),
-('HB008', '2022-11-16', 5148670, 'US007', 1, 'US006', NULL),
-('HB009', '2022-11-16', 16000000, 'US008', 1, 'US001', NULL),
-('HB010', '2022-11-18', 20760000, 'US009', 1, 'US010', NULL),
-('HB011', '2022-11-20', 52573175, 'US005', 1, 'US009', NULL),
-('HB012', '2022-11-23', 7811855, 'US006', 1, 'US001', NULL),
-('HB013', '2022-11-23', 2282000, 'US010', 1, 'US007', NULL),
-('HB014', '2022-11-24', 910900, 'US005', 1, 'US001', NULL),
-('HB015', '2022-11-26', 1800000, 'US004', 1, 'US006', NULL),
-('HB016', '2022-11-30', 166098375, 'US005', 1, 'US005', NULL),
-('HB017', '2022-11-30', 230000, 'US009', 1, 'US008', NULL),
-('HB018', '2022-12-02', 50123175, 'US006', 1, 'US006', NULL),
-('HB019', '2022-12-07', 12115000, 'US010', 1, 'US007', NULL),
-('HB020', '2022-12-07', 10278000, 'US007', 1, 'US004', 'DI004');
+INSERT INTO `htrans_beli` (`hb_id`, `hb_date`, `hb_total`, `hb_customerid`, `hb_di_id`) VALUES
+('HB001', '2022-10-26', 275000, 'US005', 'DI001'),
+('HB002', '2022-10-26', 20900, 'US007', NULL),
+('HB003', '2022-10-28', 15991500, 'US004', NULL),
+('HB004', '2022-11-02', 28680000, 'US008', NULL),
+('HB005', '2022-11-11', 0, 'US004', 'DI003'),
+('HB006', '2022-11-11', 102350, 'US009', 'DI003'),
+('HB007', '2022-11-15', 10568225, 'US010', 'DI002'),
+('HB008', '2022-11-16', 5148670, 'US007', NULL),
+('HB009', '2022-11-16', 16000000, 'US008', NULL),
+('HB010', '2022-11-18', 20760000, 'US009', NULL),
+('HB011', '2022-11-20', 52573175, 'US005', NULL),
+('HB012', '2022-11-23', 7811855, 'US006', NULL),
+('HB013', '2022-11-23', 2282000, 'US010', NULL),
+('HB014', '2022-11-24', 910900, 'US005', NULL),
+('HB015', '2022-11-26', 1800000, 'US004', NULL),
+('HB016', '2022-11-30', 166098375, 'US005', NULL),
+('HB017', '2022-11-30', 230000, 'US009', NULL),
+('HB018', '2022-12-02', 50123175, 'US006', NULL),
+('HB019', '2022-12-07', 12115000, 'US010', NULL),
+('HB020', '2022-12-07', 10278000, 'US007', 'DI004'),
+('HB021', '2022-12-18', 47200000, 'US001', NULL),
+('HB022', '2022-12-18', 47200000, 'US001', NULL),
+('HB023', '2022-12-18', 500000, 'US001', NULL),
+('HB024', '2022-12-18', 500000, 'US001', NULL),
+('HB025', '2022-12-18', 500000, 'US001', NULL);
 
 -- --------------------------------------------------------
 
@@ -328,8 +331,7 @@ ALTER TABLE `dtrans_beli`
 ALTER TABLE `htrans_beli`
   ADD PRIMARY KEY (`hb_id`),
   ADD KEY `FKCUSTOMER_HTRANSBELI` (`hb_customerid`),
-  ADD KEY `FKDISCOUNT_HTRANSBELI` (`hb_di_id`),
-  ADD KEY `FKEMPLOYEE_HTRANSBELI` (`hb_employeeid`);
+  ADD KEY `FKDISCOUNT_HTRANSBELI` (`hb_di_id`);
 
 --
 -- Indexes for table `series`
@@ -379,8 +381,7 @@ ALTER TABLE `dtrans_beli`
 --
 ALTER TABLE `htrans_beli`
   ADD CONSTRAINT `FKCUSTOMER_HTRANSBELI` FOREIGN KEY (`hb_customerid`) REFERENCES `users` (`us_id`),
-  ADD CONSTRAINT `FKDISCOUNT_HTRANSBELI` FOREIGN KEY (`hb_di_id`) REFERENCES `discount` (`di_id`),
-  ADD CONSTRAINT `FKEMPLOYEE_HTRANSBELI` FOREIGN KEY (`hb_employeeid`) REFERENCES `users` (`us_id`);
+  ADD CONSTRAINT `FKDISCOUNT_HTRANSBELI` FOREIGN KEY (`hb_di_id`) REFERENCES `discount` (`di_id`);
 
 --
 -- Constraints for table `transaksi`
