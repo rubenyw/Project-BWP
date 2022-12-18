@@ -73,8 +73,10 @@
     
     <!-- Content -->
     <form action="" method="post">
-        <div class="h5 mb-3" style="color: gray;">TOTAL</div>
-        <div class="h3 mb-3" style="color: red;">Rp. <?=number_format($row['Total'], 0, ',')?></div>
+        <div class="h5 mb-3 text-start" style="">
+            <h2>TOTAL :</h2>
+        </div>
+        <div class="h3 mb-3 text-start" style="color: gray;">Rp. <?=number_format($row['Total'], 0, ',')?></div><br><hr>
         <button class="btn btn-success w-100" name="checkout">CHECKOUT</button>
         </form>
 
