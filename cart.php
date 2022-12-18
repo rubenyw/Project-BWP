@@ -26,7 +26,12 @@
             header('Location: login.php');
         }
     }
-
+    if(isset($_POST['remove'])){
+        $id_figure = $_POST['id_figure'];
+        $id_user = $_SESSION['userLogin']['id'];
+        $query = "DELETE from cart where ca_us_id = '$id_user' and ca_af_id = '$id_figure'";
+        $query = mysqli_query($con, $query);
+    }
     // Buat logout, sessionnya di hapus biar hilang datanya
     if(isset($_POST['logout'])){
         unset($_SESSION['userLogin']);
@@ -99,7 +104,7 @@
 
                             <?php
                             
-                            $query = "SELECT a.af_name as 'Name', a.af_price as 'Harga', a.af_image_path as 'path', c.ca_qty as 'qty' from actionfigure a join cart c where c.ca_us_id = '".$_SESSION['userLogin']['id']."' and c.ca_status = 'Requested' and c.ca_af_id = a.af_id";
+                            $query = "SELECT a.af_id as 'ID', a.af_name as 'Name', a.af_price as 'Harga', a.af_image_path as 'path', c.ca_qty as 'qty' from actionfigure a join cart c where c.ca_us_id = '".$_SESSION['userLogin']['id']."' and c.ca_status = 'Requested' and c.ca_af_id = a.af_id";
                             $query = mysqli_query($con, $query);
                             if(mysqli_num_rows($query) > 0){
                             ?>
@@ -112,7 +117,7 @@
                                             ?>
                                             <div class="row row-cols-2 row-cols-lg-1 g-2 g-lg-3">
                                                 <div class="col align-item-center">
-                                                    <form action="">
+                                                    <form action="" method="post">
                                                         <div class="p-3 border bg-light rounded">
                                                             <img src="<?=$row['path']?>" class="product-thumb" alt="">
                                                             <p><?=$row['Name']?></p>
@@ -120,7 +125,8 @@
                                                             <input class="form-control w-25" type="number" name="qty" id="" step="1" min="1" value="<?=$row['qty']?>">
                                                             <h5>Subtotal : Rp. <?=number_format($row['Harga'] * $row['qty'], 0, ',')?></h5>
                                                             <hr>
-                                                            <button class="btn btn-danger btn-sm px-3 fw-bold" name="">
+                                                            <input type="hidden" name="id_figure" value="<?=$row['ID']?>">
+                                                            <button class="btn btn-danger btn-sm px-3 fw-bold" name="remove">
                                                                 <i class="bi bi-trash-fill me-2"></i>Remove
                                                             </button>
                                                         </div>
