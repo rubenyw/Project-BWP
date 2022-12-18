@@ -22,7 +22,7 @@
                 <form action="" method="post">
                     <div class="p-3 border bg-light rounded">
                         <img src="assets/GambarFigure/<?=$row['af_id']?>.jpg" class="product-thumb" alt="">
-                        <p><?=$row['af_name']?></p>
+                        <p><?=$row['af_name']?> <br> Rp. <?=number_format($row['af_price'], 0, ',')?></p>
                         <input type="hidden" name="id_item" value="<?=$row['af_id']?>">
                         <button type="submit" name="item" class="btn btn-primary">Detail</button>
                     </div>

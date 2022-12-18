@@ -223,7 +223,7 @@
                             <div class="row">
                                 
                             </div>
-                            <div class="card shadow-2-strong" style="background-color: #f5f7fa;">
+                            <div class="card shadow-2-strong" style="background-color: #f5f7fa; border: none;">
                                 <div class="card-body" id="list_product">
                                     
                                 </div>
