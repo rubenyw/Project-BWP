@@ -19,10 +19,11 @@
     
         ?>
             <div class="col">
-                <form action="">
+                <form action="" method="post">
                     <div class="p-3 border bg-light rounded">
                         <img src="assets/GambarFigure/<?=$row['af_id']?>.jpg" class="product-thumb" alt="">
                         <p><?=$row['af_name']?></p>
+                        <input type="hidden" name="id_item" value="<?=$row['af_id']?>">
                         <button type="submit" name="item">Detail</button>
                     </div>
                 </form>
