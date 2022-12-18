@@ -347,10 +347,8 @@
                                 
                             </div>
                             <div class="card shadow-2-strong" style="background-color: #f5f7fa;">
-                                <div class="card-body">
-                                    <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3" id="list_product">
-                                        
-                                    </div>
+                                <div class="card-body" id="list_product">
+                                    
                                 </div>
                             </div>
                         </div>
