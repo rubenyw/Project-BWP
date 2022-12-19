@@ -1,6 +1,6 @@
 /*
 SQLyog Community v13.1.9 (64 bit)
-MySQL - 10.4.27-MariaDB : Database - db_actionfigure
+MySQL - 10.4.22-MariaDB : Database - db_actionfigure
 *********************************************************************
 */
 
@@ -12,7 +12,7 @@ MySQL - 10.4.27-MariaDB : Database - db_actionfigure
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-CREATE DATABASE /*!32312 IF NOT EXISTS*/`db_actionfigure` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci */;
+CREATE DATABASE /*!32312 IF NOT EXISTS*/`db_actionfigure` /*!40100 DEFAULT CHARACTER SET utf8mb4 */;
 
 USE `db_actionfigure`;
 
@@ -32,7 +32,7 @@ CREATE TABLE `actionfigure` (
   PRIMARY KEY (`af_id`),
   KEY `FKSERIES_ACTIONFIGURE` (`af_se_id`),
   CONSTRAINT `FKSERIES_ACTIONFIGURE` FOREIGN KEY (`af_se_id`) REFERENCES `series` (`se_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `actionfigure` */
 
@@ -102,15 +102,9 @@ CREATE TABLE `cart` (
   KEY `ca_af_id` (`ca_af_id`),
   CONSTRAINT `cart_ibfk_1` FOREIGN KEY (`ca_us_id`) REFERENCES `users` (`us_id`),
   CONSTRAINT `cart_ibfk_2` FOREIGN KEY (`ca_af_id`) REFERENCES `actionfigure` (`af_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `cart` */
-
-insert  into `cart`(`ca_us_id`,`ca_af_id`,`ca_status`,`ca_qty`) values 
-('US001','AF007','Requested',1),
-('US001','AF016','Requested',1),
-('US001','AF041','Requested',7),
-('US004','AF008','Requested',6);
 
 /*Table structure for table `discount` */
 
@@ -121,7 +115,7 @@ CREATE TABLE `discount` (
   `di_nama` varchar(255) NOT NULL,
   `di_value` double NOT NULL,
   PRIMARY KEY (`di_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `discount` */
 
@@ -144,22 +138,9 @@ CREATE TABLE `dtrans_beli` (
   PRIMARY KEY (`db_id`),
   KEY `FKHTRANS_DTRANSBELI` (`db_hb_id`),
   CONSTRAINT `FKHTRANS_DTRANSBELI` FOREIGN KEY (`db_hb_id`) REFERENCES `htrans_beli` (`hb_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `dtrans_beli` */
-
-insert  into `dtrans_beli`(`db_id`,`db_amount`,`db_hb_id`,`db_subtotal`,`db_af_id`) values 
-('DB001',1,'HB001',300000,''),
-('DB002',1,'HB002',20900,''),
-('DB003',2,'HB003',15691500,''),
-('DB004',1,'HB003',300000,''),
-('DB005',3,'HB004',28500000,''),
-('DB006',1,'HB004',180000,''),
-('DB007',1,'HB005',185000,''),
-('DB008',1,'HB005',260000,''),
-('DB009',2,'HB005',5392170,''),
-('DB010',1,'HB025',500000,'AF003'),
-('DB011',1,'HB026',1700000,'AF001');
 
 /*Table structure for table `htrans_beli` */
 
@@ -176,37 +157,9 @@ CREATE TABLE `htrans_beli` (
   KEY `FKDISCOUNT_HTRANSBELI` (`hb_di_id`),
   CONSTRAINT `FKCUSTOMER_HTRANSBELI` FOREIGN KEY (`hb_customerid`) REFERENCES `users` (`us_id`),
   CONSTRAINT `FKDISCOUNT_HTRANSBELI` FOREIGN KEY (`hb_di_id`) REFERENCES `discount` (`di_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `htrans_beli` */
-
-insert  into `htrans_beli`(`hb_id`,`hb_date`,`hb_total`,`hb_customerid`,`hb_di_id`) values 
-('HB001','2022-10-26',275000,'US005','DI001'),
-('HB002','2022-10-26',20900,'US007',NULL),
-('HB003','2022-10-28',15991500,'US004',NULL),
-('HB004','2022-11-02',28680000,'US008',NULL),
-('HB005','2022-11-11',0,'US004','DI003'),
-('HB006','2022-11-11',102350,'US009','DI003'),
-('HB007','2022-11-15',10568225,'US010','DI002'),
-('HB008','2022-11-16',5148670,'US007',NULL),
-('HB009','2022-11-16',16000000,'US008',NULL),
-('HB010','2022-11-18',20760000,'US009',NULL),
-('HB011','2022-11-20',52573175,'US005',NULL),
-('HB012','2022-11-23',7811855,'US006',NULL),
-('HB013','2022-11-23',2282000,'US010',NULL),
-('HB014','2022-11-24',910900,'US005',NULL),
-('HB015','2022-11-26',1800000,'US004',NULL),
-('HB016','2022-11-30',166098375,'US005',NULL),
-('HB017','2022-11-30',230000,'US009',NULL),
-('HB018','2022-12-02',50123175,'US006',NULL),
-('HB019','2022-12-07',12115000,'US010',NULL),
-('HB020','2022-12-07',10278000,'US007','DI004'),
-('HB021','2022-12-18',47200000,'US001',NULL),
-('HB022','2022-12-18',47200000,'US001',NULL),
-('HB023','2022-12-18',500000,'US001',NULL),
-('HB024','2022-12-18',500000,'US001',NULL),
-('HB025','2022-12-18',500000,'US001',NULL),
-('HB026','2022-12-18',4400000,'US001',NULL);
 
 /*Table structure for table `series` */
 
@@ -216,7 +169,7 @@ CREATE TABLE `series` (
   `se_id` varchar(5) NOT NULL,
   `se_name` varchar(255) NOT NULL,
   PRIMARY KEY (`se_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `series` */
 
@@ -264,7 +217,7 @@ CREATE TABLE `transaksi` (
   KEY `tr_us_id` (`tr_us_id`),
   CONSTRAINT `transaksi_ibfk_1` FOREIGN KEY (`tr_af_id`) REFERENCES `actionfigure` (`af_id`),
   CONSTRAINT `transaksi_ibfk_2` FOREIGN KEY (`tr_us_id`) REFERENCES `users` (`us_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `transaksi` */
 
@@ -280,23 +233,9 @@ CREATE TABLE `users` (
   `us_password` varchar(30) NOT NULL,
   `us_status` int(1) NOT NULL DEFAULT 1,
   PRIMARY KEY (`us_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `users` */
-
-insert  into `users`(`us_id`,`us_username`,`us_email`,`us_gender`,`us_password`,`us_status`) values 
-('US001','arsa','arsa@gmail.com',1,'123',1),
-('US002','yesnt','ruben@gmail.com',1,'123',1),
-('US003','badut','vincent@gmail.com',0,'123',1),
-('US004','Yurtin','yurtan@gmail.com',1,'123',1),
-('US005','vithunchan','vithun@gmail.com',0,'123',1),
-('US006','Ken','ken@gmail.com',1,'123',1),
-('US007','gajelas','nich@gmail.com',0,'123',1),
-('US008','quarter','rz@gmail.com',1,'123',1),
-('US009','kampus4life','kampus4life@gmail.com',1,'123',1),
-('US010','transgender','tim@gmail.com',0,'123',1),
-('US011','rubenyw','rubenyasonwinarta@gmail.com',0,'123',1),
-('US012','FlyingTable','mejapeot@gmail.com',1,'aaa',1);
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
