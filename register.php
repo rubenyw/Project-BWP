@@ -43,6 +43,11 @@
     <link href="assets/css/general.css" rel="stylesheet">
 </head>
 <body>
+    <nav class="my-nav navbar navbar-expand-lg p-3 position-sticky top-0 w-100 shadow navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.php" style="font-size: 22pt; font-weight: bold;">Tokosidia</a>
+        </div>
+    </nav>
     <div class="container-fluid bg-dark">
         <div class="container-fluid">
             <div class="row justify-content-center align-items-center" style='height: 900px;'>

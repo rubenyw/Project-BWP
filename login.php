@@ -15,6 +15,7 @@
             }
             if (mysqli_num_rows($query) > 0) {
                 $result = mysqli_fetch_array($query, MYSQLI_ASSOC);
+                $password = md5($password);
                 if ($result['us_password'] != $password){
                     $error = 'Password Salah!';
                 }else if($result['us_status'] == 0){
@@ -48,6 +49,11 @@
     <link href="assets/css/general.css" rel="stylesheet">
 </head>
 <body>
+    <nav class="my-nav navbar navbar-expand-lg p-3 position-sticky top-0 w-100 shadow navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.php" style="font-size: 22pt; font-weight: bold;">Tokosidia</a>
+        </div>
+    </nav>
     <div class="container-fluid bg-dark">
         <div class="container-fluid bg-transparent" style="height: 800px;">
             <div class="row h-100 justify-content-center align-items-center">
