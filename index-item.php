@@ -98,7 +98,7 @@
             <div class="container px-5" style="height: 547px;">
                 <div class="row justify-content-center bg-dark pt-5">
                     <div class="col-3 text-center">
-                        <img src="<?=$result['Image']?>" alt="">
+                        <img src="<?=$result['Image']?>" alt="" style="width: 256px;">
                     </div>
                     <div class="col-8 text-white offset-1">
                         <div class="row mb-3">
