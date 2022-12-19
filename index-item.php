@@ -95,7 +95,7 @@
         </nav>
         <!-- Header-->
         <header class="bg-dark">
-            <div class="container px-5">
+            <div class="container px-5" style="height: 547px;">
                 <div class="row justify-content-center bg-dark pt-5">
                     <div class="col-3 text-center">
                         <img src="<?=$result['Image']?>" alt="">
