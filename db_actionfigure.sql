@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 18, 2022 at 01:05 PM
--- Server version: 10.4.27-MariaDB
--- PHP Version: 8.0.25
+-- Generation Time: Dec 19, 2022 at 06:20 AM
+-- Server version: 10.4.24-MariaDB
+-- PHP Version: 8.1.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -20,6 +20,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `db_actionfigure`
 --
+CREATE DATABASE IF NOT EXISTS `db_actionfigure` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `db_actionfigure`;
 
 -- --------------------------------------------------------
 
@@ -27,6 +29,7 @@ SET time_zone = "+00:00";
 -- Table structure for table `actionfigure`
 --
 
+DROP TABLE IF EXISTS `actionfigure`;
 CREATE TABLE `actionfigure` (
   `af_id` varchar(5) NOT NULL,
   `af_name` varchar(500) NOT NULL,
@@ -36,7 +39,7 @@ CREATE TABLE `actionfigure` (
   `af_se_id` varchar(5) NOT NULL,
   `af_desc` varchar(255) NOT NULL,
   `af_image_path` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `actionfigure`
@@ -84,7 +87,15 @@ INSERT INTO `actionfigure` (`af_id`, `af_name`, `af_price`, `af_stock`, `af_stat
 ('AF039', 'Rem', 450000, 7, 1, 'SE023', 'Rem\r\nSeri : Re:Zero kara Hajimeru Isekai Seikatsu\r\nTinggi : 19 cm\r\nMaterial : PVC, ABS', 'assets/GambarFigure/AF039.jp'),
 ('AF040', 'Ryomen Sukuna', 300000, 72, 1, 'SE018', 'Ryomen Sukuna\r\nSeri : Jujutsu Kaisen\r\nTinggi : 19 cm\r\nMaterial : PVC, ABS', 'assets/GambarFigure/AF040.jp'),
 ('AF041', 'Yuta Okkotsu', 480000, 4, 1, 'SE018', 'Yuta Okkotsu\r\nSeri : Jujutsu Kaisen\r\nTinggi : 17 cm\r\nMaterial : PVC', 'assets/GambarFigure/AF041.jp'),
-('AF042', 'Kagura', 1720000, 18, 1, 'SE012', 'Kagura\r\nSeri : Gintama\r\nTinggi : 20 cm\r\nMaterial : PVC, ABS', 'assets/GambarFigure/AF042.jp');
+('AF042', 'Kagura', 1720000, 18, 1, 'SE012', 'Kagura\r\nSeri : Gintama\r\nTinggi : 20 cm\r\nMaterial : PVC, ABS', 'assets/GambarFigure/AF042.jp'),
+('AF043', 'Akame', 4700000, 17, 1, 'SE024', 'Akame\r\nSeri : Akame Ga Kill\r\nTinggi : 23 cm\r\nMaterial : PVC, ABS', 'assets/GambarFigure/AF043.jpg'),
+('AF044', 'C.C - Prisoner Suit', 4200000, 4, 1, 'SE015', 'C.C. - Prisoner Suit\r\nSeri : Code Geass\r\nTinggi : 20 cm\r\nMaterial : PVC', 'assets/GambarFigure/AF044.jpg'),
+('AF045', 'Echidna - Uniform', 2100000, 27, 1, 'SE023', 'Echidna - Uniform\r\nSeri : Re:Zero kara Hajimeru Isekai Seikatsu\r\nTinggi : 19 cm\r\nMaterial : PVC, ABS', 'assets/GambarFigure/AF045.jpg'),
+('AF046', 'Makima', 3900000, 15, 1, 'SE007', 'Makima\r\nSeri : Chainsaw Man\r\nTinggi : 23 cm\r\nMaterial : PVC, ABS', 'assets/GambarFigure/AF046.jpg'),
+('AF047', 'Hyuga Hinata', 1800000, 32, 1, 'SE002', 'Hyuga Hinata\r\nSeri : Naruto\r\nTinggi : 19 cm\r\nMaterial : PVC', 'assets/GambarFigure/AF047.jpg'),
+('AF048', 'Megumin - White Dress', 6100000, 2, 1, 'SE020', 'Megumin - White Dress\r\nSeri : Kono Subarashii Sekai ni Shukufuku wo! (Konosuba)\r\nTinggi : 18 cm\r\nMaterial : PVC, ABS', 'assets/GambarFigure/AF048.jpg'),
+('AF049', 'Dustiness Ford Lalatina', 2700000, 22, 1, 'SE020', 'Dustiness Ford Lalatina\r\nSeri : Kono Subarashii Sekai ni Shukufuku wo! (Konosuba)\r\nTinggi : 21 cm\r\nMaterial : PVC', 'assets/GambarFigure/AF049.jpg'),
+('AF050', 'Eris', 2900000, 7, 1, 'SE020', 'Eris\r\nSeri : Kono Subarashii Sekai ni Shukufuku wo! (Konosuba)\r\nTinggi : 20 cm\r\nMaterial : PVC, ABS', 'assets/GambarFigure/AF050.jpg');
 
 -- --------------------------------------------------------
 
@@ -92,18 +103,20 @@ INSERT INTO `actionfigure` (`af_id`, `af_name`, `af_price`, `af_stock`, `af_stat
 -- Table structure for table `cart`
 --
 
+DROP TABLE IF EXISTS `cart`;
 CREATE TABLE `cart` (
   `ca_us_id` varchar(5) NOT NULL,
   `ca_af_id` varchar(5) NOT NULL,
   `ca_status` varchar(11) NOT NULL,
   `ca_qty` int(11) NOT NULL DEFAULT 1
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `cart`
 --
 
 INSERT INTO `cart` (`ca_us_id`, `ca_af_id`, `ca_status`, `ca_qty`) VALUES
+('US001', 'AF016', 'Requested', 1),
 ('US004', 'AF008', 'Requested', 6);
 
 -- --------------------------------------------------------
@@ -112,11 +125,12 @@ INSERT INTO `cart` (`ca_us_id`, `ca_af_id`, `ca_status`, `ca_qty`) VALUES
 -- Table structure for table `discount`
 --
 
+DROP TABLE IF EXISTS `discount`;
 CREATE TABLE `discount` (
   `di_id` varchar(5) NOT NULL,
   `di_nama` varchar(255) NOT NULL,
   `di_value` double NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `discount`
@@ -134,13 +148,14 @@ INSERT INTO `discount` (`di_id`, `di_nama`, `di_value`) VALUES
 -- Table structure for table `dtrans_beli`
 --
 
+DROP TABLE IF EXISTS `dtrans_beli`;
 CREATE TABLE `dtrans_beli` (
   `db_id` varchar(5) NOT NULL,
   `db_amount` int(10) NOT NULL,
   `db_hb_id` varchar(5) NOT NULL,
   `db_subtotal` double NOT NULL,
   `db_af_id` varchar(5) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `dtrans_beli`
@@ -156,7 +171,8 @@ INSERT INTO `dtrans_beli` (`db_id`, `db_amount`, `db_hb_id`, `db_subtotal`, `db_
 ('DB007', 1, 'HB005', 185000, ''),
 ('DB008', 1, 'HB005', 260000, ''),
 ('DB009', 2, 'HB005', 5392170, ''),
-('DB010', 1, 'HB025', 500000, 'AF003');
+('DB010', 1, 'HB025', 500000, 'AF003'),
+('DB011', 1, 'HB026', 1700000, 'AF001');
 
 -- --------------------------------------------------------
 
@@ -164,13 +180,14 @@ INSERT INTO `dtrans_beli` (`db_id`, `db_amount`, `db_hb_id`, `db_subtotal`, `db_
 -- Table structure for table `htrans_beli`
 --
 
+DROP TABLE IF EXISTS `htrans_beli`;
 CREATE TABLE `htrans_beli` (
   `hb_id` varchar(5) NOT NULL,
   `hb_date` date NOT NULL,
   `hb_total` double NOT NULL,
   `hb_customerid` varchar(5) NOT NULL,
   `hb_di_id` varchar(5) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `htrans_beli`
@@ -201,7 +218,8 @@ INSERT INTO `htrans_beli` (`hb_id`, `hb_date`, `hb_total`, `hb_customerid`, `hb_
 ('HB022', '2022-12-18', 47200000, 'US001', NULL),
 ('HB023', '2022-12-18', 500000, 'US001', NULL),
 ('HB024', '2022-12-18', 500000, 'US001', NULL),
-('HB025', '2022-12-18', 500000, 'US001', NULL);
+('HB025', '2022-12-18', 500000, 'US001', NULL),
+('HB026', '2022-12-18', 4400000, 'US001', NULL);
 
 -- --------------------------------------------------------
 
@@ -209,10 +227,11 @@ INSERT INTO `htrans_beli` (`hb_id`, `hb_date`, `hb_total`, `hb_customerid`, `hb_
 -- Table structure for table `series`
 --
 
+DROP TABLE IF EXISTS `series`;
 CREATE TABLE `series` (
   `se_id` varchar(5) NOT NULL,
   `se_name` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `series`
@@ -254,12 +273,13 @@ INSERT INTO `series` (`se_id`, `se_name`) VALUES
 -- Table structure for table `transaksi`
 --
 
+DROP TABLE IF EXISTS `transaksi`;
 CREATE TABLE `transaksi` (
   `tr_id` varchar(5) NOT NULL,
   `tr_af_id` varchar(5) NOT NULL,
   `tr_us_id` varchar(5) NOT NULL,
   `tr_status` varchar(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -267,6 +287,7 @@ CREATE TABLE `transaksi` (
 -- Table structure for table `users`
 --
 
+DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (
   `us_id` varchar(5) NOT NULL,
   `us_username` varchar(255) NOT NULL,
@@ -274,7 +295,7 @@ CREATE TABLE `users` (
   `us_gender` tinyint(1) NOT NULL COMMENT '1=Male, 0=Female',
   `us_password` varchar(30) NOT NULL,
   `us_status` int(1) NOT NULL DEFAULT 1
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `users`
