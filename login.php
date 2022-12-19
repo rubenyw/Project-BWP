@@ -15,8 +15,7 @@
             }
             if (mysqli_num_rows($query) > 0) {
                 $result = mysqli_fetch_array($query, MYSQLI_ASSOC);
-                $password = md5($password);
-                if ($result['us_password'] != $password){
+                if ($password != $result['us_password']){
                     $error = 'Password Salah!';
                 }else if($result['us_status'] == 0){
                     $error = 'Akun anda sudah di non-aktifkan';

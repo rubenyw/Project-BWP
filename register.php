@@ -24,8 +24,7 @@
                 $row = mysqli_fetch_array($id);
                 $id = $row['ID'];
                 $gender = ($gender == "male"? 1 : 0);
-                $password = md5($password);
-                $result = mysqli_query($con, "insert into users values('$id', '$username', '$email', '$gender', '$password')");
+                $result = mysqli_query($con, "insert into users values('$id', '$username', '$email', '$gender', '$password', 1)");
                 $success = "Berhasil Registrasi";
             }
                     

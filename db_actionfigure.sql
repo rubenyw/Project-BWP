@@ -237,6 +237,14 @@ CREATE TABLE `users` (
 
 /*Data for the table `users` */
 
+insert  into `users`(`us_id`,`us_username`,`us_email`,`us_gender`,`us_password`,`us_status`) values 
+('US001','rubenyw','rubenyasonwinarta@gmail.com',1,'winwin123',1),
+('US002','yurtan','pidiyartoyurtan@gmail.com',1,'Babibubebo',1),
+('US003','simon','simonsugiarto@gmail.com',1,'123',1),
+('US004','arsa','arsa@gmail.com',1,'arsa_arsa_arsa',1),
+('US005','bening','benitagabriella@gmail.com',1,'123',1),
+('US006','suaraHati','hatikusedih@gmail.com',1,'123',1);
+
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
 /*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
