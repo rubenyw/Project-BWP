@@ -172,7 +172,7 @@ CREATE TABLE `htrans_beli` (
 
 insert  into `htrans_beli`(`hb_id`,`hb_date`,`hb_total`,`hb_customerid`,`hb_di_id`,`hb_status`) values 
 ('HB001','2022-12-23',3100000,'US005',NULL,''),
-('HB002','2022-12-23',10000000,'US005',NULL,'\0'),
+('HB002','2022-12-23',10000000,'US005',NULL,''),
 ('HB003','2022-12-23',1700000,'US005',NULL,''),
 ('HB004','2022-12-23',1700000,'US005',NULL,'\0'),
 ('HB005','2022-12-23',3900000,'US006',NULL,'');
@@ -259,7 +259,7 @@ insert  into `users`(`us_id`,`us_username`,`us_email`,`us_gender`,`us_password`,
 ('US003','simon','simonsugiarto@gmail.com',1,'202cb962ac59075b964b07152d234b70',1),
 ('US004','arsa','arsa@gmail.com',1,'b2d9e1267fe643259bf989e109986fb6',1),
 ('US005','bening','benitagabriella@gmail.com',1,'202cb962ac59075b964b07152d234b70',1),
-('US006','suaraHati','hatikusedih@gmail.com',1,'123',1);
+('US006','suaraHati','hatikusedih@gmail.com',1,'202cb962ac59075b964b07152d234b70',1);
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
