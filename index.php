@@ -208,12 +208,6 @@
                                         <label for="lokasi">Series</label>
                                     </form>
                                 </div>
-                                <div class="form-floating mb-3 mx-5">
-                                    <select class="form-select" name='jenis' id='jenis'>
-                                    <option value=''>All</option>
-                                    </select>
-                                    <label for="jenis">Harga</label>
-                                </div>
                                 <button hidden type='submit' id='btn-filter'>haha</button>
                             </div>
                         </form>
