@@ -88,7 +88,7 @@
                                                 <th scope="col">Total Pembelian</th>
                                                 <th scope="col">Tanggal Transaksi</th>
                                                 <th scope="col">Status</th>
-                                                <th scope="col">Detail Transaksi</th>
+                                                <th scope="col">Action</th>
                                             </tr>
                                             </thead>
                                             <tbody>
