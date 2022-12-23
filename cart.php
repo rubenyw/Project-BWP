@@ -46,7 +46,7 @@
 
         $total = $_POST['total'];
 
-        $insert = "INSERT into htrans_beli values('$htrans', NOW(), $total, '".$_SESSION['userLogin']['id']."', null)";
+        $insert = "INSERT into htrans_beli values('$htrans', NOW(), $total, '".$_SESSION['userLogin']['id']."', null, 0)";
         $insert = mysqli_query($con, $insert);
 
         $query = mysqli_query($con, $select);

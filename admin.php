@@ -94,8 +94,8 @@
                                             <tbody>
                                             <tbody>
                                                 <?php
-                                                    $query = "SELECT h.hb_id as 'ID_Trans', h.hb_customerid as 'ID' ,u.us_username as 'Cust_name', h.hb_total as 'Total', h.hb_date as 'Tanggal'
-                                                             from htrans_beli h join users u on u.us_id = h.hb_customerid";
+                                                    $query = "SELECT h.hb_id as 'ID_Trans', h.hb_customerid as 'ID' ,u.us_username as 'Cust_name', h.hb_total as 'Total', h.hb_date as 'Tanggal', h.hb_status as 'Status'
+                                                             from htrans_beli h join users u on u.us_id = h.hb_customerid order by h.hb_status";
                                                     $query = mysqli_query($con, $query);
                                                     $counter =1;
                                                     while($row = mysqli_fetch_array($query, MYSQLI_ASSOC)){
@@ -107,11 +107,11 @@
                                                     <td><?=$row['Cust_name']?></td>
                                                     <td><?=$row['Total']?></td>
                                                     <td><?=$row['Tanggal']?></td>
-                                                    <td>Accepted</td>
+                                                    <td id=<?='td_status'.$row['ID_Trans']?>><?=($row['Status']==0?'Pending':'Accepted')?></td>
                                                     <td class="d-grid gap-2">
                                                         <!-- <form action='' method='post'> -->
                                                         <input type='hidden' name='apply' value=''>
-                                                        <button name='btn-apply' class='btn btn-outline-success btn-sm px-4'>Apply</button>
+                                                        <button name='btn-apply' id=<?=$row['ID_Trans']?> <?=$row['Status']==0?'':'style="display:none;"'?> class='btn btn-outline-success btn-sm px-4'>Verify</button>
                                                         <!-- </form> -->
                                                     </td>
                                                 </tr>
@@ -144,15 +144,20 @@
             $(function(){
                 let button = $("[name='btn-apply']");
                 $(button).click(function(){
-                    if($(this).text() == "Apply"){
+                    if($(this).text() == "Verify"){
+                        $(this).css("display","none");
+                        index =  $(this).attr("id")
+                        $("#td_status"+index).text("Accepted");
+                        $.post("admin-verify.php",{id:index},function(data){} );
                         $(this).text("Pending")
                         $(this).removeClass("btn-outline-success");
                         $(this).addClass("btn-outline-danger");
-                    }else{
-                        $(this).text("Apply");
-                        $(this).removeClass("btn-outline-danger");
-                        $(this).addClass("btn-outline-success");
                     }
+                    // else{
+                    //     $(this).text("Apply");
+                    //     $(this).removeClass("btn-outline-danger");
+                    //     $(this).addClass("btn-outline-success");
+                    // }
                 })
                 // let lokasi = $("#lokasi");
                 // let jabatan = $("#jabatan");
