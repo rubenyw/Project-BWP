@@ -108,6 +108,7 @@
                                                 <th scope="col">Jumlah</th>
                                                 <th scope="col">Harga</th>
                                                 <th scope="col">Tanggal</th>
+                                                <th scope="col">Status</th>
                                                 <!-- <th scope="col">Jenis</th>
                                                 <th scope="col">Deadline</th>
                                                 <th scope="col">Action</th> -->
@@ -117,7 +118,7 @@
                                             <tbody>
                                                 <?php
                                                     $select_query = "
-                                                    SELECT af.af_name as 'nama', db.db_amount as 'jumlah', db.db_subtotal as 'total', hb.hb_date as 'tanggal' from dtrans_beli db 
+                                                    SELECT af.af_name as 'nama', db.db_amount as 'jumlah', db.db_subtotal as 'total', hb.hb_date as 'tanggal', hb.hb_status as 'status' from dtrans_beli db 
                                                     join htrans_beli hb on hb.hb_id = db.db_hb_id 
                                                     join actionfigure af on af.af_id = db.db_af_id 
                                                     where hb.hb_customerid = '".$_SESSION['userLogin']['id']."'";
@@ -132,6 +133,7 @@
                                                         <td><?=$row['jumlah']?></td>
                                                         <td><?=$row['total']?></td>
                                                         <td><?=$row['tanggal']?></td>
+                                                        <td><?=$row['status']==0?'Pending':'Accepted'?></td>
                                                     </tr>
                                                 <?php
                                                     }

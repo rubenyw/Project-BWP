@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 23, 2022 at 10:42 AM
--- Server version: 10.4.22-MariaDB
--- PHP Version: 8.1.2
+-- Generation Time: Dec 23, 2022 at 10:55 AM
+-- Server version: 10.4.24-MariaDB
+-- PHP Version: 8.1.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -158,7 +158,9 @@ INSERT INTO `dtrans_beli` (`db_id`, `db_amount`, `db_hb_id`, `db_subtotal`, `db_
 ('DB001', 1, 'HB001', 3100000, 'AF002'),
 ('DB002', 5, 'HB002', 8500000, 'AF001'),
 ('DB003', 3, 'HB002', 1500000, 'AF003'),
-('DB004', 1, 'HB003', 1700000, 'AF001');
+('DB004', 1, 'HB003', 1700000, 'AF001'),
+('DB005', 1, 'HB004', 1700000, 'AF001'),
+('DB006', 1, 'HB005', 3900000, 'AF016');
 
 -- --------------------------------------------------------
 
@@ -182,8 +184,10 @@ CREATE TABLE `htrans_beli` (
 
 INSERT INTO `htrans_beli` (`hb_id`, `hb_date`, `hb_total`, `hb_customerid`, `hb_di_id`, `hb_status`) VALUES
 ('HB001', '2022-12-23', 3100000, 'US005', NULL, b'1'),
-('HB002', '2022-12-23', 10000000, 'US005', NULL, b'1'),
-('HB003', '2022-12-23', 1700000, 'US005', NULL, b'1');
+('HB002', '2022-12-23', 10000000, 'US005', NULL, b'0'),
+('HB003', '2022-12-23', 1700000, 'US005', NULL, b'1'),
+('HB004', '2022-12-23', 1700000, 'US005', NULL, b'0'),
+('HB005', '2022-12-23', 3900000, 'US006', NULL, b'1');
 
 -- --------------------------------------------------------
 
