@@ -68,12 +68,6 @@
                     <div class="row justify-content-center">
                         <form action="" method="post">
                             <div class="input-group mx-auto" style="width: 200px; height: 100px; align-items: center;">
-                                <div class="form-floating mb-3 mx-5">
-                                    <select class="form-select" name='lokasi' id='lokasi'>
-                                        <option value=''>All</option>
-                                    </select>
-                                    <label for="lokasi">ID</label>
-                                </div>
                                 <button hidden type='submit' id='btn-filter'>haha</button>
                             </div>
                         </form>
